@@ -1,0 +1,104 @@
+{
+    "app_name": "Go Green School",
+    "tagline": "Sekolah Ramah Lingkungan",
+    "subtitle": "Pendidikan untuk Masa Depan Berkelanjutan",
+    "nav": {
+        "home": "Beranda",
+        "visi_misi": "Visi & Misi",
+        "program": "Program",
+        "edukasi": "Edukasi",
+        "galeri": "Galeri",
+        "kontak": "Kontak",
+        "kalkulator": "Kalkulator",
+        "profil": "Profil Sekolah"
+    },
+    "hero": {
+        "title": "Sekolah Ramah Lingkungan",
+        "subtitle": "Pendidikan untuk Masa Depan Berkelanjutan",
+        "cta_program": "Lihat Program Go Green",
+        "cta_visi": "Visi Kami"
+    },
+    "programs": {
+        "title": "Program Unggulan",
+        "subtitle": "Inisiatif lingkungan yang mengintegrasikan berbagai mata pelajaran untuk pendidikan berkelanjutan",
+        "read_more": "Selengkapnya"
+    },
+    "calculator": {
+        "title": "Kalkulator Bank Sampah",
+        "subtitle": "Hitung poin dan dampak lingkungan dari sampah yang kamu kumpulkan di sekolah",
+        "waste_type": "Jenis Sampah",
+        "weight": "Berat (kg)",
+        "add_item": "Tambah Jenis Sampah",
+        "calculate": "Hitung Sekarang",
+        "result": "Hasil Perhitungan",
+        "total_value": "Total Poin",
+        "co2_reduction": "Pengurangan Emisi CO₂",
+        "breakdown": "Rincian",
+        "tips": "Tips Lingkungan",
+        "student_name": "Nama Siswa (Opsional)",
+        "types": {
+            "plastik": "Plastik",
+            "kertas": "Kertas",
+            "logam": "Logam",
+            "kaca": "Kaca",
+            "organik": "Organik",
+            "elektronik": "Elektronik"
+        },
+        "remove_item": "Hapus",
+        "reset": "Hitung Ulang",
+        "price_per_kg": "Poin/kg"
+    },
+    "education": {
+        "title": "Edukasi & Proyek Kolaborasi",
+        "subtitle": "Proyek-proyek siswa yang menggabungkan berbagai mata pelajaran untuk pendidikan lingkungan",
+        "filter_all": "Semua",
+        "filter_math_rpl": "Math + RPL",
+        "filter_bind_digimar": "B.Ind + Digimar",
+        "filter_bing_kik": "B.Ing + KIK",
+        "by": "Oleh",
+        "subjects": "Mata Pelajaran"
+    },
+    "visi_misi": {
+        "title": "Visi & Misi",
+        "visi_title": "Visi Kami",
+        "visi_content": "Menjadi sekolah pelopor pendidikan berkelanjutan yang menghasilkan generasi peduli lingkungan, berkarakter, dan siap menghadapi tantangan masa depan.",
+        "misi_title": "Misi Kami",
+        "misi_items": [
+            "Mengintegrasikan pendidikan lingkungan ke dalam semua mata pelajaran",
+            "Menerapkan praktik ramah lingkungan di seluruh kegiatan sekolah",
+            "Mengembangkan keterampilan berpikir kritis dan kreatif melalui proyek lingkungan",
+            "Membangun kemitraan dengan komunitas untuk dampak lingkungan yang lebih luas",
+            "Menumbuhkan jiwa kewirausahaan hijau pada setiap siswa"
+        ],
+        "values_title": "Nilai-Nilai Kami",
+        "values": [
+            { "title": "Keberlanjutan", "desc": "Setiap tindakan mempertimbangkan dampak jangka panjang terhadap lingkungan" },
+            { "title": "Kolaborasi", "desc": "Bekerja sama lintas disiplin untuk solusi lingkungan yang inovatif" },
+            { "title": "Inovasi", "desc": "Mendorong kreativitas dalam mencari solusi permasalahan lingkungan" },
+            { "title": "Tanggung Jawab", "desc": "Bertanggung jawab terhadap lingkungan sebagai bagian dari gaya hidup" }
+        ]
+    },
+    "footer": {
+        "description": "Membangun generasi peduli lingkungan melalui pendidikan berkelanjutan dan kolaborasi lintas disiplin.",
+        "quick_links": "Tautan Cepat",
+        "contact_us": "Hubungi Kami",
+        "address": "Jl. Pendidikan Hijau No. 1, Jakarta",
+        "newsletter": "Ayo Bergabung!",
+        "newsletter_desc": "Dapatkan informasi terbaru tentang program Go Green School",
+        "email_placeholder": "Masukkan email kamu",
+        "subscribe": "Daftar Sekarang",
+        "copyright": "© 2024 Go Green School. Hak cipta dilindungi."
+    },
+    "gallery": {
+        "title": "Galeri Kegiatan",
+        "subtitle": "Momen-momen berharga dari kegiatan Go Green School"
+    },
+    "contact": {
+        "title": "Hubungi Kami",
+        "subtitle": "Ada pertanyaan? Jangan ragu untuk menghubungi kami",
+        "name": "Nama Lengkap",
+        "email": "Alamat Email",
+        "message": "Pesan",
+        "send": "Kirim Pesan"
+    }
+}

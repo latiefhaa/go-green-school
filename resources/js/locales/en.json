@@ -1,0 +1,104 @@
+{
+    "app_name": "Go Green School",
+    "tagline": "Eco-Friendly School",
+    "subtitle": "Education for a Sustainable Future",
+    "nav": {
+        "home": "Home",
+        "visi_misi": "Vision & Mission",
+        "program": "Programs",
+        "edukasi": "Education",
+        "galeri": "Gallery",
+        "kontak": "Contact",
+        "kalkulator": "Calculator",
+        "profil": "School Profile"
+    },
+    "hero": {
+        "title": "Eco-Friendly School",
+        "subtitle": "Education for a Sustainable Future",
+        "cta_program": "View Go Green Programs",
+        "cta_visi": "Our Vision"
+    },
+    "programs": {
+        "title": "Featured Programs",
+        "subtitle": "Environmental initiatives integrating various subjects for sustainable education",
+        "read_more": "Read More"
+    },
+    "calculator": {
+        "title": "Waste Bank Calculator",
+        "subtitle": "Calculate your points and environmental impact from waste collected at school",
+        "waste_type": "Waste Type",
+        "weight": "Weight (kg)",
+        "add_item": "Add Waste Type",
+        "calculate": "Calculate Now",
+        "result": "Calculation Results",
+        "total_value": "Total Points",
+        "co2_reduction": "CO₂ Emission Reduction",
+        "breakdown": "Breakdown",
+        "tips": "Environmental Tips",
+        "student_name": "Student Name (Optional)",
+        "types": {
+            "plastik": "Plastic",
+            "kertas": "Paper",
+            "logam": "Metal",
+            "kaca": "Glass",
+            "organik": "Organic",
+            "elektronik": "Electronic"
+        },
+        "remove_item": "Remove",
+        "reset": "Recalculate",
+        "price_per_kg": "Points/kg"
+    },
+    "education": {
+        "title": "Education & Collaborative Projects",
+        "subtitle": "Student projects combining various subjects for environmental education",
+        "filter_all": "All",
+        "filter_math_rpl": "Math + Software Eng",
+        "filter_bind_digimar": "Indonesian + Digital Marketing",
+        "filter_bing_kik": "English + Entrepreneurship",
+        "by": "By",
+        "subjects": "Subjects"
+    },
+    "visi_misi": {
+        "title": "Vision & Mission",
+        "visi_title": "Our Vision",
+        "visi_content": "To be a pioneering school in sustainable education that produces an environmentally conscious generation with strong character, ready to face future challenges.",
+        "misi_title": "Our Mission",
+        "misi_items": [
+            "Integrate environmental education into all subjects",
+            "Implement eco-friendly practices in all school activities",
+            "Develop critical and creative thinking skills through environmental projects",
+            "Build partnerships with communities for broader environmental impact",
+            "Foster green entrepreneurship spirit in every student"
+        ],
+        "values_title": "Our Values",
+        "values": [
+            { "title": "Sustainability", "desc": "Every action considers long-term environmental impact" },
+            { "title": "Collaboration", "desc": "Working together across disciplines for innovative environmental solutions" },
+            { "title": "Innovation", "desc": "Encouraging creativity in finding solutions to environmental problems" },
+            { "title": "Responsibility", "desc": "Being responsible for the environment as part of lifestyle" }
+        ]
+    },
+    "footer": {
+        "description": "Building an environmentally conscious generation through sustainable education and cross-disciplinary collaboration.",
+        "quick_links": "Quick Links",
+        "contact_us": "Contact Us",
+        "address": "Jl. Pendidikan Hijau No. 1, Jakarta",
+        "newsletter": "Join Us!",
+        "newsletter_desc": "Get the latest updates on Go Green School programs",
+        "email_placeholder": "Enter your email",
+        "subscribe": "Subscribe Now",
+        "copyright": "© 2024 Go Green School. All rights reserved."
+    },
+    "gallery": {
+        "title": "Activity Gallery",
+        "subtitle": "Precious moments from Go Green School activities"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Have questions? Don't hesitate to reach out",
+        "name": "Full Name",
+        "email": "Email Address",
+        "message": "Message",
+        "send": "Send Message"
+    }
+}
