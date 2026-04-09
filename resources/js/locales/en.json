@@ -1,7 +1,7 @@
 {
-    "app_name": "SMK Karya Bangsa",
+    "app_name": "Go Green School",
     "tagline": "Eco-Friendly School",
-    "subtitle": "SMK Karya Bangsa - Education for a Sustainable Future",
+    "subtitle": "Education for a Sustainable Future",
     "nav": {
         "home": "Home",
         "visi_misi": "Vision & Mission",
@@ -15,7 +15,7 @@
     "hero": {
         "title": "Eco-Friendly School",
         "subtitle": "Education for a Sustainable Future",
-        "cta_program": "View School Programs",
+        "cta_program": "View Go Green Programs",
         "cta_visi": "Our Vision"
     },
     "programs": {
@@ -79,19 +79,19 @@
         ]
     },
     "footer": {
-        "description": "SMK Karya Bangsa builds an environmentally conscious generation through sustainable education and cross-disciplinary collaboration.",
+        "description": "Go Green School builds an environmentally conscious generation through sustainable education and cross-disciplinary collaboration.",
         "quick_links": "Quick Links",
         "contact_us": "Contact Us",
         "address": "Jalan Sintang, Kapuas Kanan Hulu, Kec. Sungai Tebelian, Kabupaten Sintang, Kalimantan Barat 78616",
         "newsletter": "Join Us!",
-        "newsletter_desc": "Get the latest updates on SMK Karya Bangsa and our flagship programs",
+        "newsletter_desc": "Get the latest updates on Go Green School and our flagship programs",
         "email_placeholder": "Enter your email",
         "subscribe": "Subscribe Now",
-        "copyright": "© 2024 SMK Karya Bangsa. All rights reserved."
+        "copyright": "© 2024 Go Green School. All rights reserved."
     },
     "gallery": {
         "title": "Activity Gallery",
-        "subtitle": "Precious moments from SMK Karya Bangsa activities"
+        "subtitle": "Precious moments from Go Green School activities"
     },
     "contact": {
         "title": "Contact Us",

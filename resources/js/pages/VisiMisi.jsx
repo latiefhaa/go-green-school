@@ -174,7 +174,7 @@ export default function VisiMisi() {
                         {t('visi_misi.title')}
                     </h1>
                     <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1rem', maxWidth: '600px', margin: '0 auto' }}>
-                        Landasan filosofi dan arah tujuan SMK Karya Bangsa
+                        Landasan filosofi dan arah tujuan Go Green School
                     </p>
                 </div>
             </PageHeader>

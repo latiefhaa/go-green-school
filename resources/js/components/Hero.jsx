@@ -280,7 +280,7 @@ export default function Hero() {
                 <HeroContent>
                     <Badge>
                         <Leaf size={16} />
-                        SMK Karya Bangsa
+                        Go Green School
                     </Badge>
 
                     <HeroTitle>{t('hero.title')}</HeroTitle>

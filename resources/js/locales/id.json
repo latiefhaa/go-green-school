@@ -1,7 +1,7 @@
 {
-    "app_name": "SMK Karya Bangsa",
+    "app_name": "Go Green School",
     "tagline": "Sekolah Ramah Lingkungan",
-    "subtitle": "SMK Karya Bangsa - Pendidikan untuk Masa Depan Berkelanjutan",
+    "subtitle": "Pendidikan untuk Masa Depan Berkelanjutan",
     "nav": {
         "home": "Beranda",
         "visi_misi": "Visi & Misi",
@@ -15,7 +15,7 @@
     "hero": {
         "title": "Sekolah Ramah Lingkungan",
         "subtitle": "Pendidikan untuk Masa Depan Berkelanjutan",
-        "cta_program": "Lihat Program Sekolah",
+        "cta_program": "Lihat Program Go Green",
         "cta_visi": "Visi Kami"
     },
     "programs": {
@@ -79,19 +79,19 @@
         ]
     },
     "footer": {
-        "description": "SMK Karya Bangsa membangun generasi peduli lingkungan melalui pendidikan berkelanjutan dan kolaborasi lintas disiplin.",
+        "description": "Go Green School membangun generasi peduli lingkungan melalui pendidikan berkelanjutan dan kolaborasi lintas disiplin.",
         "quick_links": "Tautan Cepat",
         "contact_us": "Hubungi Kami",
         "address": "Jalan Sintang, Kapuas Kanan Hulu, Kec. Sungai Tebelian, Kabupaten Sintang, Kalimantan Barat 78616",
         "newsletter": "Ayo Bergabung!",
-        "newsletter_desc": "Dapatkan informasi terbaru tentang SMK Karya Bangsa dan program unggulan kami",
+        "newsletter_desc": "Dapatkan informasi terbaru tentang Go Green School dan program unggulan kami",
         "email_placeholder": "Masukkan email kamu",
         "subscribe": "Daftar Sekarang",
-        "copyright": "© 2024 SMK Karya Bangsa. Hak cipta dilindungi."
+        "copyright": "© 2024 Go Green School. Hak cipta dilindungi."
     },
     "gallery": {
         "title": "Galeri Kegiatan",
-        "subtitle": "Momen-momen berharga dari kegiatan SMK Karya Bangsa"
+        "subtitle": "Momen-momen berharga dari kegiatan Go Green School"
     },
     "contact": {
         "title": "Hubungi Kami",

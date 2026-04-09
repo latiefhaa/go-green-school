@@ -213,13 +213,13 @@ export default function Footer() {
                                 <Leaf size={24} color="#ffffff" />
                             </div>
                             <div>
-                                <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#ffffff' }}>SMK Karya Bangsa</div>
+                                <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#ffffff' }}>Go Green School</div>
                                 <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.75)' }}>{t('tagline')}</div>
                             </div>
                         </BrandLogo>
                         <FooterDesc>{t('footer.description')}</FooterDesc>
                         <SocialRow>
-                            <SocialBtn href="https://wa.me/6281549395400?text=Halo%20SMK%20Karya%20Bangsa" target="_blank" rel="noreferrer"><MessageSquare size={16} /></SocialBtn>
+                            <SocialBtn href="https://wa.me/6281549395400?text=Halo%20Go%20Green%20School" target="_blank" rel="noreferrer"><MessageSquare size={16} /></SocialBtn>
                             <SocialBtn href="https://karyabangsa.sch.id" target="_blank" rel="noreferrer"><Instagram size={16} /></SocialBtn>
                             <SocialBtn href="https://karyabangsa.sch.id" target="_blank" rel="noreferrer"><Youtube size={16} /></SocialBtn>
                             <SocialBtn href="https://karyabangsa.sch.id" target="_blank" rel="noreferrer"><Twitter size={16} /></SocialBtn>

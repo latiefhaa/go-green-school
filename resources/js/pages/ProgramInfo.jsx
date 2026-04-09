@@ -128,7 +128,7 @@ export default function ProgramInfo() {
                         <Leaf size={16} />
                         Program Blueprint
                     </HeaderTag>
-                    <HeaderTitle>Guiding the SMK Karya Bangsa Program</HeaderTitle>
+                    <HeaderTitle>Guiding the Go Green School Program</HeaderTitle>
                     <HeaderSubtitle>
                         This page brings together the full program story: purpose, structure, educational value, practical actions, and the steps schools follow to make sustainability part of daily life.
                     </HeaderSubtitle>
@@ -143,7 +143,7 @@ export default function ProgramInfo() {
                 <Section>
                     <SectionTitle>Introduction</SectionTitle>
                     <SectionText>
-                        SMK Karya Bangsa runs a learning program built around environmental stewardship and meaningful action. It creates a framework where students and teachers collaborate to make waste reduction, energy efficiency, and green living part of daily routines.
+                        Go Green School runs a learning program built around environmental stewardship and meaningful action. It creates a framework where students and teachers collaborate to make waste reduction, energy efficiency, and green living part of daily routines.
                     </SectionText>
                 </Section>
 
@@ -164,7 +164,7 @@ export default function ProgramInfo() {
                 <Section>
                     <SectionTitle>Information</SectionTitle>
                     <SectionText>
-                        SMK Karya Bangsa covers several practical areas that schools can implement step by step. Each element is selected to support learning outcomes and environmental impact together.
+                        Go Green School covers several practical areas that schools can implement step by step. Each element is selected to support learning outcomes and environmental impact together.
                     </SectionText>
                     <SectionList>
                         <SectionListItem>
@@ -189,7 +189,7 @@ export default function ProgramInfo() {
                 <Section>
                     <SectionTitle>Procedure</SectionTitle>
                     <SectionText>
-                        A successful SMK Karya Bangsa program starts with awareness and moves into action. Schools plan clear steps, assign roles, measure progress, and reflect on results so every year’s efforts become stronger.
+                        A successful Go Green School program starts with awareness and moves into action. Schools plan clear steps, assign roles, measure progress, and reflect on results so every year’s efforts become stronger.
                     </SectionText>
                     <SectionList>
                         <SectionListItem>
