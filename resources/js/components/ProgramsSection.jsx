@@ -6,8 +6,8 @@ import { Recycle, Sprout, Zap, BookOpen, ArrowRight } from 'lucide-react';
 import axios from 'axios';
 
 const Section = styled('section', {
-    padding: '80px 24px',
-    background: '#F0FFF0',
+    padding: '96px 24px',
+    background: 'linear-gradient(180deg, #f7fff7 0%, #effff2 100%)',
 });
 
 const Inner = styled('div', {
@@ -22,14 +22,15 @@ const SectionHeader = styled('div', {
 
 const SectionBadge = styled('span', {
     display: 'inline-block',
-    background: 'rgba(34,139,34,0.1)',
-    color: '#228B22',
-    borderRadius: '20px',
-    padding: '6px 18px',
-    fontSize: '0.8rem',
-    fontWeight: 600,
-    marginBottom: '12px',
-    border: '1px solid rgba(34,139,34,0.2)',
+    background: 'rgba(255,255,255,0.85)',
+    color: '#15803d',
+    borderRadius: '999px',
+    padding: '8px 22px',
+    fontSize: '0.85rem',
+    fontWeight: 700,
+    marginBottom: '14px',
+    border: '1px solid rgba(22,163,74,0.18)',
+    boxShadow: '0 10px 30px rgba(22,163,74,0.08)',
 });
 
 const SectionTitle = styled('h2', {
@@ -121,27 +122,29 @@ const CardDesc = styled('p', {
 const CardLink = styled(Link, {
     display: 'inline-flex',
     alignItems: 'center',
-    gap: '6px',
-    fontSize: '0.875rem',
-    fontWeight: 600,
+    gap: '8px',
+    fontSize: '0.90rem',
+    fontWeight: 700,
     color: '#16a34a',
     textDecoration: 'none',
-    transition: 'all 0.2s ease',
+    transition: 'color 0.25s ease, transform 0.25s ease',
     '& svg': {
-        transition: 'transform 0.2s ease',
+        transition: 'transform 0.25s ease',
     },
     '&:hover': {
-        color: '#228B22',
+        color: '#166534',
+        transform: 'translateX(2px)',
         '& svg': {
-            transform: 'translateX(4px)',
+            transform: 'translateX(6px)',
         },
     },
 });
 
 const CardAccent = styled('div', {
-    height: '4px',
-    background: 'linear-gradient(90deg, #228B22, #4ade80)',
-    transition: 'all 0.3s ease',
+    height: '6px',
+    borderRadius: '999px',
+    background: 'linear-gradient(90deg, #22c55e, #16a34a)',
+    transition: 'all 0.35s ease',
 });
 
 // Icon mapping

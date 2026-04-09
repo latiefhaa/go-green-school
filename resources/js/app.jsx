@@ -12,6 +12,7 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Calculator from './pages/Calculator';
 import Profil from './pages/Profil';
+import Developer from './pages/Developer';
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                         <Route path="/kontak" element={<Contact />} />
                         <Route path="/kalkulator-bank-sampah" element={<Calculator />} />
                         <Route path="/profil-sekolah" element={<Profil />} />
+                        <Route path="/developer" element={<Developer />} />
                     </Routes>
                 </main>
                 <Footer />

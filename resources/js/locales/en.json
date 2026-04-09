@@ -10,7 +10,8 @@
         "galeri": "Gallery",
         "kontak": "Contact",
         "kalkulator": "Calculator",
-        "profil": "School Profile"
+        "profil": "School Profile",
+        "developer": "Developer"
     },
     "hero": {
         "title": "Eco-Friendly School",

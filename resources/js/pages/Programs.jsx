@@ -248,10 +248,22 @@ const bgMap = {
 };
 
 const featuresMap = {
-    'bank-sampah': ['Pemilahan sampah organik & anorganik', 'Penimbangan dan pencatatan', 'Perhitungan nilai ekonomi', 'Integrasi Matematika & RPL'],
-    'kebun-vertikal': ['Teknik hidroponik sederhana', 'Tanaman sayur & obat', 'Sistem irigasi tetes', 'Pelajaran Biologi & KIK'],
-    'hemat-energi': ['Panel surya di atap sekolah', 'Monitoring konsumsi listrik', 'Kampanye hemat energi', 'Pelajaran Fisika & Digimar'],
-    'edukasi-hijau': ['Proyek kelas ramah lingkungan', 'Presentasi kampanye hijau', 'Praktik sains terpadu', 'Pengembangan literasi lingkungan'],
+    'bank-sampah': {
+        id: ['Pemilahan sampah organik & anorganik', 'Penimbangan dan pencatatan', 'Perhitungan nilai ekonomi', 'Pelaporan data & pelacakan hasil'],
+        en: ['Sorting organic and inorganic waste', 'Weighing and recording', 'Calculating economic value', 'Data reporting and tracking results'],
+    },
+    'kebun-vertikal': {
+        id: ['Teknik hidroponik sederhana', 'Tanaman sayur & obat', 'Sistem irigasi tetes', 'Perawatan tanaman berkelanjutan'],
+        en: ['Simple hydroponic techniques', 'Vegetable and medicinal plant growing', 'Drip irrigation system', 'Sustainable plant care'],
+    },
+    'hemat-energi': {
+        id: ['Panel surya di atap sekolah', 'Monitoring konsumsi listrik', 'Kampanye hemat energi', 'Pengurangan penggunaan energi'],
+        en: ['Solar panels on the school roof', 'Monitoring electricity consumption', 'Energy saving campaigns', 'Reducing energy use'],
+    },
+    'edukasi-hijau': {
+        id: ['Proyek kelas ramah lingkungan', 'Presentasi kampanye hijau', 'Praktik sains terpadu', 'Pengembangan literasi lingkungan'],
+        en: ['Eco-friendly class projects', 'Green campaign presentations', 'Hands-on science practice', 'Environmental literacy development'],
+    },
 };
 
 const fallbackPrograms = [
@@ -354,7 +366,7 @@ export default function Programs() {
                             </CardHeader>
                             <ProgramDesc>{isEn ? (program.description_en || program.description) : program.description}</ProgramDesc>
                             <FeatureList>
-                                {(featuresMap[program.slug] || []).map((feat, fi) => (
+                                {((featuresMap[program.slug] || {})[isEn ? 'en' : 'id'] || []).map((feat, fi) => (
                                     <FeatureItem key={fi}>
                                         <Check size={16} />
                                         {feat}

@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 
 /* ─── Styled Components ───────────────────────────────────── */
-const PageWrap = styled('div', { minHeight: '100vh', background: '#F0FFF0', paddingBottom: '80px' });
+const PageWrap = styled('div', { minHeight: '100vh', background: 'linear-gradient(180deg, #f8fff8 0%, #effff2 100%)', paddingBottom: '90px' });
 
 const Hero = styled('div', {
     background: 'linear-gradient(135deg, #14532d 0%, #166534 40%, #228B22 100%)',
@@ -130,12 +130,17 @@ const StatLabel = styled('div', {
 /* Cards */
 const Card = styled('div', {
     background: '#ffffff',
-    borderRadius: '24px',
-    padding: '36px',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.06)',
-    border: '1px solid rgba(34,139,34,0.06)',
-    marginBottom: '24px',
+    borderRadius: '28px',
+    padding: '40px',
+    boxShadow: '0 20px 50px rgba(15,23,42,0.08)',
+    border: '1px solid rgba(34,139,34,0.08)',
+    marginBottom: '28px',
     animation: `${fadeIn} 0.6s ease forwards`,
+    transition: 'transform 0.35s ease, box-shadow 0.35s ease',
+    '&:hover': {
+        transform: 'translateY(-3px)',
+        boxShadow: '0 28px 60px rgba(15,23,42,0.1)',
+    },
 });
 
 const CardTitle = styled('h2', {
@@ -328,20 +333,21 @@ const TabRow = styled('div', {
 });
 
 const Tab = styled('button', {
-    padding: '7px 16px',
-    borderRadius: '20px',
-    fontSize: '0.82rem',
-    fontWeight: 600,
-    border: '1px solid rgba(34,139,34,0.2)',
+    padding: '10px 18px',
+    borderRadius: '999px',
+    fontSize: '0.88rem',
+    fontWeight: 700,
+    border: '1px solid rgba(34,139,34,0.18)',
     cursor: 'pointer',
     fontFamily: "'Poppins', sans-serif",
-    transition: 'all 0.2s ease',
+    transition: 'transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease',
     variants: {
         active: {
             true: {
                 background: '#228B22',
                 color: '#ffffff',
                 borderColor: '#228B22',
+                transform: 'translateY(-2px)',
             },
             false: {
                 background: '#ffffff',
@@ -360,9 +366,8 @@ const PROGRAMS_GO_GREEN = [
         bg: 'rgba(22,163,74,0.08)',
         title: 'Bank Sampah',
         title_en: 'Waste Bank',
-        desc: 'Program pengelolaan dan daur ulang sampah yang mengajarkan siswa nilai ekonomi dari limbah. Setiap siswa wajib menyetorkan sampah terpilah minimal 1 kg per bulan.',
-        desc_en: 'A waste management and recycling program that teaches students the economic value of waste. Each student must deposit at least 1 kg of sorted waste per month.',
-        mapel: ['Matematika', 'RPL', 'Kewirausahaan'],
+        desc: 'Program pengelolaan dan daur ulang sampah yang mengajarkan nilai ekonomi dari limbah. Siswa belajar memilah, menimbang, dan menghitung nilai jual sampah.',
+        desc_en: 'An integrated waste management and recycling program that teaches the economic value of waste. Participants learn to sort, weigh, and calculate the value of recyclables.',
         stats: '750 kg/bln',
     },
     {
@@ -371,9 +376,8 @@ const PROGRAMS_GO_GREEN = [
         bg: 'rgba(21,128,61,0.08)',
         title: 'Kebun Vertikal',
         title_en: 'Vertical Garden',
-        desc: 'Pemanfaatan dinding dan lahan sempit dengan teknik hidroponik & aquaponik. Hasil panen digunakan untuk kantin sekolah dan dijual melalui program kewirausahaan.',
-        desc_en: 'Utilizing walls and narrow land with hydroponic & aquaponic techniques. Harvest results are used for the school canteen and sold through entrepreneurship programs.',
-        mapel: ['Biologi', 'Matematika', 'KIK'],
+        desc: 'Pemanfaatan dinding dan lahan sempit dengan teknik hidroponik & aquaponik. Hasil panen digunakan untuk kantin sekolah dan dijual.',
+        desc_en: 'Utilizing walls and narrow land with hydroponic & aquaponic techniques. Harvest results are used for the school canteen and sold.',
         stats: '200 tanaman',
     },
     {
@@ -382,20 +386,10 @@ const PROGRAMS_GO_GREEN = [
         bg: 'rgba(202,138,4,0.08)',
         title: 'Hemat Energi',
         title_en: 'Energy Saving',
-        desc: 'Pemasangan panel surya mini, sensor cahaya otomatis, dan kampanye digital pengurangan emisi karbon. Siswa memantau konsumsi listrik harian via dashboard digital.',
-        desc_en: 'Installation of mini solar panels, automatic light sensors, and digital carbon emission reduction campaigns. Students monitor daily electricity consumption via a digital dashboard.',
-        mapel: ['Fisika', 'RPL', 'Digital Marketing'],
+        desc: 'Pemasangan panel surya mini, sensor cahaya otomatis, dan kampanye digital pengurangan emisi karbon. Monitoring konsumsi listrik harian dilakukan untuk mengukur dampak nyata.',
+        desc_en: 'Installation of mini solar panels, automatic light sensors, and digital carbon emission reduction campaigns. Daily electricity use is monitored to measure real impact.',
         stats: '30% hemat listrik',
     },
-];
-
-const SUBJECTS = [
-    { code: 'B.Ind', name: 'Bahasa Indonesia', color: '#dc2626', bg: '#fff1f2', role: 'Penulisan artikel & laporan lingkungan' },
-    { code: 'B.Ing', name: 'Bahasa Inggris', color: '#2563eb', bg: '#eff6ff', role: 'Presentasi & konten internasional' },
-    { code: 'Math', name: 'Matematika', color: '#7c3aed', bg: '#f5f3ff', role: 'Kalkulasi data & analisis lingkungan' },
-    { code: 'RPL', name: 'Rekayasa Perangkat Lunak', color: '#0891b2', bg: '#f0f9ff', role: 'Aplikasi & dashboard digital' },
-    { code: 'Digimar', name: 'Digital Marketing', color: '#ea580c', bg: '#fff7ed', role: 'Kampanye & promosi lingkungan' },
-    { code: 'KIK', name: 'Kewirausahaan & Inovasi', color: '#16a34a', bg: '#f0fdf4', role: 'Bisnis hijau & inovasi produk' },
 ];
 
 const ACHIEVEMENTS = [
@@ -410,8 +404,8 @@ const ACHIEVEMENTS = [
 const TIMELINE = [
     { year: '2018', text: 'SMK Karya Bangsa resmi meluncurkan program lingkungan sekolah dengan fokus pada kesadaran dan aksi nyata.' },
     { year: '2019', text: 'Pembangunan kebun vertikal pertama & instalasi sistem pengomposan organik mandiri.' },
-    { year: '2020', text: 'Peluncuran Bank Sampah Sekolah — pertama di kota yang terintegrasi dengan kurikulum.' },
-    { year: '2021', text: 'Implementasi panel surya mini & dashboard pemantauan energi berbasis RPL siswa.' },
+    { year: '2020', text: 'Peluncuran Bank Sampah Sekolah — pertama di kota yang menerapkan sistem sampah terkelola.' },
+    { year: '2021', text: 'Implementasi panel surya mini & dashboard pemantauan energi berbasis teknologi sekolah.' },
     { year: '2022', text: 'Program berhasil mengurangi sampah sekolah sebesar 65% dibanding tahun 2018.' },
     { year: '2023', text: 'Diakui sebagai rujukan nasional oleh Kemendikbud; 12 sekolah studi banding ke sini.' },
     { year: '2024', text: 'Meraih penghargaan ASEAN Best Green School & ekspansi program ke masyarakat sekitar.' },
@@ -419,16 +413,16 @@ const TIMELINE = [
 
 const FACILITIES = [
     '🌿 Kebun Vertikal Hidroponik', '♻️ Bank Sampah Terpadu', '☀️ Panel Surya 5 kWp',
-    '🌊 Kolam Aquaponik', '🔬 Lab Lingkungan Hidup', '💻 Lab Komputer (RPL)',
+    '🌊 Kolam Aquaponik', '🔬 Lab Lingkungan Hidup', '💻 Lab Komputer',
     '📡 WiFi Seluruh Area', ' Greenhouse Mini',
     '📸 Studio Konten Digital', '🏭 Area Kompos', '🚿 Sistem Daur Ulang Air',
 ];
 
 const STAFF = [
-    { name: 'Drs. Budiman Santoso, M.Pd', role: 'Kepala Sekolah', icon: '👨‍💼' },
-    { name: 'Siti Rahayu, S.Pd', role: 'Koordinator Program Lingkungan', icon: '👩‍🏫' },
-    { name: 'Ahmad Fauzi, S.Kom', role: 'Koordinator RPL & Digimar', icon: '👨‍💻' },
-    { name: 'Dewi Kusuma, M.Pd', role: 'Koordinator B. Inggris & KIK', icon: '👩‍🏫' },
+    { name: 'Latiefha', role: 'Full Stack Developer', icon: '💻' },
+    { name: 'Aren', role: 'Frontend Developer', icon: '🖥️' },
+    { name: 'Rindu', role: 'Marketing', icon: '📣' },
+    { name: 'Josaphat', role: 'Designer', icon: '🎨' },
 ];
 
 /* ─── Component ──────────────────────────────────────────── */
@@ -440,7 +434,6 @@ export default function Profil() {
     const tabs = [
         { id: 'profil', label: isEn ? 'Identity' : 'Identitas Sekolah' },
         { id: 'program', label: isEn ? 'School Programs' : 'Program Sekolah' },
-        { id: 'mapel', label: isEn ? 'Subject Integration' : 'Integrasi Mapel' },
         { id: 'prestasi', label: isEn ? 'Achievements' : 'Prestasi' },
         { id: 'sejarah', label: isEn ? 'History' : 'Sejarah' },
     ];
@@ -481,8 +474,8 @@ export default function Profil() {
                 {/* ── Stats Strip ── */}
                 <StatsStrip>
                     {[
-                        { num: '1.200+', label: isEn ? 'Active Students' : 'Siswa Aktif', delay: '0s' },
-                        { num: '85', label: isEn ? 'Educators' : 'Tenaga Pendidik', delay: '0.05s' },
+                        { num: '150+', label: isEn ? 'Active Students' : 'Siswa Aktif', delay: '0s' },
+                        { num: '15+', label: isEn ? 'Educators' : 'Tenaga Pendidik', delay: '0.05s' },
                         { num: '4', label: isEn ? 'School Programs' : 'Program Sekolah', delay: '0.1s' },
                         { num: '65%', label: isEn ? 'Waste Reduction' : 'Pengurangan Sampah', delay: '0.15s' },
                     ].map((s, i) => (
@@ -550,16 +543,16 @@ export default function Profil() {
 
                             {/* Tenaga Pendidik */}
                             <Card>
-                                <CardTitle><Users size={22} /> {isEn ? 'Key Staff' : 'Pengurus Utama'}</CardTitle>
-                                {STAFF.map((s, i) => (
-                                    <InfoRow key={i}>
-                                        <InfoLabel style={{ fontSize: '1.2rem', minWidth: '36px' }}>{s.icon}</InfoLabel>
-                                        <div>
-                                            <InfoValue style={{ display: 'block', fontWeight: 600 }}>{s.name}</InfoValue>
-                                            <span style={{ fontSize: '0.75rem', color: '#228B22', fontWeight: 500 }}>{s.role}</span>
-                                        </div>
-                                    </InfoRow>
-                                ))}
+                                <CardTitle><Users size={22} /> {isEn ? 'Developer Team' : 'Tim Developer'}</CardTitle>
+                            {STAFF.map((s, i) => (
+                                <InfoRow key={i}>
+                                    <InfoLabel style={{ fontSize: '1.2rem', minWidth: '36px' }}>{s.icon}</InfoLabel>
+                                    <div>
+                                        <InfoValue style={{ display: 'block', fontWeight: 600 }}>{s.name}</InfoValue>
+                                        <span style={{ fontSize: '0.75rem', color: '#228B22', fontWeight: 500 }}>{s.role}</span>
+                                    </div>
+                                </InfoRow>
+                            ))}
                             </Card>
                         </div>
 
@@ -615,11 +608,9 @@ export default function Profil() {
                                         {isEn ? p.desc_en : p.desc}
                                     </p>
                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                                        {p.mapel.map(m => (
-                                            <span key={m} style={{ fontSize: '0.7rem', fontWeight: 600, color: '#166534', background: '#f0fdf4', border: '1px solid #bbf7d0', padding: '2px 10px', borderRadius: '12px' }}>
-                                                {m}
-                                            </span>
-                                        ))}
+                                        <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#166534', background: '#f0fdf4', border: '1px solid #bbf7d0', padding: '6px 12px', borderRadius: '12px' }}>
+                                            {isEn ? 'Community impact' : 'Dampak komunitas'}
+                                        </span>
                                     </div>
                                 </ProgramCard>
                             ))}
@@ -650,86 +641,6 @@ export default function Profil() {
                     </>
                 )}
 
-                {/* ── Tab: Integrasi Mapel ── */}
-                {activeTab === 'mapel' && (
-                    <>
-                        <Card style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)', border: '1px solid rgba(34,139,34,0.15)', marginBottom: '20px' }}>
-                            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#166534', marginBottom: '8px' }}>
-                                {isEn ? 'Cross-Subject Collaboration' : 'Kolaborasi Lintas Mata Pelajaran'}
-                            </h3>
-                            <p style={{ color: '#374151', lineHeight: 1.7, fontSize: '0.875rem' }}>
-                                {isEn
-                                    ? 'Every environmental activity is designed to integrate multiple subjects, making education meaningful, contextual, and connected to real-world skills.'
-                                    : 'Setiap kegiatan lingkungan dirancang untuk mengintegrasikan beberapa mata pelajaran, menjadikan pendidikan lingkungan bermakna, kontekstual, dan terhubung dengan keterampilan dunia nyata.'}
-                            </p>
-                        </Card>
-
-                        <SubjectGrid style={{ marginBottom: '24px' }}>
-                            {SUBJECTS.map((s, i) => (
-                                <SubjectCard key={i} style={{ background: s.bg, border: `1px solid ${s.color}22` }}>
-                                    <div style={{ fontSize: '1.5rem', fontWeight: 900, color: s.color, marginBottom: '4px' }}>{s.code}</div>
-                                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#1f2937', marginBottom: '6px' }}>{s.name}</div>
-                                    <div style={{ fontSize: '0.72rem', color: '#6b7280', lineHeight: 1.4 }}>{s.role}</div>
-                                </SubjectCard>
-                            ))}
-                        </SubjectGrid>
-
-                        {/* Kolaborasi matrix */}
-                        <Card>
-                            <CardTitle><BookOpen size={22} /> {isEn ? 'Collaboration Examples' : 'Contoh Kolaborasi Nyata'}</CardTitle>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                                {[
-                                    {
-                                        combo: 'Math + RPL',
-                                        color: '#7c3aed',
-                                        bg: '#f5f3ff',
-                                        project: isEn ? 'Waste Bank Simulator' : 'Simulator Kalkulator Bank Sampah',
-                                        desc: isEn
-                                            ? 'Students build a web app to calculate economic value and CO₂ reduction from recycling.'
-                                            : 'Siswa membangun aplikasi web untuk menghitung nilai ekonomi dan pengurangan CO₂ dari daur ulang.',
-                                    },
-                                    {
-                                        combo: 'B.Ind + Digimar',
-                                        color: '#dc2626',
-                                        bg: '#fff1f2',
-                                        project: isEn ? 'Green Digital Campaign' : 'Kampanye Digital Lingkungan',
-                                        desc: isEn
-                                            ? 'Students write environmental articles in Indonesian and create Instagram/TikTok content strategies.'
-                                            : 'Siswa menulis artikel lingkungan dalam B. Indonesia dan membuat strategi konten Instagram/TikTok.',
-                                    },
-                                    {
-                                        combo: 'B.Ing + KIK',
-                                        color: '#0891b2',
-                                        bg: '#f0f9ff',
-                                        project: isEn ? 'Green Business Plan (English)' : 'Green Business Plan (Bahasa Inggris)',
-                                        desc: isEn
-                                            ? 'Students develop eco-friendly business plans and present them in English at school exhibitions.'
-                                            : 'Siswa mengembangkan rencana bisnis ramah lingkungan dan mempresentasikannya dalam B. Inggris di pameran sekolah.',
-                                    },
-                                    {
-                                        combo: 'Math + B.Ind + B.Ing',
-                                        color: '#16a34a',
-                                        bg: '#f0fdf4',
-                                        project: isEn ? 'Composting Research Report' : 'Laporan Riset Kompos Bilingual',
-                                        desc: isEn
-                                            ? 'Students calculate compost ratios, then write bilingual reports with scientific data visualizations.'
-                                            : 'Siswa menghitung rasio kompos, lalu menulis laporan bilingual dengan visualisasi data ilmiah.',
-                                    },
-                                ].map((c, i) => (
-                                    <div key={i} style={{ display: 'flex', gap: '14px', padding: '16px', background: c.bg, borderRadius: '14px', border: `1px solid ${c.color}22` }}>
-                                        <div style={{ flexShrink: 0 }}>
-                                            <span style={{ display: 'inline-block', background: c.color, color: '#fff', fontSize: '0.72rem', fontWeight: 700, padding: '4px 10px', borderRadius: '10px' }}>{c.combo}</span>
-                                        </div>
-                                        <div>
-                                            <div style={{ fontSize: '0.875rem', fontWeight: 700, color: '#1f2937', marginBottom: '4px' }}>{c.project}</div>
-                                            <div style={{ fontSize: '0.8rem', color: '#6b7280', lineHeight: 1.5 }}>{c.desc}</div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </Card>
-                    </>
-                )}
 
                 {/* ── Tab: Prestasi ── */}
                 {activeTab === 'prestasi' && (

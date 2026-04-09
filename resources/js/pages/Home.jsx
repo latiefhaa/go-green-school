@@ -7,11 +7,12 @@ import { Link } from 'react-router-dom';
 import { Calculator, BookOpen, ArrowRight, Leaf, Recycle, Sun, Droplets } from 'lucide-react';
 
 const CTASection = styled('section', {
-    background: 'linear-gradient(135deg, #228B22, #16a34a)',
-    padding: '80px 24px',
+    background: 'linear-gradient(135deg, #1f7a1f, #1c5e1c)',
+    padding: '92px 24px',
     textAlign: 'center',
     position: 'relative',
     overflow: 'hidden',
+    boxShadow: 'inset 0 0 120px rgba(0,0,0,0.08)',
 });
 
 const CTAInner = styled('div', {
@@ -46,25 +47,26 @@ const CTABtnGroup = styled('div', {
 const CtaBtn = styled(Link, {
     display: 'inline-flex',
     alignItems: 'center',
-    gap: '8px',
-    padding: '14px 28px',
-    borderRadius: '50px',
+    gap: '10px',
+    padding: '16px 32px',
+    borderRadius: '999px',
     fontWeight: 700,
-    fontSize: '0.95rem',
+    fontSize: '0.96rem',
     textDecoration: 'none',
-    transition: 'all 0.3s ease',
+    transition: 'transform 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease',
     variants: {
         variant: {
             white: {
                 background: '#ffffff',
                 color: '#228B22',
-                '&:hover': { background: '#f0fff0', transform: 'translateY(-2px)' },
+                boxShadow: '0 22px 52px rgba(34,139,34,0.12)',
+                '&:hover': { background: '#f6fff7', transform: 'translateY(-3px)', boxShadow: '0 26px 64px rgba(34,139,34,0.15)' },
             },
             outline: {
-                background: 'transparent',
+                background: 'rgba(255,255,255,0.12)',
                 color: '#ffffff',
                 border: '2px solid rgba(255,255,255,0.6)',
-                '&:hover': { background: 'rgba(255,255,255,0.1)', borderColor: '#ffffff', transform: 'translateY(-2px)' },
+                '&:hover': { background: 'rgba(255,255,255,0.18)', borderColor: '#ffffff', transform: 'translateY(-3px)' },
             },
         },
     },
@@ -112,15 +114,18 @@ const FeatList = styled('div', {
 const FeatItem = styled('div', {
     display: 'flex',
     alignItems: 'flex-start',
-    gap: '12px',
-    padding: '16px',
-    borderRadius: '12px',
-    background: '#f9fafb',
-    border: '1px solid #f0fdf4',
-    transition: 'all 0.2s ease',
+    gap: '14px',
+    padding: '20px',
+    borderRadius: '18px',
+    background: '#ffffff',
+    border: '1px solid rgba(34,139,34,0.12)',
+    boxShadow: '0 18px 40px rgba(15,23,42,0.05)',
+    transition: 'transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease',
     '&:hover': {
-        background: '#f0fdf4',
-        borderColor: 'rgba(34,139,34,0.2)',
+        background: '#f5fff3',
+        borderColor: 'rgba(34,139,34,0.22)',
+        transform: 'translateY(-4px)',
+        boxShadow: '0 24px 50px rgba(15,23,42,0.1)',
     },
 });
 
@@ -239,6 +244,11 @@ const DeveloperCard = styled('div', {
     padding: '32px',
     boxShadow: '0 20px 60px rgba(15,23,42,0.08)',
     border: '1px solid rgba(34,139,34,0.08)',
+    transition: 'transform 0.35s ease, box-shadow 0.35s ease',
+    '&:hover': {
+        transform: 'translateY(-5px)',
+        boxShadow: '0 28px 72px rgba(15,23,42,0.11)',
+    },
 });
 
 const DeveloperAvatar = styled('div', {
@@ -346,26 +356,26 @@ export default function Home() {
                     {[
                         {
                             name: 'Latiefha',
-                            role: 'Frontend Developer',
-                            desc: 'Mendesain antarmuka dan mengembangkan halaman web interaktif dengan fokus pada performa dan pengalaman pengguna.',
+                            role: 'Full Stack Developer',
+                            desc: 'Memimpin pengembangan aplikasi secara menyeluruh, menghubungkan frontend dan backend demi pengalaman pengguna yang mulus.',
                             image: 'https://ui-avatars.com/api/?name=Latiefha&background=16a34a&color=ffffff&size=256',
                         },
                         {
                             name: 'Aren',
-                            role: 'Backend Developer',
-                            desc: 'Menangani logika aplikasi, integrasi data, dan struktur teknis agar website berjalan stabil dan mudah dikelola.',
+                            role: 'Frontend Developer',
+                            desc: 'Memperkuat tampilan dan interaksi aplikasi dengan kode frontend yang responsif dan modern.',
                             image: 'https://ui-avatars.com/api/?name=Aren&background=22c55e&color=ffffff&size=256',
                         },
                         {
                             name: 'Rindu',
-                            role: 'Designer',
-                            desc: 'Merancang tampilan visual yang bersih, intuitif, dan sesuai dengan citra sekolah ramah lingkungan.',
+                            role: 'Marketing',
+                            desc: 'Mendesain strategi komunikasi dan konten untuk menjangkau lebih banyak pengguna dengan pesan yang jelas.',
                             image: 'https://ui-avatars.com/api/?name=Rindu&background=059669&color=ffffff&size=256',
                         },
                         {
                             name: 'Josaphat',
-                            role: 'Full Stack Developer',
-                            desc: 'Menghubungkan frontend dan backend untuk memberikan pengalaman website yang lengkap dan mudah digunakan.',
+                            role: 'Designer',
+                            desc: 'Menciptakan pengalaman visual yang estetis dan tata letak yang mudah digunakan sepanjang situs.',
                             image: 'https://ui-avatars.com/api/?name=Josaphat&background=047857&color=ffffff&size=256',
                         },
                     ].map((dev) => (

@@ -5,12 +5,12 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Ba
 import { Plus, Trash2, Calculator as CalculatorIcon, Leaf, TrendingDown, Award, RefreshCw, ChevronDown } from 'lucide-react';
 const PageWrap = styled('div', {
     minHeight: '100vh',
-    background: '#F0FFF0',
+    background: 'linear-gradient(180deg, #d7efda 0%, #bddfbe 100%)',
     paddingBottom: '64px',
 });
 
 const PageHeader = styled('div', {
-    background: 'linear-gradient(135deg, #228B22, #16a34a)',
+    background: 'linear-gradient(135deg, #13400f 0%, #165228 40%, #1f6f1f 100%)',
     padding: '60px 24px 80px',
     textAlign: 'center',
     position: 'relative',
@@ -46,16 +46,21 @@ const Content = styled('div', {
 });
 
 const Card = styled('div', {
-    background: '#ffffff',
-    borderRadius: '20px',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
+    background: 'rgba(255,255,255,0.95)',
+    borderRadius: '22px',
+    boxShadow: '0 18px 50px rgba(15,23,42,0.08)',
     overflow: 'hidden',
-    border: '1px solid rgba(34,139,34,0.08)',
+    border: '1px solid rgba(34,139,34,0.12)',
+    transition: 'transform 0.35s ease, box-shadow 0.35s ease',
+    '&:hover': {
+        transform: 'translateY(-2px)',
+        boxShadow: '0 25px 65px rgba(15,23,42,0.1)',
+    },
 });
 
 const CardHeader = styled('div', {
-    padding: '20px 24px',
-    borderBottom: '1px solid #f0fdf4',
+    padding: '24px 26px',
+    borderBottom: '1px solid rgba(34,139,34,0.12)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -198,10 +203,10 @@ const CalcBtn = styled('button', {
 });
 
 const ResultCard = styled('div', {
-    background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
-    border: '1px solid rgba(34,139,34,0.2)',
-    borderRadius: '14px',
-    padding: '20px',
+    background: 'linear-gradient(135deg, #effbf0, #d8f0d8)',
+    border: '1px solid rgba(34,139,34,0.18)',
+    borderRadius: '18px',
+    padding: '22px',
     marginBottom: '16px',
     textAlign: 'center',
     animation: `${fadeIn} 0.4s ease forwards`,
@@ -388,11 +393,12 @@ export default function Calculator() {
             {/* How It Works Banner */}
             <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 10, marginTop: '-40px' }}>
                 <div style={{
-                    background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
-                    border: '1px solid rgba(34,139,34,0.2)',
-                    borderRadius: '18px',
-                    padding: '24px 28px',
+                    background: 'rgba(255,255,255,0.94)',
+                    border: '1px solid rgba(34,139,34,0.14)',
+                    borderRadius: '24px',
+                    padding: '26px 30px',
                     marginBottom: '16px',
+                    boxShadow: '0 18px 40px rgba(15,23,42,0.06)',
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
                         <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#228B22', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>

@@ -9,14 +9,14 @@ const Nav = styled('nav', {
     top: 0,
     left: 0,
     right: 0,
-    zIndex: 1000,
-    transition: 'all 0.3s ease',
+    zIndex: 2000,
+    transition: 'background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease, backdrop-filter 0.35s ease',
     variants: {
         scrolled: {
             true: {
-                backgroundColor: 'rgba(34, 139, 34, 0.97)',
-                backdropFilter: 'blur(10px)',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+                backgroundColor: 'rgba(34, 139, 34, 0.92)',
+                backdropFilter: 'blur(14px)',
+                boxShadow: '0 18px 60px rgba(15, 23, 42, 0.16)',
             },
             false: {
                 backgroundColor: 'transparent',
@@ -65,21 +65,23 @@ const NavLinks = styled('div', {
 });
 
 const NavLink = styled(Link, {
-    padding: '8px 14px',
-    borderRadius: '8px',
-    fontSize: '0.875rem',
-    fontWeight: 500,
-    color: 'rgba(255,255,255,0.9)',
+    padding: '10px 16px',
+    borderRadius: '12px',
+    fontSize: '0.95rem',
+    fontWeight: 600,
+    color: 'rgba(255,255,255,0.95)',
     textDecoration: 'none',
-    transition: 'all 0.2s ease',
+    transition: 'transform 0.3s ease, background-color 0.3s ease, color 0.3s ease',
+    transform: 'translateY(0)',
     '&:hover': {
-        backgroundColor: 'rgba(255,255,255,0.15)',
+        backgroundColor: 'rgba(255,255,255,0.16)',
         color: '#ffffff',
+        transform: 'translateY(-2px)',
     },
     variants: {
         active: {
             true: {
-                backgroundColor: 'rgba(255,255,255,0.2)',
+                backgroundColor: 'rgba(255,255,255,0.24)',
                 color: '#ffffff',
             },
         },
@@ -113,8 +115,11 @@ const MobileMenuBtn = styled('button', {
     border: 'none',
     color: '#ffffff',
     cursor: 'pointer',
-    padding: '8px',
-    borderRadius: '8px',
+    padding: '12px',
+    minWidth: '44px',
+    minHeight: '44px',
+    borderRadius: '12px',
+    zIndex: 2100,
     '&:hover': { background: 'rgba(255,255,255,0.1)' },
 });
 
@@ -124,27 +129,28 @@ const MobileMenu = styled('div', {
     left: 0,
     right: 0,
     backgroundColor: 'rgba(34, 139, 34, 0.98)',
-    backdropFilter: 'blur(10px)',
-    padding: '16px 24px 24px',
+    backdropFilter: 'blur(16px)',
+    padding: '18px 24px 24px',
     display: 'flex',
     flexDirection: 'column',
-    gap: '4px',
-    boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+    gap: '8px',
+    boxShadow: '0 22px 60px rgba(15,23,42,0.22)',
+    transition: 'opacity 0.35s ease, transform 0.35s ease',
     '@md': { display: 'none' },
 });
 
 const MobileNavLink = styled(Link, {
-    padding: '12px 16px',
-    borderRadius: '8px',
-    fontSize: '0.95rem',
-    fontWeight: 500,
-    color: 'rgba(255,255,255,0.9)',
+    padding: '14px 18px',
+    borderRadius: '12px',
+    fontSize: '1rem',
+    fontWeight: 600,
+    color: 'rgba(255,255,255,0.95)',
     textDecoration: 'none',
-    transition: 'all 0.2s ease',
+    transition: 'transform 0.25s ease, background-color 0.25s ease, color 0.25s ease',
     '&:hover': {
-        backgroundColor: 'rgba(255,255,255,0.15)',
+        backgroundColor: 'rgba(255,255,255,0.16)',
         color: '#ffffff',
-        paddingLeft: '22px',
+        transform: 'translateX(4px)',
     },
     variants: {
         active: {
@@ -186,6 +192,7 @@ export default function Navbar() {
         { path: '/program', label: t('nav.program') },
         { path: '/kalkulator-bank-sampah', label: t('nav.kalkulator') },
         { path: '/profil-sekolah', label: t('nav.profil') },
+        { path: '/developer', label: t('nav.developer') },
         { path: '/galeri', label: t('nav.galeri') },
     ];
 
