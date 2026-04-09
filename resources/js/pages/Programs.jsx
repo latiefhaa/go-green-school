@@ -300,7 +300,7 @@ export default function Programs() {
                 <IntroSection>
                     <IntroMeta>
                         <Sprout size={18} />
-                        Discover the Go Green School approach
+                        Discover the SMK Karya Bangsa approach
                     </IntroMeta>
                     <IntroTitle>Practical programs that teach sustainability with purpose.</IntroTitle>
                     <IntroText>

@@ -394,7 +394,7 @@ const SUBJECTS = [
     { code: 'B.Ing', name: 'Bahasa Inggris', color: '#2563eb', bg: '#eff6ff', role: 'Presentasi & konten internasional' },
     { code: 'Math', name: 'Matematika', color: '#7c3aed', bg: '#f5f3ff', role: 'Kalkulasi data & analisis lingkungan' },
     { code: 'RPL', name: 'Rekayasa Perangkat Lunak', color: '#0891b2', bg: '#f0f9ff', role: 'Aplikasi & dashboard digital' },
-    { code: 'Digimar', name: 'Digital Marketing', color: '#ea580c', bg: '#fff7ed', role: 'Kampanye & promosi go green' },
+    { code: 'Digimar', name: 'Digital Marketing', color: '#ea580c', bg: '#fff7ed', role: 'Kampanye & promosi lingkungan' },
     { code: 'KIK', name: 'Kewirausahaan & Inovasi', color: '#16a34a', bg: '#f0fdf4', role: 'Bisnis hijau & inovasi produk' },
 ];
 
@@ -408,7 +408,7 @@ const ACHIEVEMENTS = [
 ];
 
 const TIMELINE = [
-    { year: '2018', text: 'Go Green School resmi diluncurkan sebagai program unggulan sekolah dengan fokus pada kesadaran lingkungan.' },
+    { year: '2018', text: 'SMK Karya Bangsa resmi meluncurkan program lingkungan sekolah dengan fokus pada kesadaran dan aksi nyata.' },
     { year: '2019', text: 'Pembangunan kebun vertikal pertama & instalasi sistem pengomposan organik mandiri.' },
     { year: '2020', text: 'Peluncuran Bank Sampah Sekolah — pertama di kota yang terintegrasi dengan kurikulum.' },
     { year: '2021', text: 'Implementasi panel surya mini & dashboard pemantauan energi berbasis RPL siswa.' },
@@ -426,7 +426,7 @@ const FACILITIES = [
 
 const STAFF = [
     { name: 'Drs. Budiman Santoso, M.Pd', role: 'Kepala Sekolah', icon: '👨‍💼' },
-    { name: 'Siti Rahayu, S.Pd', role: 'Koordinator Go Green', icon: '👩‍🏫' },
+    { name: 'Siti Rahayu, S.Pd', role: 'Koordinator Program Lingkungan', icon: '👩‍🏫' },
     { name: 'Ahmad Fauzi, S.Kom', role: 'Koordinator RPL & Digimar', icon: '👨‍💻' },
     { name: 'Dewi Kusuma, M.Pd', role: 'Koordinator B. Inggris & KIK', icon: '👩‍🏫' },
 ];
@@ -439,7 +439,7 @@ export default function Profil() {
 
     const tabs = [
         { id: 'profil', label: isEn ? 'Identity' : 'Identitas Sekolah' },
-        { id: 'program', label: isEn ? 'Go Green Programs' : 'Program Go Green' },
+        { id: 'program', label: isEn ? 'School Programs' : 'Program Sekolah' },
         { id: 'mapel', label: isEn ? 'Subject Integration' : 'Integrasi Mapel' },
         { id: 'prestasi', label: isEn ? 'Achievements' : 'Prestasi' },
         { id: 'sejarah', label: isEn ? 'History' : 'Sejarah' },
@@ -459,7 +459,7 @@ export default function Profil() {
                     </SchoolLogo>
 
                     <SchoolName>
-                        {isEn ? 'Go Green School Profile' : 'Profil Go Green School'}
+                        {isEn ? 'SMK Karya Bangsa Profile' : 'Profil SMK Karya Bangsa'}
                     </SchoolName>
 
                     <SchoolTagline>
@@ -483,7 +483,7 @@ export default function Profil() {
                     {[
                         { num: '1.200+', label: isEn ? 'Active Students' : 'Siswa Aktif', delay: '0s' },
                         { num: '85', label: isEn ? 'Educators' : 'Tenaga Pendidik', delay: '0.05s' },
-                        { num: '4', label: isEn ? 'Go Green Programs' : 'Program Go Green', delay: '0.1s' },
+                        { num: '4', label: isEn ? 'School Programs' : 'Program Sekolah', delay: '0.1s' },
                         { num: '65%', label: isEn ? 'Waste Reduction' : 'Pengurangan Sampah', delay: '0.15s' },
                     ].map((s, i) => (
                         <StatCard key={i} style={{ animationDelay: s.delay }}>
@@ -575,7 +575,7 @@ export default function Profil() {
                     </TwoCol>
                 )}
 
-                {/* ── Tab: Program Go Green ── */}
+                {/* ── Tab: Program Sekolah ── */}
                 {activeTab === 'program' && (
                     <>
                         {/* Intro */}
@@ -586,12 +586,12 @@ export default function Profil() {
                                 </div>
                                 <div>
                                     <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#166534', marginBottom: '8px' }}>
-                                        {isEn ? 'About Go Green School Program' : 'Tentang Program Go Green School'}
+                                        {isEn ? 'About SMK Karya Bangsa Programs' : 'Tentang Program SMK Karya Bangsa'}
                                     </h3>
                                     <p style={{ color: '#374151', lineHeight: 1.7, fontSize: '0.9rem' }}>
                                         {isEn
-                                            ? 'Go Green School is our flagship environmental education initiative that integrates eco-friendly practices into the daily school curriculum. Launched in 2018, this program has transformed our school into a model of sustainable education, reducing waste by 65% and earning national and international recognition.'
-                                            : 'Go Green School adalah inisiatif pendidikan lingkungan unggulan kami yang mengintegrasikan praktik ramah lingkungan ke dalam kurikulum sekolah sehari-hari. Diluncurkan pada 2018, program ini telah mengubah sekolah kami menjadi model pendidikan berkelanjutan, mengurangi sampah sebesar 65% dan meraih pengakuan nasional dan internasional.'}
+                                            ? 'SMK Karya Bangsa develops practical, eco-conscious student programs that combine technical skills with environmental stewardship. Our programs build leadership, entrepreneurship, and real impact in the local community.'
+                                            : 'SMK Karya Bangsa mengembangkan program-program praktis dan berwawasan lingkungan yang menggabungkan keterampilan teknis dengan kepedulian lingkungan. Program kami membangun kepemimpinan, kewirausahaan, dan dampak nyata di masyarakat lokal.'}
                                     </p>
                                 </div>
                             </div>
@@ -659,8 +659,8 @@ export default function Profil() {
                             </h3>
                             <p style={{ color: '#374151', lineHeight: 1.7, fontSize: '0.875rem' }}>
                                 {isEn
-                                    ? 'Every Go Green activity is designed to integrate multiple subjects, making environmental education meaningful, contextual, and connected to real-world skills.'
-                                    : 'Setiap kegiatan Go Green dirancang untuk mengintegrasikan beberapa mata pelajaran, menjadikan pendidikan lingkungan bermakna, kontekstual, dan terhubung dengan keterampilan dunia nyata.'}
+                                    ? 'Every environmental activity is designed to integrate multiple subjects, making education meaningful, contextual, and connected to real-world skills.'
+                                    : 'Setiap kegiatan lingkungan dirancang untuk mengintegrasikan beberapa mata pelajaran, menjadikan pendidikan lingkungan bermakna, kontekstual, dan terhubung dengan keterampilan dunia nyata.'}
                             </p>
                         </Card>
 
@@ -692,7 +692,7 @@ export default function Profil() {
                                         combo: 'B.Ind + Digimar',
                                         color: '#dc2626',
                                         bg: '#fff1f2',
-                                        project: isEn ? 'Go Green Digital Campaign' : 'Kampanye Digital Go Green',
+                                        project: isEn ? 'Green Digital Campaign' : 'Kampanye Digital Lingkungan',
                                         desc: isEn
                                             ? 'Students write environmental articles in Indonesian and create Instagram/TikTok content strategies.'
                                             : 'Siswa menulis artikel lingkungan dalam B. Indonesia dan membuat strategi konten Instagram/TikTok.',
@@ -759,9 +759,9 @@ export default function Profil() {
 
                         {/* Akreditasi banner */}
                         <div style={{ marginTop: '24px', padding: '24px', background: 'linear-gradient(135deg, #228B22, #16a34a)', borderRadius: '18px', textAlign: 'center', color: '#ffffff' }}>
-                            <div style={{ fontSize: '3rem', fontWeight: 900, lineHeight: 1 }}>A</div>
+                            <div style={{ fontSize: '3rem', fontWeight: 900, lineHeight: 1 }}>B</div>
                             <div style={{ fontWeight: 700, fontSize: '1rem', marginTop: '8px' }}>
-                                {isEn ? 'School Accreditation – Excellent' : 'Akreditasi Sekolah – Unggul'}
+                                {isEn ? 'School Accreditation – B' : 'Akreditasi Sekolah – B'}
                             </div>
                             <div style={{ fontSize: '0.8rem', opacity: 0.85, marginTop: '4px' }}>
                                 BAN-S/M • {isEn ? 'Valid until' : 'Berlaku hingga'} 2027

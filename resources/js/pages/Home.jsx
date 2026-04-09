@@ -298,11 +298,11 @@ export default function Home() {
                             fontWeight: 600,
                             marginBottom: '16px',
                         }}>
-                            🌿 Pentingnya Go Green School
+                            🌿 Pentingnya SMK Karya Bangsa
                         </span>
-                        <FeatTitle>Mengapa Go Green School Penting?</FeatTitle>
+                        <FeatTitle>Mengapa SMK Karya Bangsa Penting?</FeatTitle>
                         <FeatDesc>
-                            Go Green School adalah pendekatan pendidikan yang membawa prinsip keberlanjutan ke dalam kehidupan sekolah sehari-hari. Program ini mengajarkan siswa bahwa setiap tindakan kecil, dari memilah sampah hingga menghemat energi, berdampak nyata bagi lingkungan.
+                            SMK Karya Bangsa adalah sekolah yang membawa prinsip keberlanjutan ke dalam kehidupan belajar mengajar. Sekolah ini mengajarkan siswa bahwa setiap tindakan kecil, dari memilah sampah hingga menghemat energi, berdampak nyata bagi lingkungan.
                         </FeatDesc>
                         <FeatDesc>
                             Dengan menempatkan praktik ramah lingkungan dalam kegiatan belajar, siswa tidak hanya memahami teori, tetapi juga merasakan sendiri manfaatnya. Program ini membantu membentuk sikap tanggung jawab, kreativitas, dan rasa peduli terhadap alam.

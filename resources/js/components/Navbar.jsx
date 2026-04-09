@@ -207,7 +207,7 @@ export default function Navbar() {
                                 <Leaf size={22} color="#ffffff" />
                             </div>
                             <div>
-                                <span className="logo-text">Go Green School</span>
+                                <span className="logo-text">SMK Karya Bangsa</span>
                                 <span className="logo-sub">{t('tagline')}</span>
                             </div>
                         </Logo>
