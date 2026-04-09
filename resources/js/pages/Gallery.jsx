@@ -42,9 +42,19 @@ const GalleryItem = styled('div', {
     boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
     transition: 'all 0.35s ease',
     animation: `${fadeIn} 0.5s ease forwards`,
+    backgroundColor: '#f0f0f0',
+    '& img': {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        transition: 'transform 0.35s ease',
+    },
     '&:hover': {
         transform: 'scale(1.03)',
         boxShadow: '0 12px 32px rgba(34,139,34,0.2)',
+    },
+    '&:hover img': {
+        transform: 'scale(1.05)',
     },
     '&:hover .gallery-overlay': {
         opacity: 1,
@@ -67,20 +77,20 @@ const GalleryOverlay = styled('div', {
     padding: '16px',
 });
 
-// Gallery items with gradient backgrounds as placeholders
+// Gallery items with real photos from public/images/gallery/
 const galleryItems = [
-    { title: 'Bank Sampah', emoji: '♻️', bg: 'linear-gradient(135deg, #16a34a, #86efac)', span: 'col' },
-    { title: 'Kebun Vertikal', emoji: '🌿', bg: 'linear-gradient(135deg, #166534, #4ade80)' },
-    { title: 'Panel Surya', emoji: '☀️', bg: 'linear-gradient(135deg, #ca8a04, #fde047)' },
-    { title: 'Edukasi Hijau', emoji: '📚', bg: 'linear-gradient(135deg, #0891b2, #67e8f9)', span: 'row' },
-    { title: 'Kompos', emoji: '🌱', bg: 'linear-gradient(135deg, #65a30d, #d9f99d)' },
-    { title: 'Workshop', emoji: '🔨', bg: 'linear-gradient(135deg, #7c3aed, #c4b5fd)' },
-    { title: 'Pameran Inovasi', emoji: '🏆', bg: 'linear-gradient(135deg, #dc2626, #fca5a5)' },
-    { title: 'Siswa Go Green', emoji: '👩‍🌾', bg: 'linear-gradient(135deg, #228B22, #86efac)' },
-    { title: 'Daur Ulang', emoji: '🔄', bg: 'linear-gradient(135deg, #0369a1, #7dd3fc)' },
-    { title: 'Tanam Pohon', emoji: '🌳', bg: 'linear-gradient(135deg, #15803d, #bbf7d0)' },
-    { title: 'Hemat Air', emoji: '💧', bg: 'linear-gradient(135deg, #0284c7, #bae6fd)' },
-    { title: 'Eco Market', emoji: '🛒', bg: 'linear-gradient(135deg, #b45309, #fcd34d)' },
+    { src: '/images/gallery/pexels-artempodrez-7048268.jpg.jpeg' },
+    { src: '/images/gallery/pexels-cottonbro-6591426.jpg.jpeg' },
+    { src: '/images/gallery/pexels-cottonbro-6591431.jpg.jpeg' },
+    { src: '/images/gallery/pexels-ian-panelo-7538364.jpg.jpeg' },
+    { src: '/images/gallery/pexels-julia-m-cameron-6995380.jpg.jpeg' },
+    { src: '/images/gallery/pexels-rahimegul-18785067.jpg.jpeg' },
+    { src: '/images/gallery/pexels-rrodriguesim-18764116.jpg.jpeg' },
+    { src: '/images/gallery/pexels-sarah-chai-7263019.jpg.jpeg' },
+    { src: '/images/gallery/pexels-shvets-production-7512867.jpg.jpeg' },
+    { src: '/images/gallery/pexels-thanh-luu-29104820-18356943.jpg.jpeg' },
+    { src: '/images/gallery/pexels-thirdman-7656335.jpg.jpeg' },
+    { src: '/images/gallery/pexels-thirdman-7656341.jpg.jpeg' },
 ];
 
 export default function Gallery() {
@@ -103,22 +113,15 @@ export default function Gallery() {
                 <GalleryGrid>
                     {galleryItems.map((item, index) => (
                         <GalleryItem key={index} style={{
-                            background: item.bg,
                             animationDelay: `${index * 0.05}s`,
-                            gridColumn: item.span === 'col' ? 'span 2' : undefined,
-                            gridRow: item.span === 'row' ? 'span 2' : undefined,
                         }}>
-                            <div style={{
-                                position: 'absolute', inset: 0,
-                                display: 'flex', flexDirection: 'column',
-                                alignItems: 'center', justifyContent: 'center',
-                                gap: '8px',
-                            }}>
-                                <span style={{ fontSize: item.span ? '4rem' : '2.5rem', opacity: 0.7 }}>{item.emoji}</span>
-                                <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.75rem', fontWeight: 600 }}>{item.title}</span>
-                            </div>
+                            <img
+                                src={item.src}
+                                alt={`Gallery ${index + 1}`}
+                                loading="lazy"
+                            />
                             <GalleryOverlay className="gallery-overlay">
-                                {item.title}
+                                Foto {index + 1}
                             </GalleryOverlay>
                         </GalleryItem>
                     ))}
