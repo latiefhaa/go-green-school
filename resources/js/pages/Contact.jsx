@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { styled, fadeIn } from '../stitches.config';
-import { Mail, MapPin, Phone, Send, MessageCircle, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, MessageCircle, CheckCircle, Globe } from 'lucide-react';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
@@ -181,14 +181,21 @@ export default function Contact() {
                         <InfoIcon><Mail size={20} /></InfoIcon>
                         <div>
                             <div style={{ fontWeight: 600, color: '#1f2937', fontSize: '0.9rem', marginBottom: '2px' }}>Email</div>
-                            <div style={{ color: '#6b7280', fontSize: '0.85rem' }}>info@gogreenschool.id</div>
+                            <div style={{ color: '#6b7280', fontSize: '0.85rem' }}>info@karyabangsa.sch.id</div>
                         </div>
                     </InfoItem>
                     <InfoItem>
                         <InfoIcon><Phone size={20} /></InfoIcon>
                         <div>
                             <div style={{ fontWeight: 600, color: '#1f2937', fontSize: '0.9rem', marginBottom: '2px' }}>Telepon</div>
-                            <div style={{ color: '#6b7280', fontSize: '0.85rem' }}>+62 21 1234 5678</div>
+                            <div style={{ color: '#6b7280', fontSize: '0.85rem' }}>0815-4939-5400</div>
+                        </div>
+                    </InfoItem>
+                    <InfoItem>
+                        <InfoIcon><Globe size={20} /></InfoIcon>
+                        <div>
+                            <div style={{ fontWeight: 600, color: '#1f2937', fontSize: '0.9rem', marginBottom: '2px' }}>Website</div>
+                            <div style={{ color: '#6b7280', fontSize: '0.85rem' }}>https://karyabangsa.sch.id</div>
                         </div>
                     </InfoItem>
 

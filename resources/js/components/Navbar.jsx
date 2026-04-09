@@ -184,7 +184,6 @@ export default function Navbar() {
         { path: '/', label: t('nav.home') },
         { path: '/visi-misi', label: t('nav.visi_misi') },
         { path: '/program', label: t('nav.program') },
-        { path: '/edukasi', label: t('nav.edukasi') },
         { path: '/kalkulator-bank-sampah', label: t('nav.kalkulator') },
         { path: '/profil-sekolah', label: t('nav.profil') },
         { path: '/galeri', label: t('nav.galeri') },

@@ -6,7 +6,6 @@
         "home": "Home",
         "visi_misi": "Vision & Mission",
         "program": "Programs",
-        "edukasi": "Education",
         "galeri": "Gallery",
         "kontak": "Contact",
         "kalkulator": "Calculator"
@@ -46,16 +45,6 @@
         "remove_item": "Remove",
         "reset": "Recalculate",
         "price_per_kg": "Price/kg"
-    },
-    "education": {
-        "title": "Education & Collaborative Projects",
-        "subtitle": "Student projects combining various subjects for environmental education",
-        "filter_all": "All",
-        "filter_math_rpl": "Math + Software Eng",
-        "filter_bind_digimar": "Indonesian + Digital Marketing",
-        "filter_bing_kik": "English + Entrepreneurship",
-        "by": "By",
-        "subjects": "Subjects"
     },
     "visi_misi": {
         "title": "Vision & Mission",

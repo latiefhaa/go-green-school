@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { styled } from '../stitches.config';
-import { Leaf, Mail, MapPin, Phone, Send, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import { Leaf, Mail, MapPin, Phone, Send, MessageSquare, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
 
 const FooterWrap = styled('footer', {
     background: 'linear-gradient(135deg, #166534 0%, #1a6b1a 50%, #228B22 100%)',
@@ -219,11 +219,14 @@ export default function Footer() {
                         </BrandLogo>
                         <FooterDesc>{t('footer.description')}</FooterDesc>
                         <SocialRow>
-                            <SocialBtn href="#" target="_blank"><Facebook size={16} /></SocialBtn>
-                            <SocialBtn href="#" target="_blank"><Instagram size={16} /></SocialBtn>
-                            <SocialBtn href="#" target="_blank"><Youtube size={16} /></SocialBtn>
-                            <SocialBtn href="#" target="_blank"><Twitter size={16} /></SocialBtn>
+                            <SocialBtn href="https://wa.me/6281234567890?text=Halo%20Go%20Green%20School" target="_blank" rel="noreferrer"><MessageSquare size={16} /></SocialBtn>
+                            <SocialBtn href="https://instagram.com/gogreenschool" target="_blank" rel="noreferrer"><Instagram size={16} /></SocialBtn>
+                            <SocialBtn href="https://youtube.com/" target="_blank" rel="noreferrer"><Youtube size={16} /></SocialBtn>
+                            <SocialBtn href="https://twitter.com/" target="_blank" rel="noreferrer"><Twitter size={16} /></SocialBtn>
                         </SocialRow>
+                        <p style={{ marginTop: '12px', fontSize: '0.8rem', color: 'rgba(255,255,255,0.75)' }}>
+                            Chat langsung via WhatsApp atau kunjungi Instagram kami.
+                        </p>
                     </FooterBrand>
 
                     <FooterCol>
@@ -231,7 +234,6 @@ export default function Footer() {
                         <FooterLink to="/">{t('nav.home')}</FooterLink>
                         <FooterLink to="/visi-misi">{t('nav.visi_misi')}</FooterLink>
                         <FooterLink to="/program">{t('nav.program')}</FooterLink>
-                        <FooterLink to="/edukasi">{t('nav.edukasi')}</FooterLink>
                         <FooterLink to="/kalkulator-bank-sampah">{t('nav.kalkulator')}</FooterLink>
                         <FooterLink to="/galeri">{t('nav.galeri')}</FooterLink>
                         <FooterLink to="/kontak">{t('nav.kontak')}</FooterLink>
@@ -245,11 +247,15 @@ export default function Footer() {
                         </ContactItem>
                         <ContactItem>
                             <Mail size={15} />
-                            <span>info@gogreenschool.id</span>
+                            <span>info@karyabangsa.sch.id</span>
                         </ContactItem>
                         <ContactItem>
                             <Phone size={15} />
-                            <span>+62 21 1234 5678</span>
+                            <span>0815-4939-5400</span>
+                        </ContactItem>
+                        <ContactItem>
+                            <Globe size={15} />
+                            <span>karyabangsa.sch.id</span>
                         </ContactItem>
                     </FooterCol>
 

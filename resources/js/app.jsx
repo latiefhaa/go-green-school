@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import VisiMisi from './pages/VisiMisi';
 import Programs from './pages/Programs';
-import Education from './pages/Education';
+import ProgramInfo from './pages/ProgramInfo';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Calculator from './pages/Calculator';
@@ -23,7 +23,7 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/visi-misi" element={<VisiMisi />} />
                         <Route path="/program" element={<Programs />} />
-                        <Route path="/edukasi" element={<Education />} />
+                        <Route path="/program-info" element={<ProgramInfo />} />
                         <Route path="/galeri" element={<Gallery />} />
                         <Route path="/kontak" element={<Contact />} />
                         <Route path="/kalkulator-bank-sampah" element={<Calculator />} />

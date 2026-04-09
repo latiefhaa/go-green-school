@@ -387,17 +387,6 @@ const PROGRAMS_GO_GREEN = [
         mapel: ['Fisika', 'RPL', 'Digital Marketing'],
         stats: '30% hemat listrik',
     },
-    {
-        icon: <BookOpen size={22} />,
-        color: '#0891b2',
-        bg: 'rgba(8,145,178,0.08)',
-        title: 'Edukasi Hijau',
-        title_en: 'Green Education',
-        desc: 'Program lintas mata pelajaran yang mengintegrasikan isu lingkungan ke semua bidang studi. Termasuk pembuatan konten edukasi bilingual, infografis, dan kampanye media sosial.',
-        desc_en: 'A cross-subject program integrating environmental issues into all study fields, including bilingual educational content, infographics, and social media campaigns.',
-        mapel: ['B. Indonesia', 'B. Inggris', 'Digital Marketing'],
-        stats: '50+ konten/thn',
-    },
 ];
 
 const SUBJECTS = [
@@ -431,7 +420,7 @@ const TIMELINE = [
 const FACILITIES = [
     '🌿 Kebun Vertikal Hidroponik', '♻️ Bank Sampah Terpadu', '☀️ Panel Surya 5 kWp',
     '🌊 Kolam Aquaponik', '🔬 Lab Lingkungan Hidup', '💻 Lab Komputer (RPL)',
-    '📡 WiFi Seluruh Area', '🌳 Taman Edukasi Hijau', '🍃 Greenhouse Mini',
+    '📡 WiFi Seluruh Area', ' Greenhouse Mini',
     '📸 Studio Konten Digital', '🏭 Area Kompos', '🚿 Sistem Daur Ulang Air',
 ];
 
@@ -482,7 +471,7 @@ export default function Profil() {
                     <BadgeRow>
                         <Badge><Award size={12} /> Adiwiyata Nasional 2024</Badge>
                         <Badge><Star size={12} /> ASEAN Best Green School 2024</Badge>
-                        <Badge><CheckCircle size={12} /> Akreditasi A</Badge>
+                        <Badge><CheckCircle size={12} /> Akreditasi B</Badge>
                         <Badge><Leaf size={12} /> Eco-Friendly Campus</Badge>
                     </BadgeRow>
                 </HeroInner>
@@ -524,13 +513,13 @@ export default function Profil() {
                         <Card>
                             <CardTitle><School size={22} /> {isEn ? 'School Identity' : 'Identitas Sekolah'}</CardTitle>
                             {[
-                                { label: isEn ? 'School Name' : 'Nama Sekolah', value: 'SMK Go Green School' },
+                                { label: isEn ? 'School Name' : 'Nama Sekolah', value: 'SMK Karya Bangsa' },
                                 { label: isEn ? 'School Type' : 'Jenis Sekolah', value: 'SMK (Sekolah Menengah Kejuruan)' },
                                 { label: 'NPSN', value: '20238456' },
-                                { label: isEn ? 'Accreditation' : 'Akreditasi', value: 'A (Unggul)' },
+                                { label: isEn ? 'Accreditation' : 'Akreditasi', value: 'B' },
                                 { label: isEn ? 'Founded' : 'Tahun Berdiri', value: '2005' },
-                                { label: isEn ? 'Status' : 'Status', value: isEn ? 'Public School' : 'Sekolah Negeri' },
-                                { label: isEn ? 'Province' : 'Provinsi', value: 'DKI Jakarta' },
+                                { label: isEn ? 'Status' : 'Status', value: isEn ? 'Private School' : 'Sekolah Swasta' },
+                                { label: isEn ? 'Province' : 'Provinsi', value: 'Kalimantan Barat' },
                                 { label: isEn ? 'Curriculum' : 'Kurikulum', value: 'Merdeka Belajar (2022)' },
                             ].map((r, i) => (
                                 <InfoRow key={i}>
@@ -545,10 +534,10 @@ export default function Profil() {
                             <Card style={{ marginBottom: '16px' }}>
                                 <CardTitle><MapPin size={22} /> {isEn ? 'Contact & Location' : 'Kontak & Lokasi'}</CardTitle>
                                 {[
-                                    { icon: <MapPin size={15} />, label: isEn ? 'Address' : 'Alamat', value: 'Jl. Pendidikan Hijau No. 1, Kebayoran Baru, Jakarta Selatan 12160' },
-                                    { icon: <Phone size={15} />, label: isEn ? 'Phone' : 'Telepon', value: '(021) 7234-5678' },
-                                    { icon: <Mail size={15} />, label: 'Email', value: 'info@gogreenschool.id' },
-                                    { icon: <Globe size={15} />, label: 'Website', value: 'www.gogreenschool.id' },
+                                    { icon: <MapPin size={15} />, label: isEn ? 'Address' : 'Alamat', value: 'Jalan Sintang, Kapuas Kanan Hulu, Kec. Sungai Tebelian, Kabupaten Sintang, Kalimantan Barat 78616' },
+                                    { icon: <Phone size={15} />, label: isEn ? 'Phone' : 'Telepon', value: '0815-4939-5400' },
+                                    { icon: <Mail size={15} />, label: 'Email', value: 'info@karyabangsa.sch.id' },
+                                    { icon: <Globe size={15} />, label: 'Website', value: 'karyabangsa.sch.id' },
                                 ].map((r, i) => (
                                     <InfoRow key={i}>
                                         <InfoLabel style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#228B22' }}>

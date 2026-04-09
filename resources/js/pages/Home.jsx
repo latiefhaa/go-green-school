@@ -82,7 +82,6 @@ const FeatGrid = styled('div', {
     gridTemplateColumns: '1fr',
     gap: '40px',
     alignItems: 'center',
-    '@lg': { gridTemplateColumns: '1fr 1fr' },
 });
 
 const FeatText = styled('div', {});
@@ -143,10 +142,41 @@ const FeatVisual = styled('div', {
     overflow: 'hidden',
     background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
     padding: '48px 32px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     minHeight: '360px',
+    display: 'grid',
+    gap: '18px',
+    '@lg': {
+        gridTemplateColumns: '1fr 1fr',
+    },
+});
+
+const InfoGrid = styled('div', {
+    display: 'grid',
+    gap: '20px',
+    '@lg': {
+        gridTemplateColumns: '1fr 1fr',
+    },
+});
+
+const InfoCard = styled('div', {
+    background: '#ffffff',
+    borderRadius: '22px',
+    padding: '24px',
+    boxShadow: '0 20px 40px rgba(15,23,42,0.08)',
+    border: '1px solid rgba(34,139,34,0.08)',
+});
+
+const InfoCardTitle = styled('h3', {
+    fontSize: '1.05rem',
+    fontWeight: 800,
+    color: '#164e2e',
+    marginBottom: '10px',
+});
+
+const InfoCardText = styled('p', {
+    color: '#475569',
+    fontSize: '0.95rem',
+    lineHeight: 1.75,
 });
 
 const BigCircle = styled('div', {
@@ -187,6 +217,64 @@ const BtnAction = styled(Link, {
     },
 });
 
+const DeveloperSection = styled('section', {
+    background: 'linear-gradient(180deg, #f5fff3 0%, #f0fff0 100%)',
+    padding: '80px 24px',
+});
+
+const DeveloperRow = styled('div', {
+    maxWidth: '1280px',
+    margin: '0 auto',
+    display: 'grid',
+    gap: '24px',
+    gridTemplateColumns: '1fr',
+    '@md': {
+        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+    },
+});
+
+const DeveloperCard = styled('div', {
+    background: '#ffffff',
+    borderRadius: '28px',
+    padding: '32px',
+    boxShadow: '0 20px 60px rgba(15,23,42,0.08)',
+    border: '1px solid rgba(34,139,34,0.08)',
+});
+
+const DeveloperAvatar = styled('div', {
+    width: '96px',
+    height: '96px',
+    borderRadius: '24px',
+    overflow: 'hidden',
+    marginBottom: '18px',
+    background: 'linear-gradient(135deg, #86efac, #16a34a)',
+    '& img': {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+    },
+});
+
+const DeveloperName = styled('h3', {
+    fontSize: '1.15rem',
+    fontWeight: 800,
+    color: '#0f172a',
+    marginBottom: '6px',
+});
+
+const DeveloperRole = styled('p', {
+    fontSize: '0.9rem',
+    color: '#16a34a',
+    fontWeight: 700,
+    marginBottom: '14px',
+});
+
+const DeveloperDesc = styled('p', {
+    fontSize: '0.95rem',
+    color: '#475569',
+    lineHeight: 1.7,
+});
+
 export default function Home() {
     const { t } = useTranslation();
 
@@ -210,70 +298,88 @@ export default function Home() {
                             fontWeight: 600,
                             marginBottom: '16px',
                         }}>
-                            🌿 Kolaborasi Mata Pelajaran
+                            🌿 Pentingnya Go Green School
                         </span>
-                        <FeatTitle>Belajar Lingkungan Lewat Semua Mata Pelajaran</FeatTitle>
+                        <FeatTitle>Mengapa Go Green School Penting?</FeatTitle>
                         <FeatDesc>
-                            Go Green School mengintegrasikan pendidikan lingkungan ke dalam setiap mata pelajaran, menciptakan pengalaman belajar yang holistik dan bermakna.
+                            Go Green School adalah pendekatan pendidikan yang membawa prinsip keberlanjutan ke dalam kehidupan sekolah sehari-hari. Program ini mengajarkan siswa bahwa setiap tindakan kecil, dari memilah sampah hingga menghemat energi, berdampak nyata bagi lingkungan.
                         </FeatDesc>
-                        <FeatList>
-                            {[
-                                { icon: <Calculator size={18} />, title: 'Math + RPL', desc: 'Kalkulator bank sampah & analisis data lingkungan' },
-                                { icon: <BookOpen size={18} />, title: 'B.Ind + Digimar', desc: 'Kampanye digital & artikel lingkungan' },
-                                { icon: <Leaf size={18} />, title: 'B.Ing + KIK', desc: 'Pameran inovasi hijau dalam Bahasa Inggris' },
-                            ].map((item, i) => (
-                                <FeatItem key={i}>
-                                    <FeatItemIcon>{item.icon}</FeatItemIcon>
-                                    <div>
-                                        <div style={{ fontWeight: 600, fontSize: '0.9rem', color: '#1f2937', marginBottom: '4px' }}>{item.title}</div>
-                                        <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>{item.desc}</div>
-                                    </div>
-                                </FeatItem>
-                            ))}
-                        </FeatList>
-                        <BtnAction to="/edukasi">
-                            Lihat Semua Proyek <ArrowRight size={16} />
+                        <FeatDesc>
+                            Dengan menempatkan praktik ramah lingkungan dalam kegiatan belajar, siswa tidak hanya memahami teori, tetapi juga merasakan sendiri manfaatnya. Program ini membantu membentuk sikap tanggung jawab, kreativitas, dan rasa peduli terhadap alam.
+                        </FeatDesc>
+                        <FeatDesc>
+                            Sekolah menjadi tempat di mana kebiasaan hijau berkembang. Siswa belajar bekerja sama, merawat lingkungan, dan membawa perubahan positif yang dapat dilanjutkan di rumah dan komunitas.
+                        </FeatDesc>
+                        <FeatDesc>
+                            Hasilnya adalah generasi yang lebih sadar lingkungan, lebih siap menghadapi tantangan masa depan, dan mampu mengambil langkah kecil yang konsisten demi bumi yang lebih sehat.
+                        </FeatDesc>
+                        <BtnAction to="/program">
+                            Lihat Semua Program <ArrowRight size={16} />
                         </BtnAction>
                     </FeatText>
-
-                    <FeatVisual>
-                        <BigCircle>
-                            <div>
-                                <NumberBig>6</NumberBig>
-                                <p style={{ textAlign: 'center', color: '#228B22', fontWeight: 600, fontSize: '0.9rem', marginTop: '8px' }}>
-                                    Mata Pelajaran<br />Terintegrasi
-                                </p>
-                            </div>
-                        </BigCircle>
-                        {/* Floating badges */}
-                        {[
-                            { label: 'Math', top: '8%', left: '5%', bg: '#fef3c7' },
-                            { label: 'RPL', top: '8%', right: '5%', bg: '#dbeafe' },
-                            { label: 'B.Ind', bottom: '25%', left: '2%', bg: '#fce7f3' },
-                            { label: 'Digimar', bottom: '15%', right: '2%', bg: '#e0e7ff' },
-                            { label: 'B.Ing', bottom: '5%', left: '30%', bg: '#d1fae5' },
-                            { label: 'KIK', top: '30%', right: '3%', bg: '#fee2e2' },
-                        ].map((badge, i) => (
-                            <div key={i} style={{
-                                position: 'absolute',
-                                top: badge.top,
-                                bottom: badge.bottom,
-                                left: badge.left,
-                                right: badge.right,
-                                background: badge.bg,
-                                borderRadius: '10px',
-                                padding: '8px 14px',
-                                fontSize: '0.78rem',
-                                fontWeight: 700,
-                                color: '#374151',
-                                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-                            }}>
-                                {badge.label}
-                            </div>
-                        ))}
-                    </FeatVisual>
                 </FeatGrid>
             </FeaturesSection>
+
+            <DeveloperSection>
+                <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center', marginBottom: '40px' }}>
+                    <span style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: 'rgba(34,139,34,0.12)',
+                        color: '#166534',
+                        borderRadius: '999px',
+                        padding: '8px 20px',
+                        fontWeight: 700,
+                        fontSize: '0.85rem',
+                    }}>
+                        👩‍💻 Pengembang Web
+                    </span>
+                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginTop: '18px', color: '#0f172a' }}>
+                        Dibuat oleh tim yang fokus pada hasil dan profesionalisme
+                    </h2>
+                    <p style={{ color: '#475569', fontSize: '1rem', marginTop: '14px', lineHeight: 1.8, maxWidth: '680px', marginLeft: 'auto', marginRight: 'auto' }}>
+                        Tim pengembang memastikan website tidak hanya menarik, tetapi juga cepat, responsif, dan mudah digunakan di semua perangkat.
+                    </p>
+                </div>
+                <DeveloperRow>
+                    {[
+                        {
+                            name: 'Latiefha',
+                            role: 'Frontend Developer',
+                            desc: 'Mendesain antarmuka dan mengembangkan halaman web interaktif dengan fokus pada performa dan pengalaman pengguna.',
+                            image: 'https://ui-avatars.com/api/?name=Latiefha&background=16a34a&color=ffffff&size=256',
+                        },
+                        {
+                            name: 'Aren',
+                            role: 'Backend Developer',
+                            desc: 'Menangani logika aplikasi, integrasi data, dan struktur teknis agar website berjalan stabil dan mudah dikelola.',
+                            image: 'https://ui-avatars.com/api/?name=Aren&background=22c55e&color=ffffff&size=256',
+                        },
+                        {
+                            name: 'Rindu',
+                            role: 'Designer',
+                            desc: 'Merancang tampilan visual yang bersih, intuitif, dan sesuai dengan citra sekolah ramah lingkungan.',
+                            image: 'https://ui-avatars.com/api/?name=Rindu&background=059669&color=ffffff&size=256',
+                        },
+                        {
+                            name: 'Josaphat',
+                            role: 'Full Stack Developer',
+                            desc: 'Menghubungkan frontend dan backend untuk memberikan pengalaman website yang lengkap dan mudah digunakan.',
+                            image: 'https://ui-avatars.com/api/?name=Josaphat&background=047857&color=ffffff&size=256',
+                        },
+                    ].map((dev) => (
+                        <DeveloperCard key={dev.name}>
+                            <DeveloperAvatar>
+                                <img src={dev.image} alt={dev.name} />
+                            </DeveloperAvatar>
+                            <DeveloperName>{dev.name}</DeveloperName>
+                            <DeveloperRole>{dev.role}</DeveloperRole>
+                            <DeveloperDesc>{dev.desc}</DeveloperDesc>
+                        </DeveloperCard>
+                    ))}
+                </DeveloperRow>
+            </DeveloperSection>
 
             {/* CTA Section */}
             <CTASection>
@@ -291,10 +397,6 @@ export default function Home() {
                         <CtaBtn to="/kalkulator-bank-sampah" variant="white">
                             <Calculator size={18} />
                             Coba Kalkulator
-                        </CtaBtn>
-                        <CtaBtn to="/edukasi" variant="outline">
-                            <BookOpen size={18} />
-                            Baca Artikel Edukasi
                         </CtaBtn>
                     </CTABtnGroup>
                 </CTAInner>

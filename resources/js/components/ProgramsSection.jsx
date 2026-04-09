@@ -152,6 +152,13 @@ const iconMap = {
     'book-open': <BookOpen size={28} />,
 };
 
+const imageMap = {
+    'bank-sampah': '/images/programs/bank-sampah.jpeg',
+    'kebun-vertikal': '/images/programs/kebun-vertikal.jpeg',
+    'hemat-energi': '/images/programs/hemat-energi.jpeg',
+    'edukasi-hijau': '/images/programs/edukasi-hijau.jpeg',
+};
+
 // Fallback data in case API fails
 const fallbackPrograms = [
     {
@@ -162,6 +169,7 @@ const fallbackPrograms = [
         description_en: 'Integrated waste management program teaching students the economic value of recyclable waste.',
         icon: 'recycle',
         slug: 'bank-sampah',
+        image: '/images/programs/bank-sampah.jpeg',
     },
     {
         id: 2,
@@ -171,6 +179,7 @@ const fallbackPrograms = [
         description_en: 'Utilizing limited space with vertical farming techniques to grow vegetables and medicinal plants.',
         icon: 'leaf',
         slug: 'kebun-vertikal',
+        image: '/images/programs/kebun-vertikal.jpeg',
     },
     {
         id: 3,
@@ -180,15 +189,17 @@ const fallbackPrograms = [
         description_en: 'Energy saving campaigns, from mini solar panels to daily electricity usage monitoring.',
         icon: 'zap',
         slug: 'hemat-energi',
+        image: '/images/programs/hemat-energi.jpeg',
     },
     {
         id: 4,
         title: 'Edukasi Hijau',
         title_en: 'Green Education',
-        description: 'Program edukasi lingkungan yang mengintegrasikan semua mata pelajaran melalui proyek kolaboratif.',
-        description_en: 'Environmental education integrating all subjects through collaborative projects.',
+        description: 'Program pembelajaran lingkungan yang menghadirkan aktivitas kelas, demonstrasi, dan proyek kreatif untuk meningkatkan kesadaran hijau.',
+        description_en: 'Environmental learning program with classroom activities, demonstrations, and creative projects to raise green awareness.',
         icon: 'book-open',
         slug: 'edukasi-hijau',
+        image: '/images/programs/edukasi-hijau.jpeg',
     },
 ];
 

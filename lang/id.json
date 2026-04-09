@@ -6,7 +6,6 @@
         "home": "Beranda",
         "visi_misi": "Visi & Misi",
         "program": "Program",
-        "edukasi": "Edukasi",
         "galeri": "Galeri",
         "kontak": "Kontak",
         "kalkulator": "Kalkulator"
@@ -46,16 +45,6 @@
         "remove_item": "Hapus",
         "reset": "Hitung Ulang",
         "price_per_kg": "Harga/kg"
-    },
-    "education": {
-        "title": "Edukasi & Proyek Kolaborasi",
-        "subtitle": "Proyek-proyek siswa yang menggabungkan berbagai mata pelajaran untuk pendidikan lingkungan",
-        "filter_all": "Semua",
-        "filter_math_rpl": "Math + RPL",
-        "filter_bind_digimar": "B.Ind + Digimar",
-        "filter_bing_kik": "B.Ing + KIK",
-        "by": "Oleh",
-        "subjects": "Mata Pelajaran"
     },
     "visi_misi": {
         "title": "Visi & Misi",
