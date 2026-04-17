@@ -132,17 +132,40 @@ const MobileMenuBtn = styled('button', {
     },
 });
 
+const MobileMenuHeader = styled('div', {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '12px',
+    paddingBottom: '10px',
+    borderBottom: '1px solid rgba(255,255,255,0.18)',
+    color: '#ffffff',
+});
+
+const MobileLangBtn = styled(LangBtn, {
+    width: '100%',
+    justifyContent: 'center',
+    padding: '12px 16px',
+    borderRadius: '16px',
+    background: 'rgba(255,255,255,0.12)',
+    border: '1px solid rgba(255,255,255,0.28)',
+    '&:hover': {
+        background: 'rgba(255,255,255,0.18)',
+    },
+});
+
 const MobileMenu = styled('div', {
     position: 'fixed',
     top: '70px',
     left: 0,
     right: 0,
+    bottom: 0,
     backgroundColor: 'rgba(34, 139, 34, 0.98)',
     backdropFilter: 'blur(16px)',
-    padding: '18px 24px 24px',
+    padding: '18px 20px 24px',
     display: 'flex',
     flexDirection: 'column',
-    gap: '8px',
+    gap: '14px',
     boxShadow: '0 22px 60px rgba(15,23,42,0.22)',
     transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
     zIndex: 2050,
@@ -187,6 +210,13 @@ export default function Navbar() {
     useEffect(() => {
         setMobileOpen(false);
     }, [location]);
+
+    useEffect(() => {
+        document.body.style.overflow = mobileOpen ? 'hidden' : 'auto';
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [mobileOpen]);
 
     const toggleLang = () => {
         const newLang = i18n.language === 'id' ? 'en' : 'id';
@@ -247,10 +277,6 @@ export default function Navbar() {
                     </NavLinks>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <LangBtn onClick={toggleLang} style={{ display: 'none' }} className="md:flex">
-                            <Globe size={14} />
-                            {i18n.language.toUpperCase()}
-                        </LangBtn>
                         <MobileMenuBtn onClick={() => setMobileOpen(!mobileOpen)}>
                             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
                         </MobileMenuBtn>
@@ -261,10 +287,14 @@ export default function Navbar() {
             {mobileOpen && (
                 <MobileMenu style={{
                     opacity: mobileOpen ? 1 : 0,
-                    transform: mobileOpen ? 'translateY(0)' : 'translateY(-10px)',
+                    transform: mobileOpen ? 'translateY(0)' : 'translateY(-12px)',
                     pointerEvents: mobileOpen ? 'auto' : 'none',
                     visibility: mobileOpen ? 'visible' : 'hidden',
                 }}>
+                    <MobileMenuHeader>
+                        <div style={{ fontSize: '0.95rem', fontWeight: 700 }}>Menu</div>
+                        <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.84)' }}>{i18n.language === 'id' ? 'ID' : 'EN'}</div>
+                    </MobileMenuHeader>
                     {navItems.map((item) => (
                         <MobileNavLink
                             key={item.path}
@@ -275,12 +305,10 @@ export default function Navbar() {
                             {item.label}
                         </MobileNavLink>
                     ))}
-                    <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
-                        <LangBtn onClick={toggleLang} style={{ width: '100%', justifyContent: 'center' }}>
-                            <Globe size={14} />
-                            {i18n.language === 'id' ? '🇮🇩 Indonesia' : '🇬🇧 English'}
-                        </LangBtn>
-                    </div>
+                    <MobileLangBtn onClick={toggleLang}>
+                        <Globe size={16} />
+                        {i18n.language === 'id' ? 'Indonesia' : 'English'}
+                    </MobileLangBtn>
                 </MobileMenu>
             )}
 
