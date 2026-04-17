@@ -352,10 +352,15 @@ const Tab = styled('button', {
             false: {
                 background: '#ffffff',
                 color: '#374151',
-                '&:hover': { background: '#f0fdf4', borderColor: '#228B22', color: '#228B22' },
+                '&:hover': { background: '#f0fdf4', borderColor: '#228B22', color: '#228B22', transform: 'translateY(-1px)' },
             },
         },
     },
+});
+
+const TabPanel = styled('div', {
+    animation: `${fadeIn} 0.45s ease both`,
+    transition: 'opacity 0.35s ease, transform 0.35s ease',
 });
 
 /* ─── Data ───────────────────────────────────────────────── */
@@ -472,7 +477,7 @@ export default function Profil() {
 
             <Content>
                 {/* ── Stats Strip ── */}
-                <StatsStrip>
+                <StatsStrip className="scroll-reveal">
                     {[
                         { num: '150+', label: isEn ? 'Active Students' : 'Siswa Aktif', delay: '0s' },
                         { num: '15+', label: isEn ? 'Educators' : 'Tenaga Pendidik', delay: '0.05s' },
@@ -487,7 +492,7 @@ export default function Profil() {
                 </StatsStrip>
 
                 {/* ── Tabs ── */}
-                <TabRow>
+                <TabRow className="scroll-reveal">
                     {tabs.map(tab => (
                         <Tab
                             key={tab.id}
@@ -501,9 +506,10 @@ export default function Profil() {
 
                 {/* ── Tab: Identitas Sekolah ── */}
                 {activeTab === 'profil' && (
-                    <TwoCol>
-                        {/* Identitas */}
-                        <Card>
+                    <TabPanel>
+                        <TwoCol>
+                            {/* Identitas */}
+                            <Card>
                             <CardTitle><School size={22} /> {isEn ? 'School Identity' : 'Identitas Sekolah'}</CardTitle>
                             {[
                                 { label: isEn ? 'School Name' : 'Nama Sekolah', value: 'SMK Karya Bangsa' },
@@ -566,11 +572,12 @@ export default function Profil() {
                             </FacilityGrid>
                         </Card>
                     </TwoCol>
+                    </TabPanel>
                 )}
 
                 {/* ── Tab: Program Sekolah ── */}
                 {activeTab === 'program' && (
-                    <>
+                    <TabPanel>
                         {/* Intro */}
                         <Card style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)', border: '1px solid rgba(34,139,34,0.15)' }}>
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
@@ -638,13 +645,14 @@ export default function Profil() {
                                 ))}
                             </div>
                         </Card>
-                    </>
+                    </TabPanel>
                 )}
 
 
                 {/* ── Tab: Prestasi ── */}
                 {activeTab === 'prestasi' && (
-                    <Card>
+                    <TabPanel>
+                        <Card>
                         <CardTitle><Award size={22} /> {isEn ? 'Awards & Achievements' : 'Penghargaan & Prestasi'}</CardTitle>
                         <AchievGrid>
                             {ACHIEVEMENTS.map((a, i) => (
@@ -679,11 +687,13 @@ export default function Profil() {
                             </div>
                         </div>
                     </Card>
+                    </TabPanel>
                 )}
 
                 {/* ── Tab: Sejarah ── */}
                 {activeTab === 'sejarah' && (
-                    <Card>
+                    <TabPanel>
+                        <Card>
                         <CardTitle><Calendar size={22} /> {isEn ? 'Program History' : 'Sejarah Program'}</CardTitle>
                         <div style={{ position: 'relative', paddingLeft: '32px', borderLeft: '2px solid #dcfce7' }}>
                             {TIMELINE.map((item, i) => (
@@ -695,6 +705,7 @@ export default function Profil() {
                             ))}
                         </div>
                     </Card>
+                    </TabPanel>
                 )}
             </Content>
         </PageWrap>

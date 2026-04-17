@@ -165,7 +165,7 @@ export default function Contact() {
                 </div>
             </PageHeader>
 
-            <Content>
+            <Content className="scroll-reveal">
                 <InfoCard>
                     <h3 style={{ fontWeight: 700, color: '#1f2937', marginBottom: '20px', fontSize: '1.1rem' }}>
                         Informasi Kontak
@@ -220,7 +220,7 @@ export default function Contact() {
                     </div>
                 </InfoCard>
 
-                <FormCard>
+                <FormCard className="scroll-reveal">
                     <h3 style={{ fontWeight: 700, color: '#1f2937', marginBottom: '24px', fontSize: '1.1rem' }}>
                         Kirim Pesan
                     </h3>

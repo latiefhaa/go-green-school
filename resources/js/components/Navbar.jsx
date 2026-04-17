@@ -110,17 +110,26 @@ const LangBtn = styled('button', {
 
 const MobileMenuBtn = styled('button', {
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     '@md': { display: 'none' },
     background: 'transparent',
     border: 'none',
     color: '#ffffff',
     cursor: 'pointer',
-    padding: '12px',
-    minWidth: '44px',
-    minHeight: '44px',
+    padding: '8px',
+    minWidth: '48px',
+    minHeight: '48px',
     borderRadius: '12px',
     zIndex: 2100,
-    '&:hover': { background: 'rgba(255,255,255,0.1)' },
+    transition: 'background-color 0.25s ease, transform 0.15s ease',
+    WebkitTapHighlightColor: 'transparent',
+    '&:hover': {
+        background: 'rgba(255,255,255,0.15)',
+    },
+    '&:active': {
+        transform: 'scale(0.95)',
+    },
 });
 
 const MobileMenu = styled('div', {
@@ -135,7 +144,8 @@ const MobileMenu = styled('div', {
     flexDirection: 'column',
     gap: '8px',
     boxShadow: '0 22px 60px rgba(15,23,42,0.22)',
-    transition: 'opacity 0.35s ease, transform 0.35s ease',
+    transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+    zIndex: 2050,
     '@md': { display: 'none' },
 });
 
@@ -249,7 +259,12 @@ export default function Navbar() {
             </Nav>
 
             {mobileOpen && (
-                <MobileMenu>
+                <MobileMenu style={{
+                    opacity: mobileOpen ? 1 : 0,
+                    transform: mobileOpen ? 'translateY(0)' : 'translateY(-10px)',
+                    pointerEvents: mobileOpen ? 'auto' : 'none',
+                    visibility: mobileOpen ? 'visible' : 'hidden',
+                }}>
                     {navItems.map((item) => (
                         <MobileNavLink
                             key={item.path}

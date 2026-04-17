@@ -181,7 +181,7 @@ export default function VisiMisi() {
 
             <Content>
                 {/* Visi */}
-                <Section>
+                <Section className="scroll-reveal">
                     <SectionTitle>
                         <Eye size={24} />
                         {t('visi_misi.visi_title')}
@@ -193,7 +193,7 @@ export default function VisiMisi() {
                 </Section>
 
                 {/* Misi */}
-                <Section style={{ animationDelay: '0.1s' }}>
+                <Section className="scroll-reveal" style={{ animationDelay: '0.1s' }}>
                     <SectionTitle>
                         <Target size={24} />
                         {t('visi_misi.misi_title')}
@@ -211,7 +211,7 @@ export default function VisiMisi() {
                 </Section>
 
                 {/* Values */}
-                <Section style={{ animationDelay: '0.2s' }}>
+                <Section className="scroll-reveal" style={{ animationDelay: '0.2s' }}>
                     <SectionTitle>
                         <Heart size={24} />
                         {t('visi_misi.values_title')}

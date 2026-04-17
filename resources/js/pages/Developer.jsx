@@ -1,12 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { styled } from '../stitches.config';
+import { styled, fadeIn } from '../stitches.config';
 import { UserCircle2, Camera } from 'lucide-react';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
     background: 'linear-gradient(180deg, #f8fff8 0%, #effff2 100%)',
     paddingBottom: '90px',
+    position: 'relative',
+    '&::before': {
+        content: '""',
+        position: 'fixed',
+        inset: '0',
+        backgroundImage: `radial-gradient(circle at 20% 50%, rgba(34,139,34,0.03) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(34,139,34,0.02) 0%, transparent 50%)`,
+        pointerEvents: 'none',
+        zIndex: 0,
+    },
 });
 
 const Hero = styled('div', {
@@ -15,6 +24,28 @@ const Hero = styled('div', {
     position: 'relative',
     overflow: 'hidden',
     boxShadow: 'inset 0 0 120px rgba(0,0,0,0.08)',
+    '&::before': {
+        content: '""',
+        position: 'absolute',
+        top: '-60px',
+        right: '-60px',
+        width: '240px',
+        height: '240px',
+        borderRadius: '50%',
+        background: 'rgba(255,255,255,0.05)',
+        zIndex: 0,
+    },
+    '&::after': {
+        content: '""',
+        position: 'absolute',
+        bottom: '-40px',
+        left: '-40px',
+        width: '180px',
+        height: '180px',
+        borderRadius: '50%',
+        background: 'rgba(255,255,255,0.05)',
+        zIndex: 0,
+    },
 });
 
 const HeroInner = styled('div', {
@@ -25,6 +56,8 @@ const HeroInner = styled('div', {
     alignItems: 'center',
     textAlign: 'center',
     gap: '18px',
+    position: 'relative',
+    zIndex: 1,
 });
 
 const PageTitle = styled('h1', {
@@ -32,6 +65,7 @@ const PageTitle = styled('h1', {
     fontWeight: 800,
     color: '#ffffff',
     lineHeight: 1.15,
+    animation: `${fadeIn} 0.8s ease forwards`,
     '@lg': { fontSize: '2.8rem' },
 });
 
@@ -40,6 +74,8 @@ const PageSubtitle = styled('p', {
     maxWidth: '720px',
     lineHeight: 1.7,
     fontSize: '1rem',
+    animation: `${fadeIn} 0.8s ease 0.2s forwards`,
+    opacity: 0,
 });
 
 const Content = styled('div', {
@@ -47,7 +83,7 @@ const Content = styled('div', {
     margin: '-60px auto 0',
     padding: '0 24px',
     position: 'relative',
-    zIndex: 1,
+    zIndex: 2,
 });
 
 const CardGrid = styled('div', {
@@ -66,10 +102,15 @@ const ProfileCard = styled('div', {
     border: '1px solid rgba(34,139,34,0.08)',
     textAlign: 'center',
     transition: 'transform 0.35s ease, box-shadow 0.35s ease',
+    animation: `${fadeIn} 0.6s ease forwards`,
     '&:hover': {
         transform: 'translateY(-6px)',
         boxShadow: '0 28px 70px rgba(15, 23, 42, 0.12)',
     },
+    '&:nth-child(1)': { animationDelay: '0.1s' },
+    '&:nth-child(2)': { animationDelay: '0.2s' },
+    '&:nth-child(3)': { animationDelay: '0.3s' },
+    '&:nth-child(4)': { animationDelay: '0.4s' },
 });
 
 const ProfileImage = styled('img', {

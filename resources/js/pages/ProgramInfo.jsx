@@ -140,28 +140,28 @@ export default function ProgramInfo() {
             </PageHeader>
 
             <Content>
-                <Section>
+                <Section className="scroll-reveal">
                     <SectionTitle>Introduction</SectionTitle>
                     <SectionText>
                         Go Green School runs a learning program built around environmental stewardship and meaningful action. It creates a framework where students and teachers collaborate to make waste reduction, energy efficiency, and green living part of daily routines.
                     </SectionText>
                 </Section>
 
-                <Section>
+                <Section className="scroll-reveal">
                     <SectionTitle>Description</SectionTitle>
                     <SectionText>
                         This program combines hands-on projects, school-wide campaigns, and community involvement. It is designed to be accessible for every school, using simple practices that students can carry home and share with their families.
                     </SectionText>
                 </Section>
 
-                <Section>
+                <Section className="scroll-reveal">
                     <SectionTitle>Explanation</SectionTitle>
                     <SectionText>
                         The core idea is that schools are powerful places for change. When students practice sustainable habits in class, they learn responsibility, empathy, and systems thinking. The program turns abstract environmental topics into concrete activities that feel relevant and rewarding.
                     </SectionText>
                 </Section>
 
-                <Section>
+                <Section className="scroll-reveal">
                     <SectionTitle>Information</SectionTitle>
                     <SectionText>
                         Go Green School covers several practical areas that schools can implement step by step. Each element is selected to support learning outcomes and environmental impact together.
@@ -186,7 +186,7 @@ export default function ProgramInfo() {
                     </SectionList>
                 </Section>
 
-                <Section>
+                <Section className="scroll-reveal">
                     <SectionTitle>Procedure</SectionTitle>
                     <SectionText>
                         A successful Go Green School program starts with awareness and moves into action. Schools plan clear steps, assign roles, measure progress, and reflect on results so every year’s efforts become stronger.

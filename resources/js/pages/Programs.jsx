@@ -53,14 +53,15 @@ const CardVisual = styled('div', {
     position: 'relative',
     overflow: 'hidden',
     padding: '28px',
+    background: '#f8fafc',
     '@lg': { minHeight: '100%', padding: '36px' },
 });
 
 const CardVisualOverlay = styled('div', {
     position: 'absolute',
     inset: 0,
-    opacity: 0.32,
-    background: 'linear-gradient(180deg, rgba(15,23,42,0.24), rgba(15,23,42,0.04))',
+    opacity: 0,
+    background: 'transparent',
 });
 
 const CardImage = styled('img', {
@@ -69,10 +70,11 @@ const CardImage = styled('img', {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    opacity: 0.72,
-    transform: 'scale(1.02)',
-    filter: 'brightness(0.85)',
+    opacity: 1,
+    transform: 'scale(1)',
+    filter: 'none',
     zIndex: 0,
+    transition: 'transform 0.5s ease',
 });
 
 const CardContent = styled('div', {
@@ -309,7 +311,7 @@ export default function Programs() {
             </PageHeader>
 
             <Content>
-                <IntroSection>
+                <IntroSection className="scroll-reveal">
                     <IntroMeta>
                         <Sprout size={18} />
                         Discover the Go Green School approach
@@ -347,7 +349,7 @@ export default function Programs() {
                 </IntroSection>
 
                 {programList.map((program, index) => (
-                    <ProgramCard key={program.id} id={program.slug} style={{ animationDelay: `${index * 0.1}s` }}>
+                    <ProgramCard key={program.id} id={program.slug} className="scroll-reveal" style={{ animationDelay: `${index * 0.1}s` }}>
                         <CardVisual style={{ background: bgMap[program.slug] || 'linear-gradient(135deg, #228B22, #4ade80)' }}>
                             {program.image && (
                                 <CardImage src={program.image} alt={isEn ? (program.title_en || program.title) : program.title} />

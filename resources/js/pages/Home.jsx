@@ -295,7 +295,7 @@ export default function Home() {
             <ProgramsSection />
 
             {/* Features / About section */}
-            <FeaturesSection>
+            <FeaturesSection className="scroll-reveal">
                 <FeatGrid>
                     <FeatText>
                         <span style={{
@@ -330,7 +330,7 @@ export default function Home() {
                 </FeatGrid>
             </FeaturesSection>
 
-            <DeveloperSection>
+            <DeveloperSection className="scroll-reveal">
                 <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center', marginBottom: '40px' }}>
                     <span style={{
                         display: 'inline-flex',
