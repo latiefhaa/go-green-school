@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { styled, fadeIn } from '../stitches.config';
 import { Recycle, Sprout, Zap, BookOpen, ArrowRight, Check } from 'lucide-react';
 import axios from 'axios';
+import useThemeMode from '../hooks/useThemeMode';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
@@ -25,6 +26,7 @@ const Content = styled('div', {
     padding: '0 24px',
     position: 'relative',
     zIndex: 10,
+    '@sm': { padding: '0 16px' },
 });
 
 const ProgramCard = styled('article', {
@@ -79,6 +81,7 @@ const CardImage = styled('img', {
 
 const CardContent = styled('div', {
     padding: '32px',
+    '@sm': { padding: '24px 20px' },
     '@lg': { padding: '36px 40px' },
 });
 
@@ -148,6 +151,7 @@ const IntroSection = styled('div', {
     boxShadow: '0 16px 45px rgba(15,23,42,0.08)',
     marginBottom: '26px',
     textAlign: 'center',
+    '@sm': { padding: '24px 18px' },
 });
 
 const IntroMeta = styled('div', {
@@ -277,6 +281,7 @@ const fallbackPrograms = [
 
 export default function Programs() {
     const { t, i18n } = useTranslation();
+    const { mode } = useThemeMode();
     const isEn = i18n.language === 'en';
     const [programs, setPrograms] = useState(fallbackPrograms);
 
@@ -294,8 +299,8 @@ export default function Programs() {
     }));
 
     return (
-        <PageWrap>
-            <PageHeader>
+        <PageWrap className="themed-page programs-page" data-theme-mode={mode}>
+            <PageHeader className="theme-hero">
                 <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '20px', padding: '6px 16px', fontSize: '0.8rem', fontWeight: 600, color: '#ffffff', marginBottom: '16px' }}>
@@ -314,35 +319,35 @@ export default function Programs() {
                 <IntroSection className="scroll-reveal">
                     <IntroMeta>
                         <Sprout size={18} />
-                        Discover the Go Green School approach
+                        {t('programs.intro.meta')}
                     </IntroMeta>
-                    <IntroTitle>Practical programs that teach sustainability with purpose.</IntroTitle>
+                    <IntroTitle>{t('programs.intro.title')}</IntroTitle>
                     <IntroText>
-                        Our curriculum blends hands-on learning with real-world impact. Students gain confidence through activities that support recycling, energy efficiency, and environmental stewardship, while the school builds a stronger culture of eco-awareness.
+                        {t('programs.intro.description')}
                     </IntroText>
                     <InfoRow>
                         <InfoCard>
-                            <InfoCardTitle>Why this matters</InfoCardTitle>
+                            <InfoCardTitle>{t('programs.intro.cards.why.title')}</InfoCardTitle>
                             <InfoCardText>
-                                Students learn by doing, turning awareness into measurable change across the school and community.
+                                {t('programs.intro.cards.why.text')}
                             </InfoCardText>
                         </InfoCard>
                         <InfoCard>
-                            <InfoCardTitle>What you will find</InfoCardTitle>
+                            <InfoCardTitle>{t('programs.intro.cards.what.title')}</InfoCardTitle>
                             <InfoCardText>
-                                Structured programs for waste management, green gardening, and energy-saving habits with clear student outcomes.
+                                {t('programs.intro.cards.what.text')}
                             </InfoCardText>
                         </InfoCard>
                         <InfoCard>
-                            <InfoCardTitle>Next step</InfoCardTitle>
+                            <InfoCardTitle>{t('programs.intro.cards.next.title')}</InfoCardTitle>
                             <InfoCardText>
-                                Explore the full program story on the dedicated page for deeper background and implementation details.
+                                {t('programs.intro.cards.next.text')}
                             </InfoCardText>
                         </InfoCard>
                     </InfoRow>
                     <SectionCard>
                         <SectionButton to="/program-info">
-                            Learn More About the Program
+                            {t('programs.intro.cta')}
                             <ArrowRight size={18} />
                         </SectionButton>
                     </SectionCard>
@@ -363,7 +368,7 @@ export default function Programs() {
                             <CardHeader>
                                 <div>
                                     <ProgramTitle>{isEn ? (program.title_en || program.title) : program.title}</ProgramTitle>
-                                    <ProgramMeta>{isEn ? 'Featured Program' : 'Program Unggulan'}</ProgramMeta>
+                                    <ProgramMeta>{t('programs.featured_label')}</ProgramMeta>
                                 </div>
                             </CardHeader>
                             <ProgramDesc>{isEn ? (program.description_en || program.description) : program.description}</ProgramDesc>

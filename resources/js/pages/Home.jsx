@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import ProgramsSection from '../components/ProgramsSection';
 import { styled, fadeIn } from '../stitches.config';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Calculator, BookOpen, ArrowRight, Leaf, Recycle, Sun, Droplets } from 'lucide-react';
+import useThemeMode from '../hooks/useThemeMode';
 
 const CTASection = styled('section', {
     background: 'linear-gradient(135deg, #1f7a1f, #1c5e1c)',
@@ -69,6 +70,192 @@ const CtaBtn = styled(Link, {
                 '&:hover': { background: 'rgba(255,255,255,0.18)', borderColor: '#ffffff', transform: 'translateY(-3px)' },
             },
         },
+    },
+});
+
+const CarouselSection = styled('section', {
+    padding: '34px 24px 46px',
+    background: 'linear-gradient(180deg, #f7fff4 0%, #effff2 100%)',
+});
+
+const CarouselInner = styled('div', {
+    maxWidth: '1100px',
+    margin: '0 auto',
+});
+
+const CarouselFrame = styled('div', {
+    overflow: 'hidden',
+    borderRadius: '28px',
+    border: '1px solid rgba(34,139,34,0.12)',
+    boxShadow: '0 26px 70px rgba(15,23,42,0.08)',
+    background: '#ffffff',
+});
+
+const CarouselTrack = styled('div', {
+    display: 'flex',
+    transition: 'transform 0.65s cubic-bezier(0.2, 0.9, 0.25, 1)',
+    willChange: 'transform',
+});
+
+const CarouselSlide = styled('article', {
+    minWidth: '100%',
+    padding: '30px 26px',
+    display: 'grid',
+    gap: '22px',
+    '@lg': {
+        gridTemplateColumns: '1.15fr 0.85fr',
+        alignItems: 'center',
+        padding: '36px 38px',
+    },
+});
+
+const SlideBadge = styled('span', {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '8px',
+    borderRadius: '999px',
+    padding: '8px 14px',
+    fontWeight: 700,
+    fontSize: '0.78rem',
+    letterSpacing: '0.05em',
+    background: 'rgba(34,139,34,0.12)',
+    color: '#176534',
+});
+
+const SlideTitle = styled('h3', {
+    fontSize: '1.6rem',
+    lineHeight: 1.2,
+    fontWeight: 800,
+    color: '#0f172a',
+    marginTop: '14px',
+    '@lg': {
+        fontSize: '2.1rem',
+    },
+});
+
+const SlideDesc = styled('p', {
+    marginTop: '12px',
+    color: '#475569',
+    fontSize: '0.96rem',
+    lineHeight: 1.8,
+    maxWidth: '620px',
+});
+
+const SlideAction = styled(Link, {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '8px',
+    marginTop: '18px',
+    borderRadius: '999px',
+    textDecoration: 'none',
+    fontWeight: 700,
+    fontSize: '0.88rem',
+    color: '#ffffff',
+    background: '#228B22',
+    padding: '11px 18px',
+    transition: 'transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease',
+    boxShadow: '0 10px 24px rgba(34,139,34,0.26)',
+    '&:hover': {
+        transform: 'translateY(-2px)',
+        background: '#1e7a1e',
+    },
+});
+
+const SlideVisual = styled('div', {
+    borderRadius: '22px',
+    padding: '22px',
+    minHeight: '230px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    gap: '10px',
+    color: '#ffffff',
+    position: 'relative',
+    overflow: 'hidden',
+    '& h4': {
+        fontSize: '1rem',
+        fontWeight: 800,
+    },
+    '& p': {
+        fontSize: '0.87rem',
+        lineHeight: 1.7,
+        color: 'rgba(255,255,255,0.92)',
+    },
+});
+
+const SlideVisualImage = styled('img', {
+    position: 'absolute',
+    inset: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+});
+
+const SlideVisualOverlay = styled('div', {
+    position: 'absolute',
+    inset: 0,
+    background: 'linear-gradient(180deg, rgba(15,23,42,0.12) 20%, rgba(15,23,42,0.72) 100%)',
+});
+
+const SlideVisualContent = styled('div', {
+    position: 'relative',
+    zIndex: 1,
+});
+
+const CarouselFooter = styled('div', {
+    marginTop: '14px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '14px',
+    flexWrap: 'wrap',
+});
+
+const DotRow = styled('div', {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+});
+
+const DotButton = styled('button', {
+    width: '10px',
+    height: '10px',
+    borderRadius: '999px',
+    border: 'none',
+    padding: 0,
+    cursor: 'pointer',
+    transition: 'all 0.25s ease',
+    variants: {
+        active: {
+            true: {
+                width: '28px',
+                background: '#228B22',
+            },
+            false: {
+                background: '#cbd5e1',
+            },
+        },
+    },
+});
+
+const ControlRow = styled('div', {
+    display: 'flex',
+    gap: '8px',
+});
+
+const ControlButton = styled('button', {
+    border: '1px solid rgba(34,139,34,0.24)',
+    background: '#ffffff',
+    color: '#166534',
+    borderRadius: '999px',
+    padding: '8px 14px',
+    fontSize: '0.8rem',
+    fontWeight: 700,
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+    '&:hover': {
+        background: '#f0fdf4',
+        transform: 'translateY(-1px)',
     },
 });
 
@@ -287,10 +474,95 @@ const DeveloperDesc = styled('p', {
 
 export default function Home() {
     const { t } = useTranslation();
+    const { mode } = useThemeMode();
+    const carouselSlides = t('home_carousel.slides', { returnObjects: true });
+    const slides = Array.isArray(carouselSlides) ? carouselSlides : [];
+    const carouselImages = [
+        '/images/gallery/foto%20buku%20.jpeg',
+        '/images/gallery/foto%20buku%20dan%20rumput%20lagi.jpeg',
+        '/images/gallery/foto%20daun.jpeg',
+        '/images/gallery/foto%20gedung%20dan%20pohon.jpeg',
+        '/images/gallery/foto%20lampu%20yg%20didalamnya%20ada%20tanaman.jpeg',
+    ];
+    const [activeSlide, setActiveSlide] = useState(0);
+
+    useEffect(() => {
+        if (!slides.length) return;
+        const timer = setInterval(() => {
+            setActiveSlide((prev) => (prev + 1) % slides.length);
+        }, 4500);
+
+        return () => clearInterval(timer);
+    }, [slides.length]);
+
+    const nextSlide = () => {
+        if (!slides.length) return;
+        setActiveSlide((prev) => (prev + 1) % slides.length);
+    };
+
+    const prevSlide = () => {
+        if (!slides.length) return;
+        setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    };
 
     return (
-        <div>
+        <div className="themed-page home-page" data-theme-mode={mode}>
             <Hero />
+
+            {slides.length > 0 && (
+                <CarouselSection className="scroll-reveal is-visible">
+                    <CarouselInner>
+                        <CarouselFrame>
+                            <CarouselTrack style={{ transform: `translateX(-${activeSlide * 100}%)` }}>
+                                {slides.map((slide, index) => (
+                                    <CarouselSlide key={`${slide.title}-${index}`}>
+                                        <div>
+                                            <SlideBadge>
+                                                ✨ {slide.badge}
+                                            </SlideBadge>
+                                            <SlideTitle>{slide.title}</SlideTitle>
+                                            <SlideDesc>{slide.desc}</SlideDesc>
+                                            <SlideAction to={slide.cta_link || '/program'}>
+                                                {slide.cta}
+                                                <ArrowRight size={14} />
+                                            </SlideAction>
+                                        </div>
+                                        <SlideVisual style={{ background: slide.visual_bg || 'linear-gradient(135deg, #dcfce7, #bbf7d0)' }}>
+                                            <SlideVisualImage
+                                                src={slide.image || carouselImages[index % carouselImages.length]}
+                                                alt={slide.visual_title || slide.title || 'Go Green Slide'}
+                                                loading="lazy"
+                                            />
+                                            <SlideVisualOverlay />
+                                            <SlideVisualContent>
+                                                <h4>{slide.visual_title}</h4>
+                                                <p>{slide.visual_desc}</p>
+                                            </SlideVisualContent>
+                                        </SlideVisual>
+                                    </CarouselSlide>
+                                ))}
+                            </CarouselTrack>
+                        </CarouselFrame>
+                        <CarouselFooter>
+                            <DotRow>
+                                {slides.map((slide, idx) => (
+                                    <DotButton
+                                        key={`${slide.title}-dot-${idx}`}
+                                        type="button"
+                                        active={idx === activeSlide ? 'true' : 'false'}
+                                        onClick={() => setActiveSlide(idx)}
+                                        aria-label={`slide-${idx + 1}`}
+                                    />
+                                ))}
+                            </DotRow>
+                            <ControlRow>
+                                <ControlButton type="button" onClick={prevSlide}>{t('home_carousel.prev')}</ControlButton>
+                                <ControlButton type="button" onClick={nextSlide}>{t('home_carousel.next')}</ControlButton>
+                            </ControlRow>
+                        </CarouselFooter>
+                    </CarouselInner>
+                </CarouselSection>
+            )}
 
             <ProgramsSection />
 

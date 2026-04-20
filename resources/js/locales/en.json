@@ -17,12 +17,56 @@
         "title": "Eco-Friendly School",
         "subtitle": "Education for a Sustainable Future",
         "cta_program": "View Go Green Programs",
-        "cta_visi": "Our Vision"
+        "cta_visi": "Our Vision",
+        "mascot_hint": "Hey, tap me to change the vibe!",
+        "interact_button": "Interact Me",
+        "interact_button_active": "Back to Day",
+        "stats": [
+            {
+                "icon": "🌿",
+                "value": "3+",
+                "title": "Core programs",
+                "desc": "Waste bank, vertical garden, and energy-saving initiatives."
+            },
+            {
+                "icon": "💧",
+                "value": "6+",
+                "title": "Collaborative projects",
+                "desc": "Cross-subject activities completed together by students."
+            },
+            {
+                "icon": "⚡",
+                "value": "Every day",
+                "title": "Real green actions",
+                "desc": "Simple habits practiced consistently at school."
+            }
+        ]
     },
     "programs": {
         "title": "Featured Programs",
         "subtitle": "Environmental initiatives integrating various subjects for sustainable education",
-        "read_more": "Read More"
+        "read_more": "Read More",
+        "featured_label": "Featured Program",
+        "intro": {
+            "meta": "Discover the Go Green School approach",
+            "title": "Practical programs that teach sustainability with purpose.",
+            "description": "Our curriculum blends hands-on learning with real-world impact. Students gain confidence through activities that support recycling, energy efficiency, and environmental stewardship, while the school builds a stronger culture of eco-awareness.",
+            "cards": {
+                "why": {
+                    "title": "Why this matters",
+                    "text": "Students learn by doing, turning awareness into measurable change across the school and community."
+                },
+                "what": {
+                    "title": "What you will find",
+                    "text": "Structured programs for waste management, green gardening, and energy-saving habits with clear student outcomes."
+                },
+                "next": {
+                    "title": "Next step",
+                    "text": "Explore the full program story on the dedicated page for deeper background and implementation details."
+                }
+            },
+            "cta": "Learn More About the Program"
+        }
     },
     "calculator": {
         "title": "Waste Bank Calculator",
@@ -59,6 +103,67 @@
         "by": "By",
         "subjects": "Subjects"
     },
+    "home_carousel": {
+        "prev": "Previous",
+        "next": "Next",
+        "slides": [
+            {
+                "badge": "Green Actions Begin",
+                "title": "Small steps at school, big impact for the planet.",
+                "desc": "The Go Green School program helps students build eco-friendly habits through simple daily actions done consistently.",
+                "cta": "View Programs",
+                "cta_link": "/program",
+                "image": "/images/gallery/foto%20buku%20.jpeg",
+                "visual_title": "From habit to culture",
+                "visual_desc": "Students learn waste sorting, energy saving, and environmental care through collaborative activities.",
+                "visual_bg": "linear-gradient(135deg, #dcfce7, #bbf7d0)"
+            },
+            {
+                "badge": "Learn by Doing",
+                "title": "A vibrant classroom powered by real projects.",
+                "desc": "We blend cross-subject learning so students understand environmental issues through practical, hands-on experiences.",
+                "cta": "Explore Learning",
+                "cta_link": "/program-info",
+                "image": "/images/gallery/foto%20buku%20dan%20rumput%20lagi.jpeg",
+                "visual_title": "Cross-subject collaboration",
+                "visual_desc": "Science, creativity, and social awareness come together in one engaging learning ecosystem.",
+                "visual_bg": "linear-gradient(135deg, #dbeafe, #bfdbfe)"
+            },
+            {
+                "badge": "Daily Green Habits",
+                "title": "Small habits, meaningful change in student routines.",
+                "desc": "From sorting waste to keeping classrooms clean, students practice environmental responsibility every day.",
+                "cta": "See Activities",
+                "cta_link": "/galeri",
+                "image": "/images/gallery/foto%20daun.jpeg",
+                "visual_title": "Learning from nature",
+                "visual_desc": "Visual storytelling and practical action make learning closer to real life.",
+                "visual_bg": "linear-gradient(135deg, #d1fae5, #a7f3d0)"
+            },
+            {
+                "badge": "Move Together",
+                "title": "School, families, and community growing together.",
+                "desc": "Go Green School is not only an internal program, but a shared movement that grows environmental awareness around us.",
+                "cta": "Contact Us",
+                "cta_link": "/kontak",
+                "image": "/images/gallery/foto%20gedung%20dan%20pohon.jpeg",
+                "visual_title": "Impact you can feel",
+                "visual_desc": "Every student action becomes inspiration for homes and the surrounding community.",
+                "visual_bg": "linear-gradient(135deg, #fef3c7, #fde68a)"
+            },
+            {
+                "badge": "Eco Innovation",
+                "title": "Creative student ideas for a cleaner future.",
+                "desc": "The program encourages students to build simple, practical solutions that benefit school and nearby communities.",
+                "cta": "Start Now",
+                "cta_link": "/program",
+                "image": "/images/gallery/foto%20lampu%20yg%20didalamnya%20ada%20tanaman.jpeg",
+                "visual_title": "Creativity with impact",
+                "visual_desc": "Students are trained to think innovatively while staying committed to sustainability.",
+                "visual_bg": "linear-gradient(135deg, #e0e7ff, #bfdbfe)"
+            }
+        ]
+    },
     "visi_misi": {
         "title": "Vision & Mission",
         "visi_title": "Our Vision",
@@ -88,6 +193,7 @@
         "newsletter_desc": "Get the latest updates on Go Green School and our flagship programs",
         "email_placeholder": "Enter your email",
         "subscribe": "Subscribe Now",
+        "social_note": "Reach us on WhatsApp or visit our TikTok @ecolegacy.id_",
         "copyright": "© 2024 Go Green School. All rights reserved."
     },
     "gallery": {
@@ -97,9 +203,89 @@
     "contact": {
         "title": "Contact Us",
         "subtitle": "Have questions? Don't hesitate to reach out",
+        "info_title": "Contact Information",
+        "info_address": "Address",
+        "info_phone": "Phone",
+        "info_web": "Website",
+        "whatsapp_cta": "Chat us on WhatsApp",
+        "tiktok_cta": "Visit TikTok @ecolegacy.id_",
+        "map_label": "School Location Map",
+        "form_title": "Send a Message",
         "name": "Full Name",
         "email": "Email Address",
         "message": "Message",
-        "send": "Send Message"
+        "send": "Send Message",
+        "name_placeholder": "Your full name...",
+        "message_placeholder": "Write your message here...",
+        "sending": "Sending...",
+        "success_title": "Message Sent!",
+        "success_text": "Thank you! We will reply to your message soon.",
+        "send_another": "Send Another Message"
+    },
+    "program_info": {
+        "tag": "Program Blueprint",
+        "title": "Guiding the Go Green School Program",
+        "subtitle": "This page brings together the full program story: purpose, structure, educational value, practical actions, and the steps schools follow to make sustainability part of daily life.",
+        "back_to_vision": "Back to Vision & Mission",
+        "sections": [
+            {
+                "title": "Introduction",
+                "text": "Go Green School runs a learning program built around environmental stewardship and meaningful action. It creates a framework where students and teachers collaborate to make waste reduction, energy efficiency, and green living part of daily routines."
+            },
+            {
+                "title": "Description",
+                "text": "This program combines hands-on projects, school-wide campaigns, and community involvement. It is designed to be accessible for every school, using simple practices that students can carry home and share with their families."
+            },
+            {
+                "title": "Explanation",
+                "text": "The core idea is that schools are powerful places for change. When students practice sustainable habits in class, they learn responsibility, empathy, and systems thinking. The program turns abstract environmental topics into concrete activities that feel relevant and rewarding."
+            },
+            {
+                "title": "Information",
+                "text": "Go Green School covers several practical areas that schools can implement step by step. Each element is selected to support learning outcomes and environmental impact together.",
+                "items": [
+                    "Waste sorting and recycling programs that teach students the value of materials.",
+                    "Energy-saving habits, such as turning off lights, monitoring power use, and using efficient devices.",
+                    "School gardens and planting activities that deepen understanding of nature and nutrition.",
+                    "Collaboration between students, teachers, and parents to make green habits part of everyday life."
+                ]
+            },
+            {
+                "title": "Procedure",
+                "text": "A successful Go Green School program starts with awareness and moves into action. Schools plan clear steps, assign roles, measure progress, and reflect on results so every year’s efforts become stronger.",
+                "items": [
+                    "Begin with learning sessions and simple eco-challenges for students.",
+                    "Create student teams to manage waste, energy, and gardening activities.",
+                    "Monitor results with easy measures, then celebrate progress and share success stories.",
+                    "Use school events and community outreach to spread awareness beyond the campus."
+                ]
+            }
+        ]
+    },
+    "developer": {
+        "title": "Developer Team",
+        "subtitle": "Meet the people behind the Go Green School website and digital presence. Each team member owns a key role in delivering a polished, modern, and mobile-friendly experience.",
+        "members": [
+            {
+                "name": "Latiefha",
+                "role": "Full Stack Developer",
+                "desc": "Leads end-to-end development, connecting frontend and backend for a smooth web experience."
+            },
+            {
+                "name": "Aren",
+                "role": "Frontend Developer",
+                "desc": "Designs responsive and interactive interfaces so the website stays user-friendly across devices."
+            },
+            {
+                "name": "Rindu",
+                "role": "Marketing",
+                "desc": "Builds content and communication strategies to reach audiences with clear eco-friendly messaging."
+            },
+            {
+                "name": "Josaphat",
+                "role": "Designer",
+                "desc": "Creates aesthetic visuals and intuitive layouts for a consistent experience across the site."
+            }
+        ]
     }
 }

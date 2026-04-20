@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { styled, fadeIn } from '../stitches.config';
 import { UserCircle2, Camera } from 'lucide-react';
+import useThemeMode from '../hooks/useThemeMode';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
@@ -143,57 +144,34 @@ const ProfileDesc = styled('p', {
     lineHeight: 1.7,
 });
 
-const DeveloperList = [
-    {
-        name: 'Latiefha',
-        role: 'Full Stack Developer',
-        image: '/images/profile/latiefha.jpeg',
-        desc: 'Memimpin pengembangan end-to-end, menghubungkan frontend dan backend untuk pengalaman web yang mulus.',
-    },
-    {
-        name: 'Aren',
-        role: 'Frontend Developer',
-        image: '/images/profile/aren.jpeg',
-        desc: 'Merancang antarmuka yang responsif dan interaktif agar website ramah pengguna di semua perangkat.',
-    },
-    {
-        name: 'Rindu',
-        role: 'Marketing',
-        image: '/images/profile/rindu.jpeg',
-        desc: 'Menyusun strategi konten dan komunikasi untuk menjangkau audiens dengan pesan ramah lingkungan.',
-    },
-    {
-        name: 'Josaphat',
-        role: 'Designer',
-        image: '/images/profile/josaphat.jpeg',
-        desc: 'Menciptakan desain visual yang estetis dan tata letak yang mudah dinavigasi untuk seluruh situs.',
-    },
-];
+const developerImages = {
+    Latiefha: '/images/profile/latiefha.jpeg',
+    Aren: '/images/profile/aren.jpeg',
+    Rindu: '/images/profile/rindu.jpeg',
+    Josaphat: '/images/profile/josaphat.jpeg',
+};
 
 export default function Developer() {
-    const { t, i18n } = useTranslation();
-    const isEn = i18n.language === 'en';
+    const { t } = useTranslation();
+    const { mode } = useThemeMode();
+    const developers = t('developer.members', { returnObjects: true });
 
     return (
-        <PageWrap>
-            <Hero>
+        <PageWrap className="themed-page developer-page" data-theme-mode={mode}>
+            <Hero className="theme-hero">
                 <HeroInner>
                     <UserCircle2 size={48} color="#ffffff" />
-                    <PageTitle>{isEn ? 'Developer Team' : 'Tim Developer'}</PageTitle>
-                    <PageSubtitle>
-                        {isEn
-                            ? 'Meet the people behind the Go Green School website and digital presence. Each team member owns a key role in delivering a polished, modern, and mobile-friendly experience.'
-                            : 'Kenali tim yang membangun website Go Green School. Setiap anggota memegang peran penting untuk menghadirkan pengalaman digital yang menarik dan responsif.'}
-                    </PageSubtitle>
+                    <PageTitle>{t('developer.title')}</PageTitle>
+                    <PageSubtitle>{t('developer.subtitle')}</PageSubtitle>
                 </HeroInner>
             </Hero>
 
             <Content>
                 <CardGrid>
-                    {DeveloperList.map((dev) => (
+                    {Array.isArray(developers) && developers.map((dev) => (
                         <ProfileCard key={dev.name}>
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <ProfileImage src={dev.image} alt={dev.name} />
+                                <ProfileImage src={developerImages[dev.name] || '/images/profile/latiefha.jpeg'} alt={dev.name} />
                             </div>
                             <ProfileName>{dev.name}</ProfileName>
                             <ProfileRole>{dev.role}</ProfileRole>

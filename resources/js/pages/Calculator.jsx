@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { styled, fadeIn } from '../stitches.config';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { Plus, Trash2, Calculator as CalculatorIcon, Leaf, TrendingDown, Award, RefreshCw, ChevronDown } from 'lucide-react';
+import useThemeMode from '../hooks/useThemeMode';
 const PageWrap = styled('div', {
     minHeight: '100vh',
     background: 'linear-gradient(180deg, #d7efda 0%, #bddfbe 100%)',
@@ -78,6 +79,7 @@ const Content = styled('div', {
     gridTemplateColumns: '1fr',
     gap: '24px',
     '@lg': { gridTemplateColumns: '1.2fr 1fr' },
+    '@sm': { padding: '0 16px' },
 });
 
 const Card = styled('div', {
@@ -302,6 +304,7 @@ const emissionMap = {
 
 export default function Calculator() {
     const { t, i18n } = useTranslation();
+    const { mode } = useThemeMode();
     const isEn = i18n.language === 'en';
 
     const [studentName, setStudentName] = useState('');
@@ -413,8 +416,8 @@ export default function Calculator() {
     })) || [];
 
     return (
-        <PageWrap>
-            <PageHeader className="scroll-reveal">
+        <PageWrap className="themed-page calculator-page" data-theme-mode={mode}>
+            <PageHeader className="scroll-reveal theme-hero">
                 <div style={{ position: 'relative', zIndex: 1 }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '20px', padding: '6px 16px', fontSize: '0.8rem', fontWeight: 600, color: '#ffffff', marginBottom: '16px' }}>
                         <CalculatorIcon size={14} /> Bank Sampah
@@ -565,7 +568,7 @@ export default function Calculator() {
                             <CardTitle><Leaf size={18} />Referensi Poin Sampah</CardTitle>
                         </CardHeader>
                         <CardBody>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '8px' }}>
                                 {wasteTypes.map(type => (
                                     <div key={type} style={{
                                         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
@@ -625,7 +628,7 @@ export default function Calculator() {
                             <Card style={{ marginBottom: '16px' }}>
                                 <CardHeader>
                                     <CardTitle>📊 Visualisasi Data</CardTitle>
-                                    <div style={{ display: 'flex', gap: '8px' }}>
+                                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                                         {['pie', 'bar'].map(tab => (
                                             <button key={tab} onClick={() => setActiveTab(tab)} style={{
                                                 padding: '4px 12px', borderRadius: '20px', fontSize: '0.75rem',
@@ -687,7 +690,8 @@ export default function Calculator() {
                                     <CardTitle>📋 {t('calculator.breakdown')}</CardTitle>
                                 </CardHeader>
                                 <CardBody>
-                                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
+                                    <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+                                        <table style={{ width: '100%', minWidth: '520px', borderCollapse: 'collapse', fontSize: '0.8rem' }}>
                                         <thead>
                                             <tr style={{ background: '#f9fafb' }}>
                                                 <th style={{ padding: '8px 12px', textAlign: 'left', fontWeight: 600, color: '#374151', borderRadius: '8px 0 0 8px' }}>Jenis</th>
@@ -712,7 +716,8 @@ export default function Calculator() {
                                                 </tr>
                                             ))}
                                         </tbody>
-                                    </table>
+                                        </table>
+                                    </div>
                                 </CardBody>
                             </Card>
 

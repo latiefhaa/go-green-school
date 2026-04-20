@@ -65,7 +65,8 @@ export const {
             '5xl': '3rem',
         },
         fonts: {
-            sans: "'Poppins', sans-serif",
+            sans: "'Nunito', sans-serif",
+            display: "'Fredoka', 'Nunito', sans-serif",
         },
         fontWeights: {
             light: 300,

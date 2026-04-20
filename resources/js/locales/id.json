@@ -17,12 +17,56 @@
         "title": "Sekolah Ramah Lingkungan",
         "subtitle": "Pendidikan untuk Masa Depan Berkelanjutan",
         "cta_program": "Lihat Program Go Green",
-        "cta_visi": "Visi Kami"
+        "cta_visi": "Visi Kami",
+        "mascot_hint": "Hai, klik aku untuk ganti suasana!",
+        "interact_button": "Interaksi Saya",
+        "interact_button_active": "Kembalikan Siang",
+        "stats": [
+            {
+                "icon": "🌿",
+                "value": "3+",
+                "title": "Program inti",
+                "desc": "Bank sampah, kebun vertikal, dan hemat energi."
+            },
+            {
+                "icon": "💧",
+                "value": "6+",
+                "title": "Proyek kolaboratif",
+                "desc": "Kegiatan lintas pelajaran yang dikerjakan bersama siswa."
+            },
+            {
+                "icon": "⚡",
+                "value": "Setiap hari",
+                "title": "Aksi hijau nyata",
+                "desc": "Kebiasaan sederhana yang langsung dipraktikkan di sekolah."
+            }
+        ]
     },
     "programs": {
         "title": "Program Unggulan",
         "subtitle": "Inisiatif lingkungan yang mengintegrasikan berbagai mata pelajaran untuk pendidikan berkelanjutan",
-        "read_more": "Selengkapnya"
+        "read_more": "Selengkapnya",
+        "featured_label": "Program Unggulan",
+        "intro": {
+            "meta": "Jelajahi pendekatan Go Green School",
+            "title": "Program praktis yang mengajarkan keberlanjutan dengan tujuan.",
+            "description": "Kurikulum kami memadukan pembelajaran langsung dengan dampak nyata. Siswa membangun rasa percaya diri melalui aktivitas yang mendukung daur ulang, efisiensi energi, dan kepedulian lingkungan, sambil memperkuat budaya sadar lingkungan di sekolah.",
+            "cards": {
+                "why": {
+                    "title": "Mengapa ini penting",
+                    "text": "Siswa belajar lewat praktik, mengubah kesadaran menjadi perubahan yang terukur di sekolah dan komunitas."
+                },
+                "what": {
+                    "title": "Apa yang akan kamu temukan",
+                    "text": "Program terstruktur untuk pengelolaan sampah, kebun hijau, dan kebiasaan hemat energi dengan hasil belajar siswa yang jelas."
+                },
+                "next": {
+                    "title": "Langkah berikutnya",
+                    "text": "Jelajahi cerita lengkap program pada halaman khusus untuk latar belakang dan detail implementasi yang lebih mendalam."
+                }
+            },
+            "cta": "Pelajari Lebih Lanjut Tentang Program"
+        }
     },
     "calculator": {
         "title": "Kalkulator Bank Sampah",
@@ -59,6 +103,67 @@
         "by": "Oleh",
         "subjects": "Mata Pelajaran"
     },
+    "home_carousel": {
+        "prev": "Sebelumnya",
+        "next": "Berikutnya",
+        "slides": [
+            {
+                "badge": "Aksi Hijau Dimulai",
+                "title": "Langkah kecil di sekolah, dampak besar untuk bumi.",
+                "desc": "Program Go Green School mendorong siswa membentuk kebiasaan ramah lingkungan dari aktivitas harian yang sederhana namun konsisten.",
+                "cta": "Lihat Program",
+                "cta_link": "/program",
+                "image": "/images/gallery/foto%20buku%20.jpeg",
+                "visual_title": "Dari kebiasaan jadi budaya",
+                "visual_desc": "Siswa belajar memilah sampah, hemat energi, dan merawat lingkungan secara kolaboratif.",
+                "visual_bg": "linear-gradient(135deg, #dcfce7, #bbf7d0)"
+            },
+            {
+                "badge": "Belajar Sambil Berkarya",
+                "title": "Ruang kelas yang hidup dengan proyek nyata.",
+                "desc": "Kami menggabungkan pembelajaran lintas mata pelajaran agar siswa bisa memahami isu lingkungan melalui praktik langsung.",
+                "cta": "Jelajahi Edukasi",
+                "cta_link": "/program-info",
+                "image": "/images/gallery/foto%20buku%20dan%20rumput%20lagi.jpeg",
+                "visual_title": "Kolaborasi lintas pelajaran",
+                "visual_desc": "Sains, kreativitas, dan kepedulian sosial bertemu dalam satu ekosistem belajar yang menyenangkan.",
+                "visual_bg": "linear-gradient(135deg, #dbeafe, #bfdbfe)"
+            },
+            {
+                "badge": "Sekolah Hijau Sehari-hari",
+                "title": "Kebiasaan kecil, perubahan besar dalam rutinitas siswa.",
+                "desc": "Dari memilah sampah hingga menjaga kebersihan kelas, siswa berlatih disiplin lingkungan setiap hari.",
+                "cta": "Lihat Aktivitas",
+                "cta_link": "/galeri",
+                "image": "/images/gallery/foto%20daun.jpeg",
+                "visual_title": "Belajar dari alam sekitar",
+                "visual_desc": "Pendekatan visual dan praktik langsung membuat pembelajaran lebih dekat dengan kehidupan nyata.",
+                "visual_bg": "linear-gradient(135deg, #d1fae5, #a7f3d0)"
+            },
+            {
+                "badge": "Gerak Bersama",
+                "title": "Sekolah, keluarga, dan komunitas tumbuh bersama.",
+                "desc": "Go Green School bukan hanya program internal sekolah, tetapi gerakan bersama yang menumbuhkan kesadaran lingkungan di sekitar kita.",
+                "cta": "Hubungi Kami",
+                "cta_link": "/kontak",
+                "image": "/images/gallery/foto%20gedung%20dan%20pohon.jpeg",
+                "visual_title": "Dampak yang bisa dirasakan",
+                "visual_desc": "Setiap aksi siswa menjadi inspirasi untuk lingkungan rumah dan komunitas sekitar.",
+                "visual_bg": "linear-gradient(135deg, #fef3c7, #fde68a)"
+            },
+            {
+                "badge": "Inovasi Ramah Lingkungan",
+                "title": "Ide kreatif siswa untuk masa depan yang lebih bersih.",
+                "desc": "Program mendorong siswa menciptakan solusi sederhana yang bermanfaat bagi sekolah dan lingkungan sekitar.",
+                "cta": "Mulai Sekarang",
+                "cta_link": "/program",
+                "image": "/images/gallery/foto%20lampu%20yg%20didalamnya%20ada%20tanaman.jpeg",
+                "visual_title": "Kreativitas yang berdampak",
+                "visual_desc": "Siswa dilatih berpikir inovatif sekaligus peduli terhadap keberlanjutan.",
+                "visual_bg": "linear-gradient(135deg, #e0e7ff, #bfdbfe)"
+            }
+        ]
+    },
     "visi_misi": {
         "title": "Visi & Misi",
         "visi_title": "Visi Kami",
@@ -88,6 +193,7 @@
         "newsletter_desc": "Dapatkan informasi terbaru tentang Go Green School dan program unggulan kami",
         "email_placeholder": "Masukkan email kamu",
         "subscribe": "Daftar Sekarang",
+        "social_note": "Hubungi kami lewat WhatsApp atau kunjungi TikTok @ecolegacy.id_",
         "copyright": "© 2024 Go Green School. Hak cipta dilindungi."
     },
     "gallery": {
@@ -97,9 +203,89 @@
     "contact": {
         "title": "Hubungi Kami",
         "subtitle": "Ada pertanyaan? Jangan ragu untuk menghubungi kami",
+        "info_title": "Informasi Kontak",
+        "info_address": "Alamat",
+        "info_phone": "Telepon",
+        "info_web": "Website",
+        "whatsapp_cta": "Chat WhatsApp Kami",
+        "tiktok_cta": "Kunjungi TikTok @ecolegacy.id_",
+        "map_label": "Peta Lokasi Sekolah",
+        "form_title": "Kirim Pesan",
         "name": "Nama Lengkap",
         "email": "Alamat Email",
         "message": "Pesan",
-        "send": "Kirim Pesan"
+        "send": "Kirim Pesan",
+        "name_placeholder": "Nama lengkap kamu...",
+        "message_placeholder": "Tulis pesan kamu di sini...",
+        "sending": "Mengirim...",
+        "success_title": "Pesan Terkirim!",
+        "success_text": "Terima kasih! Kami akan membalas pesan kamu secepatnya.",
+        "send_another": "Kirim Pesan Lain"
+    },
+    "program_info": {
+        "tag": "Blueprint Program",
+        "title": "Panduan Program Go Green School",
+        "subtitle": "Halaman ini merangkum cerita lengkap program: tujuan, struktur, nilai edukatif, aksi praktis, serta langkah yang dilakukan sekolah untuk menjadikan keberlanjutan sebagai bagian dari kebiasaan sehari-hari.",
+        "back_to_vision": "Kembali ke Visi & Misi",
+        "sections": [
+            {
+                "title": "Pendahuluan",
+                "text": "Go Green School menjalankan program pembelajaran yang berfokus pada kepedulian lingkungan dan aksi bermakna. Program ini membangun kerangka kolaborasi antara siswa dan guru agar pengurangan sampah, efisiensi energi, dan gaya hidup hijau menjadi rutinitas sekolah."
+            },
+            {
+                "title": "Deskripsi",
+                "text": "Program ini menggabungkan proyek praktik, kampanye tingkat sekolah, dan keterlibatan komunitas. Rancangannya dibuat agar mudah diterapkan oleh berbagai sekolah melalui langkah sederhana yang bisa dibawa siswa ke rumah dan dibagikan ke keluarga."
+            },
+            {
+                "title": "Penjelasan",
+                "text": "Gagasan utamanya adalah sekolah merupakan ruang perubahan yang sangat kuat. Ketika siswa mempraktikkan kebiasaan berkelanjutan di kelas, mereka belajar tanggung jawab, empati, dan cara berpikir sistematis. Topik lingkungan yang abstrak diubah menjadi aktivitas nyata yang relevan dan menyenangkan."
+            },
+            {
+                "title": "Informasi",
+                "text": "Go Green School mencakup beberapa area praktis yang bisa diterapkan sekolah secara bertahap. Setiap elemen dipilih agar mendukung hasil belajar sekaligus dampak lingkungan.",
+                "items": [
+                    "Pemilahan sampah dan program daur ulang yang mengajarkan nilai guna material.",
+                    "Kebiasaan hemat energi, seperti mematikan lampu, memantau penggunaan listrik, dan memakai perangkat efisien.",
+                    "Kebun sekolah dan aktivitas menanam untuk memperkuat pemahaman tentang alam dan nutrisi.",
+                    "Kolaborasi siswa, guru, dan orang tua agar kebiasaan hijau menjadi bagian hidup sehari-hari."
+                ]
+            },
+            {
+                "title": "Prosedur",
+                "text": "Program Go Green School yang berhasil dimulai dari kesadaran lalu berlanjut ke aksi. Sekolah merancang langkah yang jelas, membagi peran, mengukur progres, dan melakukan refleksi agar pelaksanaan setiap tahun semakin kuat.",
+                "items": [
+                    "Mulai dari sesi pembelajaran dan tantangan ramah lingkungan sederhana untuk siswa.",
+                    "Bentuk tim siswa untuk mengelola kegiatan sampah, energi, dan kebun sekolah.",
+                    "Pantau hasil dengan ukuran sederhana, lalu rayakan progres dan bagikan cerita keberhasilan.",
+                    "Gunakan kegiatan sekolah dan kolaborasi komunitas untuk memperluas dampak ke luar lingkungan kampus."
+                ]
+            }
+        ]
+    },
+    "developer": {
+        "title": "Tim Developer",
+        "subtitle": "Kenali tim yang membangun website Go Green School. Setiap anggota memegang peran penting untuk menghadirkan pengalaman digital yang menarik dan responsif.",
+        "members": [
+            {
+                "name": "Latiefha",
+                "role": "Full Stack Developer",
+                "desc": "Memimpin pengembangan end-to-end, menghubungkan frontend dan backend untuk pengalaman web yang mulus."
+            },
+            {
+                "name": "Aren",
+                "role": "Frontend Developer",
+                "desc": "Merancang antarmuka yang responsif dan interaktif agar website ramah pengguna di semua perangkat."
+            },
+            {
+                "name": "Rindu",
+                "role": "Marketing",
+                "desc": "Menyusun strategi konten dan komunikasi untuk menjangkau audiens dengan pesan ramah lingkungan."
+            },
+            {
+                "name": "Josaphat",
+                "role": "Designer",
+                "desc": "Menciptakan desain visual yang estetis dan tata letak yang mudah dinavigasi untuk seluruh situs."
+            }
+        ]
     }
 }

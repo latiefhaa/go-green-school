@@ -7,8 +7,9 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Fredoka', 'Nunito', ui-sans-serif, system-ui, sans-serif;
     --color-green-primary: #228B22;
     --color-green-dark: #1a6b1a;
     --color-green-light: #2ea82e;
@@ -24,8 +25,145 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
     scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background: linear-gradient(180deg, #f4fff4 0%, #f5ffef 45%, #ffffff 100%);
+    color: #1f2937;
+    transition: background 0.6s ease, color 0.6s ease;
+    overflow-x: hidden;
+}
+
+body.ggs-dashboard-dark {
+    background: linear-gradient(180deg, #0b1220 0%, #101a2e 52%, #0f172a 100%);
+    color: #e2e8f0;
+}
+
+.themed-page[data-theme-mode='dark'] {
+    background: linear-gradient(180deg, #0b1220 0%, #111827 52%, #0f172a 100%) !important;
+    color: #e2e8f0;
+}
+
+.themed-page[data-theme-mode='dark'] .theme-hero,
+.themed-page[data-theme-mode='dark'] .theme-hero * {
+    background-blend-mode: normal;
+}
+
+.themed-page[data-theme-mode='dark'] :where(section[class], article[class], div[class]):not(.theme-hero):not(.theme-hero *) {
+    border-color: rgba(148, 163, 184, 0.28) !important;
+}
+
+.themed-page[data-theme-mode='dark'] :where(section[class], article[class]):not(.theme-hero) {
+    background: #111827 !important;
+    box-shadow: 0 18px 45px rgba(2, 6, 23, 0.42) !important;
+}
+
+.themed-page[data-theme-mode='dark'] :where(h1, h2, h3, h4, h5, h6) {
+    color: #f8fafc !important;
+}
+
+.themed-page[data-theme-mode='dark'] :where(p, span, li, label, td, th, small) {
+    color: #cbd5e1 !important;
+}
+
+.themed-page[data-theme-mode='dark'] :where(input, textarea, select) {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+}
+
+.themed-page[data-theme-mode='dark'] :where(input::placeholder, textarea::placeholder) {
+    color: #94a3b8 !important;
+}
+
+.themed-page[data-theme-mode='dark'] :where(button) {
+    border-color: rgba(148, 163, 184, 0.35) !important;
+}
+
+.themed-page[data-theme-mode='dark'] :where(table, th, td, tr) {
+    border-color: rgba(148, 163, 184, 0.28) !important;
+}
+
+.themed-page[data-theme-mode='dark'] :where(a) {
+    color: #86efac;
+}
+
+.themed-page[data-theme-mode='dark'] :where(svg) {
+    color: #86efac;
+}
+
+.themed-page[data-theme-mode='dark'] .recharts-cartesian-axis-tick-value,
+.themed-page[data-theme-mode='dark'] .recharts-legend-item-text,
+.themed-page[data-theme-mode='dark'] .recharts-text {
+    fill: #cbd5e1 !important;
+}
+
+.themed-page[data-theme-mode='dark'] :where(.scroll-reveal) {
+    opacity: 1;
+}
+
+.themed-page {
+    overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+    .route-transition {
+        overflow-x: hidden;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+}
+
+@keyframes page-enter {
+    0% {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.route-transition {
+    animation: page-enter 0.45s cubic-bezier(0.2, 0.9, 0.25, 1);
+    will-change: transform, opacity;
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.2, 0.85, 0.25, 1);
+    will-change: transform, opacity;
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        scroll-behavior: auto;
+    }
+
+    .route-transition,
+    .scroll-reveal,
+    .scroll-reveal.is-visible {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
 }

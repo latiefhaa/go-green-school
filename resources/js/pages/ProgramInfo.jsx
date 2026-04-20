@@ -1,16 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { styled } from '../stitches.config';
 import { ArrowLeft, Leaf, BookOpen, Info, ListChecks, MapPin } from 'lucide-react';
+import useThemeMode from '../hooks/useThemeMode';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
-    background: '#F7FFF5',
+    background: 'linear-gradient(180deg, #eaf8ec 0%, #effaf1 52%, #f5fcf6 100%)',
     paddingBottom: '80px',
+    position: 'relative',
+    '&::before': {
+        content: '""',
+        position: 'fixed',
+        inset: 0,
+        pointerEvents: 'none',
+        backgroundImage: 'radial-gradient(circle at 10% 22%, rgba(76,175,80,0.1) 0%, transparent 30%), radial-gradient(circle at 84% 18%, rgba(115,201,94,0.08) 0%, transparent 24%), radial-gradient(circle at 72% 76%, rgba(167,219,116,0.08) 0%, transparent 20%)',
+        zIndex: 0,
+    },
 });
 
 const PageHeader = styled('div', {
-    background: 'linear-gradient(135deg, #166534, #22c55e)',
+    background: 'linear-gradient(135deg, #228b45, #2dbb62)',
     padding: '70px 24px 90px',
     color: '#ffffff',
     position: 'relative',
@@ -120,96 +131,46 @@ const Bullet = styled('span', {
 });
 
 export default function ProgramInfo() {
+    const { t } = useTranslation();
+    const { mode } = useThemeMode();
+    const sections = t('program_info.sections', { returnObjects: true });
+
     return (
-        <PageWrap>
-            <PageHeader>
+        <PageWrap className="themed-page programinfo-page" data-theme-mode={mode}>
+            <PageHeader className="theme-hero">
                 <HeaderContent>
                     <HeaderTag>
                         <Leaf size={16} />
-                        Program Blueprint
+                        {t('program_info.tag')}
                     </HeaderTag>
-                    <HeaderTitle>Guiding the Go Green School Program</HeaderTitle>
+                    <HeaderTitle>{t('program_info.title')}</HeaderTitle>
                     <HeaderSubtitle>
-                        This page brings together the full program story: purpose, structure, educational value, practical actions, and the steps schools follow to make sustainability part of daily life.
+                        {t('program_info.subtitle')}
                     </HeaderSubtitle>
                     <PageLink to="/visi-misi">
                         <ArrowLeft size={16} />
-                        Back to Vision & Mission
+                        {t('program_info.back_to_vision')}
                     </PageLink>
                 </HeaderContent>
             </PageHeader>
 
             <Content>
-                <Section className="scroll-reveal">
-                    <SectionTitle>Introduction</SectionTitle>
-                    <SectionText>
-                        Go Green School runs a learning program built around environmental stewardship and meaningful action. It creates a framework where students and teachers collaborate to make waste reduction, energy efficiency, and green living part of daily routines.
-                    </SectionText>
-                </Section>
-
-                <Section className="scroll-reveal">
-                    <SectionTitle>Description</SectionTitle>
-                    <SectionText>
-                        This program combines hands-on projects, school-wide campaigns, and community involvement. It is designed to be accessible for every school, using simple practices that students can carry home and share with their families.
-                    </SectionText>
-                </Section>
-
-                <Section className="scroll-reveal">
-                    <SectionTitle>Explanation</SectionTitle>
-                    <SectionText>
-                        The core idea is that schools are powerful places for change. When students practice sustainable habits in class, they learn responsibility, empathy, and systems thinking. The program turns abstract environmental topics into concrete activities that feel relevant and rewarding.
-                    </SectionText>
-                </Section>
-
-                <Section className="scroll-reveal">
-                    <SectionTitle>Information</SectionTitle>
-                    <SectionText>
-                        Go Green School covers several practical areas that schools can implement step by step. Each element is selected to support learning outcomes and environmental impact together.
-                    </SectionText>
-                    <SectionList>
-                        <SectionListItem>
-                            <Bullet>•</Bullet>
-                            Waste sorting and recycling programs that teach students the value of materials.
-                        </SectionListItem>
-                        <SectionListItem>
-                            <Bullet>•</Bullet>
-                            Energy-saving habits, such as turning off lights, monitoring power use, and using efficient devices.
-                        </SectionListItem>
-                        <SectionListItem>
-                            <Bullet>•</Bullet>
-                            School gardens and planting activities that deepen understanding of nature and nutrition.
-                        </SectionListItem>
-                        <SectionListItem>
-                            <Bullet>•</Bullet>
-                            Collaboration between students, teachers, and parents to make green habits part of everyday life.
-                        </SectionListItem>
-                    </SectionList>
-                </Section>
-
-                <Section className="scroll-reveal">
-                    <SectionTitle>Procedure</SectionTitle>
-                    <SectionText>
-                        A successful Go Green School program starts with awareness and moves into action. Schools plan clear steps, assign roles, measure progress, and reflect on results so every year’s efforts become stronger.
-                    </SectionText>
-                    <SectionList>
-                        <SectionListItem>
-                            <Bullet>•</Bullet>
-                            Begin with learning sessions and simple eco-challenges for students.
-                        </SectionListItem>
-                        <SectionListItem>
-                            <Bullet>•</Bullet>
-                            Create student teams to manage waste, energy, and gardening activities.
-                        </SectionListItem>
-                        <SectionListItem>
-                            <Bullet>•</Bullet>
-                            Monitor results with easy measures, then celebrate progress and share success stories.
-                        </SectionListItem>
-                        <SectionListItem>
-                            <Bullet>•</Bullet>
-                            Use school events and community outreach to spread awareness beyond the campus.
-                        </SectionListItem>
-                    </SectionList>
-                </Section>
+                {Array.isArray(sections) && sections.map((section, sectionIndex) => (
+                    <Section className="scroll-reveal is-visible" key={section.title}>
+                        <SectionTitle>{section.title}</SectionTitle>
+                        <SectionText>{section.text}</SectionText>
+                        {Array.isArray(section.items) && section.items.length > 0 && (
+                            <SectionList>
+                                {section.items.map((item, itemIndex) => (
+                                    <SectionListItem key={`${section.title}-${itemIndex}`}>
+                                        <Bullet>•</Bullet>
+                                        {item}
+                                    </SectionListItem>
+                                ))}
+                            </SectionList>
+                        )}
+                    </Section>
+                ))}
             </Content>
         </PageWrap>
     );

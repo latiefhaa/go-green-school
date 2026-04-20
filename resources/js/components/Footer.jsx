@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { styled } from '../stitches.config';
-import { Leaf, Mail, MapPin, Phone, Send, MessageSquare, Facebook, Instagram, Youtube, Twitter, Globe } from 'lucide-react';
+import { Leaf, Mail, MapPin, Phone, MessageSquare, Instagram, Youtube, Music2, Globe } from 'lucide-react';
 
 const FooterWrap = styled('footer', {
     background: 'linear-gradient(135deg, #166534 0%, #1a6b1a 50%, #228B22 100%)',
@@ -99,58 +99,18 @@ const ContactItem = styled('div', {
     },
 });
 
-const NewsletterForm = styled('form', {
-    marginTop: '12px',
+const ContactCtaText = styled('p', {
+    fontSize: '0.84rem',
+    color: 'rgba(255,255,255,0.74)',
+    marginBottom: '14px',
+    lineHeight: 1.6,
 });
 
-const NewsletterDesc = styled('p', {
-    fontSize: '0.8rem',
-    color: 'rgba(255,255,255,0.7)',
-    marginBottom: '12px',
-    lineHeight: 1.5,
-});
-
-const InputRow = styled('div', {
-    display: 'flex',
-    gap: '8px',
-});
-
-const EmailInput = styled('input', {
-    flex: 1,
-    padding: '10px 16px',
-    borderRadius: '10px',
-    border: '1px solid rgba(255,255,255,0.3)',
-    background: 'rgba(255,255,255,0.1)',
-    color: '#ffffff',
-    fontSize: '0.875rem',
-    fontFamily: "'Poppins', sans-serif",
-    outline: 'none',
-    '&::placeholder': {
-        color: 'rgba(255,255,255,0.5)',
-    },
-    '&:focus': {
-        borderColor: 'rgba(255,255,255,0.6)',
-        background: 'rgba(255,255,255,0.15)',
-    },
-});
-
-const SubscribeBtn = styled('button', {
-    padding: '10px 16px',
-    borderRadius: '10px',
-    background: 'rgba(255,255,255,0.2)',
-    border: '1px solid rgba(255,255,255,0.4)',
-    color: '#ffffff',
-    cursor: 'pointer',
-    fontFamily: "'Poppins', sans-serif",
-    fontSize: '0.8rem',
-    fontWeight: 600,
-    transition: 'all 0.2s ease',
+const ContactCtaRow = styled('div', {
     display: 'flex',
     alignItems: 'center',
-    gap: '6px',
-    '&:hover': {
-        background: 'rgba(255,255,255,0.3)',
-    },
+    gap: '10px',
+    flexWrap: 'wrap',
 });
 
 const FooterBottom = styled('div', {
@@ -183,17 +143,6 @@ const GreenTag = styled('span', {
 
 export default function Footer() {
     const { t } = useTranslation();
-    const [email, setEmail] = useState('');
-    const [subscribed, setSubscribed] = useState(false);
-
-    const handleSubscribe = (e) => {
-        e.preventDefault();
-        if (email) {
-            setSubscribed(true);
-            setEmail('');
-            setTimeout(() => setSubscribed(false), 3000);
-        }
-    };
 
     return (
         <footer>
@@ -222,10 +171,10 @@ export default function Footer() {
                             <SocialBtn href="https://wa.me/6281549395400?text=Halo%20Go%20Green%20School" target="_blank" rel="noreferrer"><MessageSquare size={16} /></SocialBtn>
                             <SocialBtn href="https://karyabangsa.sch.id" target="_blank" rel="noreferrer"><Instagram size={16} /></SocialBtn>
                             <SocialBtn href="https://karyabangsa.sch.id" target="_blank" rel="noreferrer"><Youtube size={16} /></SocialBtn>
-                            <SocialBtn href="https://karyabangsa.sch.id" target="_blank" rel="noreferrer"><Twitter size={16} /></SocialBtn>
+                            <SocialBtn href="https://www.tiktok.com/@ecolegacy.id_" target="_blank" rel="noreferrer" title="TikTok @ecolegacy.id_"><Music2 size={16} /></SocialBtn>
                         </SocialRow>
                         <p style={{ marginTop: '12px', fontSize: '0.8rem', color: 'rgba(255,255,255,0.75)' }}>
-                            Chat langsung via WhatsApp atau kunjungi Instagram kami.
+                            {t('footer.social_note')}
                         </p>
                     </FooterBrand>
 
@@ -257,41 +206,25 @@ export default function Footer() {
                             <Globe size={15} />
                             <span>karyabangsa.sch.id</span>
                         </ContactItem>
+                        <ContactItem>
+                            <Music2 size={15} />
+                            <a href="https://www.tiktok.com/@ecolegacy.id_" target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>
+                                @ecolegacy.id_
+                            </a>
+                        </ContactItem>
                     </FooterCol>
 
                     <FooterCol>
-                        <ColTitle>{t('footer.newsletter')}</ColTitle>
-                        <NewsletterDesc>{t('footer.newsletter_desc')}</NewsletterDesc>
-                        {subscribed ? (
-                            <div style={{
-                                background: 'rgba(255,255,255,0.15)',
-                                borderRadius: '10px',
-                                padding: '12px 16px',
-                                fontSize: '0.875rem',
-                                color: '#86efac',
-                                fontWeight: 600,
-                            }}>
-                                ✅ Terima kasih! Kamu berhasil terdaftar.
-                            </div>
-                        ) : (
-                            <NewsletterForm onSubmit={handleSubscribe}>
-                                <InputRow>
-                                    <EmailInput
-                                        type="email"
-                                        placeholder={t('footer.email_placeholder')}
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                    />
-                                    <SubscribeBtn type="submit">
-                                        <Send size={14} />
-                                    </SubscribeBtn>
-                                </InputRow>
-                                <p style={{ marginTop: '8px', fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>
-                                    {t('footer.subscribe')} →
-                                </p>
-                            </NewsletterForm>
-                        )}
+                        <ColTitle>{t('footer.contact_us')}</ColTitle>
+                        <ContactCtaText>{t('footer.social_note')}</ContactCtaText>
+                        <ContactCtaRow>
+                            <SocialBtn href="https://wa.me/6281549395400?text=Halo%20Go%20Green%20School" target="_blank" rel="noreferrer" title="WhatsApp">
+                                <MessageSquare size={16} />
+                            </SocialBtn>
+                            <SocialBtn href="https://www.tiktok.com/@ecolegacy.id_" target="_blank" rel="noreferrer" title="TikTok @ecolegacy.id_">
+                                <Music2 size={16} />
+                            </SocialBtn>
+                        </ContactCtaRow>
                     </FooterCol>
                 </FooterGrid>
 

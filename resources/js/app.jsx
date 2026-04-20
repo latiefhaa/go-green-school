@@ -1,8 +1,8 @@
 import '@vitejs/plugin-react/preamble';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './i18n';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -14,13 +14,57 @@ import Contact from './pages/Contact';
 import Calculator from './pages/Calculator';
 import Profil from './pages/Profil';
 import Developer from './pages/Developer';
+import '../css/app.css';
 
-function App() {
+function AppLayout() {
+    const location = useLocation();
+    const [themeMode, setThemeMode] = useState(() => localStorage.getItem('dashboard_theme_mode') || 'light');
+
+    useEffect(() => {
+        const onThemeChange = (event) => {
+            const mode = event?.detail?.mode || localStorage.getItem('dashboard_theme_mode') || 'light';
+            setThemeMode(mode);
+        };
+
+        window.addEventListener('ggs-theme-mode-change', onThemeChange);
+        return () => window.removeEventListener('ggs-theme-mode-change', onThemeChange);
+    }, []);
+
+    useEffect(() => {
+        document.body.classList.toggle('ggs-dashboard-dark', themeMode === 'dark');
+    }, [themeMode]);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [location.pathname]);
+
+    useEffect(() => {
+        const nodes = Array.from(document.querySelectorAll('.scroll-reveal'));
+        if (!nodes.length) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        );
+
+        nodes.forEach((node) => {
+            node.classList.remove('is-visible');
+            observer.observe(node);
+        });
+
+        return () => observer.disconnect();
+    }, [location.pathname]);
+
     return (
-        <BrowserRouter>
-            <div className="min-h-screen flex flex-col">
-                <Navbar />
-                <main className="flex-1">
+        <div className="min-h-screen flex flex-col">
+            <Navbar />
+                <main className="flex-1 route-transition" key={location.pathname} data-theme={themeMode}>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/visi-misi" element={<VisiMisi />} />
@@ -32,9 +76,16 @@ function App() {
                         <Route path="/profil-sekolah" element={<Profil />} />
                         <Route path="/developer" element={<Developer />} />
                     </Routes>
-                </main>
-                <Footer />
-            </div>
+            </main>
+            <Footer />
+        </div>
+    );
+}
+
+function App() {
+    return (
+        <BrowserRouter>
+            <AppLayout />
         </BrowserRouter>
     );
 }

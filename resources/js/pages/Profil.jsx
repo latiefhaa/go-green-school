@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { styled, fadeIn, fadeInLeft, fadeInRight } from '../stitches.config';
+import useThemeMode from '../hooks/useThemeMode';
 import {
     School, MapPin, Phone, Mail, Globe, Award, Users, BookOpen,
     Calendar, Star, Leaf, Recycle, Zap, TrendingUp, CheckCircle,
@@ -89,6 +90,7 @@ const Content = styled('div', {
     padding: '0 24px',
     position: 'relative',
     zIndex: 10,
+    '@sm': { padding: '0 16px' },
 });
 
 /* Stats strip */
@@ -141,6 +143,9 @@ const Card = styled('div', {
         transform: 'translateY(-3px)',
         boxShadow: '0 28px 60px rgba(15,23,42,0.1)',
     },
+    '@sm': {
+        padding: '24px',
+    },
 });
 
 const CardTitle = styled('h2', {
@@ -178,9 +183,12 @@ const InfoLabel = styled('span', {
     fontSize: '0.8rem',
     fontWeight: 600,
     color: '#6b7280',
-    minWidth: '140px',
+    minWidth: '96px',
     flexShrink: 0,
     paddingTop: '1px',
+    '@md': {
+        minWidth: '140px',
+    },
 });
 
 const InfoValue = styled('span', {
@@ -433,6 +441,7 @@ const STAFF = [
 /* ─── Component ──────────────────────────────────────────── */
 export default function Profil() {
     const { t, i18n } = useTranslation();
+    const { mode } = useThemeMode();
     const isEn = i18n.language === 'en';
     const [activeTab, setActiveTab] = useState('profil');
 
@@ -444,9 +453,9 @@ export default function Profil() {
     ];
 
     return (
-        <PageWrap>
+        <PageWrap className="themed-page profil-page" data-theme-mode={mode}>
             {/* ── Hero ── */}
-            <Hero>
+            <Hero className="theme-hero">
                 {/* decorative circles */}
                 <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
                 <div style={{ position: 'absolute', bottom: '-60px', left: '-60px', width: '280px', height: '280px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
@@ -626,7 +635,7 @@ export default function Profil() {
                         {/* Dampak program */}
                         <Card style={{ marginTop: '24px' }}>
                             <CardTitle><TrendingUp size={22} /> {isEn ? 'Program Impact' : 'Dampak Program (2024)'}</CardTitle>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px' }}>
                                 {[
                                     { emoji: '♻️', num: '750 kg', label: isEn ? 'Waste recycled/month' : 'Sampah didaur ulang/bulan' },
                                     { emoji: '🌿', num: '200+', label: isEn ? 'Vertical plants' : 'Tanaman vertikal' },

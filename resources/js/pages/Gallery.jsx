@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { styled, fadeIn } from '../stitches.config';
 import { Image } from 'lucide-react';
+import useThemeMode from '../hooks/useThemeMode';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
@@ -79,6 +80,11 @@ const GalleryOverlay = styled('div', {
 
 // Gallery items with real photos from public/images/gallery/
 const galleryItems = [
+    { src: '/images/gallery/foto%20buku%20.jpeg' },
+    { src: '/images/gallery/foto%20buku%20dan%20rumput%20lagi.jpeg' },
+    { src: '/images/gallery/foto%20daun.jpeg' },
+    { src: '/images/gallery/foto%20gedung%20dan%20pohon.jpeg' },
+    { src: '/images/gallery/foto%20lampu%20yg%20didalamnya%20ada%20tanaman.jpeg' },
     { src: '/images/gallery/pexels-artempodrez-7048268.jpg.jpeg' },
     { src: '/images/gallery/pexels-cottonbro-6591426.jpg.jpeg' },
     { src: '/images/gallery/pexels-cottonbro-6591431.jpg.jpeg' },
@@ -95,10 +101,11 @@ const galleryItems = [
 
 export default function Gallery() {
     const { t } = useTranslation();
+    const { mode } = useThemeMode();
 
     return (
-        <PageWrap>
-            <PageHeader>
+        <PageWrap className="themed-page gallery-page" data-theme-mode={mode}>
+            <PageHeader className="theme-hero">
                 <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '20px', padding: '6px 16px', fontSize: '0.8rem', fontWeight: 600, color: '#ffffff', marginBottom: '16px' }}>

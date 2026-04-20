@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { styled } from '../stitches.config';
-import { Menu, X, Leaf, Globe } from 'lucide-react';
+import { Menu, X, Leaf, Globe, Sun, Moon } from 'lucide-react';
 
 const Nav = styled('nav', {
     position: 'fixed',
@@ -14,12 +14,13 @@ const Nav = styled('nav', {
     variants: {
         scrolled: {
             true: {
-                backgroundColor: 'rgba(34, 139, 34, 0.92)',
+                backgroundColor: 'rgba(60, 165, 76, 0.9)',
                 backdropFilter: 'blur(14px)',
-                boxShadow: '0 18px 60px rgba(15, 23, 42, 0.16)',
+                boxShadow: '0 14px 36px rgba(15, 23, 42, 0.16)',
             },
             false: {
-                backgroundColor: 'transparent',
+                backgroundColor: 'rgba(74, 175, 83, 0.88)',
+                boxShadow: '0 8px 24px rgba(15, 23, 42, 0.1)',
             },
         },
     },
@@ -41,7 +42,7 @@ const Logo = styled('div', {
     gap: '10px',
     textDecoration: 'none',
     '& .logo-text': {
-        fontFamily: "'Poppins', sans-serif",
+        fontFamily: "'Fredoka', 'Nunito', sans-serif",
         fontWeight: 700,
         fontSize: '1.25rem',
         color: '#ffffff',
@@ -66,7 +67,7 @@ const NavLinks = styled('div', {
 
 const NavLink = styled(Link, {
     padding: '10px 16px',
-    borderRadius: '12px',
+    borderRadius: '999px',
     fontSize: '0.95rem',
     fontWeight: 600,
     color: 'rgba(255,255,255,0.95)',
@@ -81,8 +82,9 @@ const NavLink = styled(Link, {
     variants: {
         active: {
             true: {
-                backgroundColor: 'rgba(255,255,255,0.24)',
+                backgroundColor: 'rgba(255,255,255,0.28)',
                 color: '#ffffff',
+                boxShadow: '0 6px 18px rgba(0,0,0,0.12)',
             },
         },
     },
@@ -105,6 +107,76 @@ const LangBtn = styled('button', {
     '&:hover': {
         background: 'rgba(255,255,255,0.2)',
         borderColor: 'rgba(255,255,255,0.6)',
+    },
+});
+
+const ThemeBtn = styled('button', {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    padding: '6px 12px 6px 8px',
+    borderRadius: '999px',
+    border: '1px solid rgba(255,255,255,0.38)',
+    color: '#ffffff',
+    fontSize: '0.8rem',
+    fontWeight: 700,
+    cursor: 'pointer',
+    transition: 'all 0.25s ease',
+    '&:hover': {
+        transform: 'translateY(-1px)',
+        borderColor: 'rgba(255,255,255,0.6)',
+    },
+    '& .icon-shell': {
+        width: '26px',
+        height: '26px',
+        borderRadius: '999px',
+        position: 'relative',
+        display: 'grid',
+        placeItems: 'center',
+        overflow: 'hidden',
+    },
+    '& .sun-icon, & .moon-icon': {
+        position: 'absolute',
+        transition: 'opacity 0.28s ease, transform 0.28s ease',
+    },
+    variants: {
+        mode: {
+            light: {
+                background: 'rgba(255,255,255,0.12)',
+                '& .icon-shell': {
+                    background: 'linear-gradient(135deg, #fde68a, #f59e0b)',
+                    boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.24)',
+                },
+                '& .sun-icon': {
+                    opacity: 1,
+                    transform: 'translateY(0) rotate(0deg) scale(1)',
+                    color: '#78350f',
+                },
+                '& .moon-icon': {
+                    opacity: 0,
+                    transform: 'translateY(8px) rotate(18deg) scale(0.84)',
+                    color: '#e2e8f0',
+                },
+            },
+            dark: {
+                background: 'rgba(15,23,42,0.52)',
+                borderColor: 'rgba(148,163,184,0.45)',
+                '& .icon-shell': {
+                    background: 'linear-gradient(135deg, #1e293b, #334155)',
+                    boxShadow: 'inset 0 0 0 1px rgba(148,163,184,0.3)',
+                },
+                '& .sun-icon': {
+                    opacity: 0,
+                    transform: 'translateY(-8px) rotate(-18deg) scale(0.84)',
+                    color: '#facc15',
+                },
+                '& .moon-icon': {
+                    opacity: 1,
+                    transform: 'translateY(0) rotate(0deg) scale(1)',
+                    color: '#f8fafc',
+                },
+            },
+        },
     },
 });
 
@@ -154,6 +226,13 @@ const MobileLangBtn = styled(LangBtn, {
     },
 });
 
+const MobileThemeBtn = styled(ThemeBtn, {
+    width: '100%',
+    justifyContent: 'center',
+    padding: '12px 16px',
+    borderRadius: '16px',
+});
+
 const MobileMenu = styled('div', {
     position: 'fixed',
     top: '70px',
@@ -174,7 +253,7 @@ const MobileMenu = styled('div', {
 
 const MobileNavLink = styled(Link, {
     padding: '14px 18px',
-    borderRadius: '12px',
+    borderRadius: '999px',
     fontSize: '1rem',
     fontWeight: 600,
     color: 'rgba(255,255,255,0.95)',
@@ -188,7 +267,7 @@ const MobileNavLink = styled(Link, {
     variants: {
         active: {
             true: {
-                backgroundColor: 'rgba(255,255,255,0.2)',
+                backgroundColor: 'rgba(255,255,255,0.24)',
                 color: '#ffffff',
             },
         },
@@ -199,6 +278,7 @@ export default function Navbar() {
     const { t, i18n } = useTranslation();
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('dashboard_theme_mode') === 'dark');
     const location = useLocation();
 
     useEffect(() => {
@@ -218,6 +298,16 @@ export default function Navbar() {
         };
     }, [mobileOpen]);
 
+    useEffect(() => {
+        const onThemeChange = (event) => {
+            const mode = event?.detail?.mode || localStorage.getItem('dashboard_theme_mode') || 'light';
+            setIsDarkMode(mode === 'dark');
+        };
+
+        window.addEventListener('ggs-theme-mode-change', onThemeChange);
+        return () => window.removeEventListener('ggs-theme-mode-change', onThemeChange);
+    }, []);
+
     const toggleLang = () => {
         const newLang = i18n.language === 'id' ? 'en' : 'id';
         i18n.changeLanguage(newLang);
@@ -225,6 +315,21 @@ export default function Navbar() {
     };
 
     const isActive = (path) => location.pathname === path;
+    const themeMode = isDarkMode ? 'dark' : 'light';
+    const themeLabel = i18n.language === 'id'
+        ? (isDarkMode ? 'Gelap' : 'Terang')
+        : (isDarkMode ? 'Dark' : 'Light');
+    const themeAriaLabel = i18n.language === 'id'
+        ? (isDarkMode ? 'Ganti ke mode terang' : 'Ganti ke mode gelap')
+        : (isDarkMode ? 'Switch to light mode' : 'Switch to dark mode');
+
+    const toggleTheme = () => {
+        const nextMode = isDarkMode ? 'light' : 'dark';
+        setIsDarkMode(nextMode === 'dark');
+        localStorage.setItem('dashboard_theme_mode', nextMode);
+        document.body.classList.toggle('ggs-dashboard-dark', nextMode === 'dark');
+        window.dispatchEvent(new CustomEvent('ggs-theme-mode-change', { detail: { mode: nextMode } }));
+    };
 
     const navItems = [
         { path: '/', label: t('nav.home') },
@@ -238,7 +343,7 @@ export default function Navbar() {
 
     return (
         <>
-            <Nav scrolled={scrolled ? 'true' : 'false'} style={{ backgroundColor: scrolled ? 'rgba(34,139,34,0.97)' : '#228B22' }}>
+            <Nav scrolled={scrolled ? 'true' : 'false'} style={{ backgroundColor: scrolled ? 'rgba(60,165,76,0.93)' : 'rgba(74,175,83,0.9)' }}>
                 <NavInner>
                     <Link to="/" style={{ textDecoration: 'none' }}>
                         <Logo>
@@ -270,6 +375,13 @@ export default function Navbar() {
                                 {item.label}
                             </NavLink>
                         ))}
+                        <ThemeBtn type="button" mode={themeMode} onClick={toggleTheme} aria-label={themeAriaLabel} title={themeAriaLabel}>
+                            <span className="icon-shell">
+                                <Sun size={14} className="sun-icon" />
+                                <Moon size={14} className="moon-icon" />
+                            </span>
+                            {themeLabel}
+                        </ThemeBtn>
                         <LangBtn onClick={toggleLang}>
                             <Globe size={14} />
                             {i18n.language.toUpperCase()}
@@ -305,6 +417,13 @@ export default function Navbar() {
                             {item.label}
                         </MobileNavLink>
                     ))}
+                    <MobileThemeBtn type="button" mode={themeMode} onClick={toggleTheme} aria-label={themeAriaLabel}>
+                        <span className="icon-shell">
+                            <Sun size={14} className="sun-icon" />
+                            <Moon size={14} className="moon-icon" />
+                        </span>
+                        {themeLabel}
+                    </MobileThemeBtn>
                     <MobileLangBtn onClick={toggleLang}>
                         <Globe size={16} />
                         {i18n.language === 'id' ? 'Indonesia' : 'English'}
