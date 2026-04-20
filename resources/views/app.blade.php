@@ -8,9 +8,23 @@
     <meta name="description" content="SMK Karya Bangsa - Pendidikan untuk Masa Depan Berkelanjutan. Sekolah ramah lingkungan yang mengintegrasikan edukasi lingkungan ke seluruh mata pelajaran.">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=fredoka:400,500,600,700|nunito:300,400,500,600,700,800" rel="stylesheet" />
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('dashboard_theme_mode');
+                if (saved === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+            } catch (e) {
+                document.documentElement.removeAttribute('data-theme');
+            }
+        })();
+    </script>
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])
 </head>
-<body class="bg-[#F0FFF0] font-sans antialiased">
+<body class="font-sans antialiased">
     <div id="app"></div>
 </body>
 </html>

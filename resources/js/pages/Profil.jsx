@@ -8,11 +8,11 @@ import {
     Building2, GraduationCap, Heart, Target, ChevronRight,
 } from 'lucide-react';
 
-/* ─── Styled Components ───────────────────────────────────── */
-const PageWrap = styled('div', { minHeight: '100vh', background: 'linear-gradient(180deg, #f8fff8 0%, #effff2 100%)', paddingBottom: '90px' });
+/* Styled Components */
+const PageWrap = styled('div', { minHeight: '100vh', background: 'linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-muted) 100%)', paddingBottom: '90px' });
 
 const Hero = styled('div', {
-    background: 'linear-gradient(135deg, #14532d 0%, #166534 40%, #228B22 100%)',
+    background: 'linear-gradient(135deg, var(--color-accent-deep) 0%, var(--color-accent-deep) 40%, var(--color-accent) 100%)',
     padding: '60px 24px 120px',
     position: 'relative',
     overflow: 'hidden',
@@ -34,8 +34,8 @@ const SchoolLogo = styled('div', {
     width: '100px',
     height: '100px',
     borderRadius: '24px',
-    background: 'rgba(255,255,255,0.15)',
-    border: '2px solid rgba(255,255,255,0.3)',
+    background: 'rgba(var(--rgb-white),0.15)',
+    border: '2px solid rgba(var(--rgb-white),0.3)',
     backdropFilter: 'blur(10px)',
     display: 'flex',
     alignItems: 'center',
@@ -46,7 +46,7 @@ const SchoolLogo = styled('div', {
 const SchoolName = styled('h1', {
     fontSize: '2.2rem',
     fontWeight: 800,
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     lineHeight: 1.2,
     animation: `${fadeIn} 0.7s ease 0.1s forwards`,
     opacity: 0,
@@ -54,7 +54,7 @@ const SchoolName = styled('h1', {
 });
 
 const SchoolTagline = styled('p', {
-    color: 'rgba(255,255,255,0.85)',
+    color: 'rgba(var(--rgb-white),0.85)',
     fontSize: '1.05rem',
     maxWidth: '600px',
     lineHeight: 1.6,
@@ -75,13 +75,13 @@ const Badge = styled('span', {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '5px',
-    background: 'rgba(255,255,255,0.15)',
-    border: '1px solid rgba(255,255,255,0.3)',
+    background: 'rgba(var(--rgb-white),0.15)',
+    border: '1px solid rgba(var(--rgb-white),0.3)',
     borderRadius: '20px',
     padding: '5px 14px',
     fontSize: '0.78rem',
     fontWeight: 600,
-    color: '#ffffff',
+    color: 'var(--color-surface)',
 });
 
 const Content = styled('div', {
@@ -103,12 +103,12 @@ const StatsStrip = styled('div', {
 });
 
 const StatCard = styled('div', {
-    background: '#ffffff',
+    background: 'var(--color-surface)',
     borderRadius: '20px',
     padding: '24px 20px',
     textAlign: 'center',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.07)',
-    border: '1px solid rgba(34,139,34,0.08)',
+    boxShadow: '0 8px 32px rgba(var(--rgb-black),0.07)',
+    border: '1px solid rgba(var(--rgb-accent),0.08)',
     animation: `${fadeIn} 0.6s ease forwards`,
     transition: 'transform 0.2s ease',
     '&:hover': { transform: 'translateY(-4px)' },
@@ -117,31 +117,31 @@ const StatCard = styled('div', {
 const StatNumber = styled('div', {
     fontSize: '2rem',
     fontWeight: 800,
-    color: '#228B22',
+    color: 'var(--color-accent)',
     lineHeight: 1,
     marginBottom: '4px',
 });
 
 const StatLabel = styled('div', {
     fontSize: '0.78rem',
-    color: '#6b7280',
+    color: 'var(--color-text-muted)',
     fontWeight: 500,
     lineHeight: 1.3,
 });
 
 /* Cards */
 const Card = styled('div', {
-    background: '#ffffff',
+    background: 'var(--color-surface)',
     borderRadius: '28px',
     padding: '40px',
-    boxShadow: '0 20px 50px rgba(15,23,42,0.08)',
-    border: '1px solid rgba(34,139,34,0.08)',
+    boxShadow: '0 20px 50px rgba(var(--rgb-ink),0.08)',
+    border: '1px solid rgba(var(--rgb-accent),0.08)',
     marginBottom: '28px',
     animation: `${fadeIn} 0.6s ease forwards`,
     transition: 'transform 0.35s ease, box-shadow 0.35s ease',
     '&:hover': {
         transform: 'translateY(-3px)',
-        boxShadow: '0 28px 60px rgba(15,23,42,0.1)',
+        boxShadow: '0 28px 60px rgba(var(--rgb-ink),0.1)',
     },
     '@sm': {
         padding: '24px',
@@ -151,14 +151,14 @@ const Card = styled('div', {
 const CardTitle = styled('h2', {
     fontSize: '1.35rem',
     fontWeight: 800,
-    color: '#1f2937',
+    color: 'var(--color-text)',
     marginBottom: '20px',
     paddingBottom: '14px',
-    borderBottom: '2px solid #f0fdf4',
+    borderBottom: '2px solid var(--color-surface-muted)',
     display: 'flex',
     alignItems: 'center',
     gap: '10px',
-    '& svg': { color: '#228B22', flexShrink: 0 },
+    '& svg': { color: 'var(--color-accent)', flexShrink: 0 },
 });
 
 /* Two-column grid */
@@ -175,14 +175,14 @@ const InfoRow = styled('div', {
     alignItems: 'flex-start',
     gap: '12px',
     padding: '12px 0',
-    borderBottom: '1px solid #f3f4f6',
+    borderBottom: '1px solid var(--color-border)',
     '&:last-child': { borderBottom: 'none' },
 });
 
 const InfoLabel = styled('span', {
     fontSize: '0.8rem',
     fontWeight: 600,
-    color: '#6b7280',
+    color: 'var(--color-text-muted)',
     minWidth: '96px',
     flexShrink: 0,
     paddingTop: '1px',
@@ -193,7 +193,7 @@ const InfoLabel = styled('span', {
 
 const InfoValue = styled('span', {
     fontSize: '0.895rem',
-    color: '#1f2937',
+    color: 'var(--color-text)',
     fontWeight: 500,
     lineHeight: 1.5,
 });
@@ -220,15 +220,15 @@ const TimelineDot = styled('div', {
     width: '16px',
     height: '16px',
     borderRadius: '50%',
-    background: '#228B22',
-    border: '3px solid #dcfce7',
+    background: 'var(--color-accent)',
+    border: '3px solid var(--color-surface-muted)',
     flexShrink: 0,
 });
 
 const TimelineYear = styled('div', {
     fontSize: '0.75rem',
     fontWeight: 700,
-    color: '#228B22',
+    color: 'var(--color-accent)',
     textTransform: 'uppercase',
     letterSpacing: '0.05em',
     marginBottom: '4px',
@@ -236,7 +236,7 @@ const TimelineYear = styled('div', {
 
 const TimelineText = styled('div', {
     fontSize: '0.875rem',
-    color: '#374151',
+    color: 'var(--color-text-subtle)',
     lineHeight: 1.6,
 });
 
@@ -252,14 +252,14 @@ const ProgramGrid = styled('div', {
 const ProgramCard = styled('div', {
     borderRadius: '18px',
     padding: '24px',
-    border: '1px solid rgba(34,139,34,0.1)',
-    background: '#f9fafb',
+    border: '1px solid rgba(var(--rgb-accent),0.1)',
+    background: 'var(--color-surface-soft)',
     transition: 'all 0.3s ease',
     '&:hover': {
-        background: '#f0fdf4',
-        borderColor: 'rgba(34,139,34,0.25)',
+        background: 'var(--color-surface-muted)',
+        borderColor: 'rgba(var(--rgb-accent),0.25)',
         transform: 'translateY(-3px)',
-        boxShadow: '0 10px 24px rgba(34,139,34,0.1)',
+        boxShadow: '0 10px 24px rgba(var(--rgb-accent),0.1)',
     },
 });
 
@@ -267,12 +267,12 @@ const ProgramIcon = styled('div', {
     width: '48px',
     height: '48px',
     borderRadius: '14px',
-    background: 'rgba(34,139,34,0.1)',
+    background: 'rgba(var(--rgb-accent),0.1)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: '14px',
-    '& svg': { color: '#228B22' },
+    '& svg': { color: 'var(--color-accent)' },
 });
 
 /* Subject pill */
@@ -305,11 +305,11 @@ const AchievItem = styled('div', {
     alignItems: 'flex-start',
     gap: '14px',
     padding: '16px',
-    background: '#f9fafb',
+    background: 'var(--color-surface-soft)',
     borderRadius: '14px',
-    border: '1px solid rgba(34,139,34,0.08)',
+    border: '1px solid rgba(var(--rgb-accent),0.08)',
     transition: 'all 0.2s ease',
-    '&:hover': { background: '#f0fdf4', borderColor: 'rgba(34,139,34,0.2)' },
+    '&:hover': { background: 'var(--color-surface-muted)', borderColor: 'rgba(var(--rgb-accent),0.2)' },
 });
 
 /* Facility */
@@ -323,13 +323,13 @@ const FacilityGrid = styled('div', {
 
 const FacilityItem = styled('div', {
     padding: '14px',
-    background: '#f0fdf4',
+    background: 'var(--color-surface-muted)',
     borderRadius: '12px',
-    border: '1px solid rgba(34,139,34,0.12)',
+    border: '1px solid rgba(var(--rgb-accent),0.12)',
     textAlign: 'center',
     fontSize: '0.82rem',
     fontWeight: 600,
-    color: '#166534',
+    color: 'var(--color-accent-deep)',
 });
 
 /* Ekskul / Tab */
@@ -345,22 +345,22 @@ const Tab = styled('button', {
     borderRadius: '999px',
     fontSize: '0.88rem',
     fontWeight: 700,
-    border: '1px solid rgba(34,139,34,0.18)',
+    border: '1px solid rgba(var(--rgb-accent),0.18)',
     cursor: 'pointer',
     fontFamily: "'Poppins', sans-serif",
     transition: 'transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease',
     variants: {
         active: {
             true: {
-                background: '#228B22',
-                color: '#ffffff',
-                borderColor: '#228B22',
+                background: 'var(--color-accent)',
+                color: 'var(--color-surface)',
+                borderColor: 'var(--color-accent)',
                 transform: 'translateY(-2px)',
             },
             false: {
-                background: '#ffffff',
-                color: '#374151',
-                '&:hover': { background: '#f0fdf4', borderColor: '#228B22', color: '#228B22', transform: 'translateY(-1px)' },
+                background: 'var(--color-surface)',
+                color: 'var(--color-text-subtle)',
+                '&:hover': { background: 'var(--color-surface-muted)', borderColor: 'var(--color-accent)', color: 'var(--color-accent)', transform: 'translateY(-1px)' },
             },
         },
     },
@@ -371,12 +371,12 @@ const TabPanel = styled('div', {
     transition: 'opacity 0.35s ease, transform 0.35s ease',
 });
 
-/* ─── Data ───────────────────────────────────────────────── */
+/* Data */
 const PROGRAMS_GO_GREEN = [
     {
         icon: <Recycle size={22} />,
-        color: '#16a34a',
-        bg: 'rgba(22,163,74,0.08)',
+        color: 'var(--color-accent-strong)',
+        bg: 'rgba(var(--rgb-accent-strong),0.08)',
         title: 'Bank Sampah',
         title_en: 'Waste Bank',
         desc: 'Program pengelolaan dan daur ulang sampah yang mengajarkan nilai ekonomi dari limbah. Siswa belajar memilah, menimbang, dan menghitung nilai jual sampah.',
@@ -385,8 +385,8 @@ const PROGRAMS_GO_GREEN = [
     },
     {
         icon: <Leaf size={22} />,
-        color: '#15803d',
-        bg: 'rgba(21,128,61,0.08)',
+        color: 'var(--color-accent-deep)',
+        bg: 'rgba(var(--rgb-accent-strong),0.08)',
         title: 'Kebun Vertikal',
         title_en: 'Vertical Garden',
         desc: 'Pemanfaatan dinding dan lahan sempit dengan teknik hidroponik & aquaponik. Hasil panen digunakan untuk kantin sekolah dan dijual.',
@@ -395,8 +395,8 @@ const PROGRAMS_GO_GREEN = [
     },
     {
         icon: <Zap size={22} />,
-        color: '#ca8a04',
-        bg: 'rgba(202,138,4,0.08)',
+        color: 'var(--color-warning)',
+        bg: 'rgba(var(--rgb-warning),0.08)',
         title: 'Hemat Energi',
         title_en: 'Energy Saving',
         desc: 'Pemasangan panel surya mini, sensor cahaya otomatis, dan kampanye digital pengurangan emisi karbon. Monitoring konsumsi listrik harian dilakukan untuk mengukur dampak nyata.',
@@ -407,17 +407,17 @@ const PROGRAMS_GO_GREEN = [
 
 const ACHIEVEMENTS = [
     { year: '2024', title: 'Juara 1 Sekolah Adiwiyata Nasional', level: 'Nasional', icon: <Award size={18} /> },
-    { year: '2024', title: 'Best Green School – ASEAN Youth Summit 2024', level: 'Internasional', icon: <Star size={18} /> },
+    { year: '2024', title: 'Best Green School - ASEAN Youth Summit 2024', level: 'Internasional', icon: <Star size={18} /> },
     { year: '2023', title: 'Juara 2 Lomba Bank Sampah Tingkat Provinsi', level: 'Provinsi', icon: <Award size={18} /> },
-    { year: '2023', title: 'Top 10 Sekolah Inovatif – Kemendikbud', level: 'Nasional', icon: <TrendingUp size={18} /> },
-    { year: '2023', title: 'Penghargaan Lingkungan Hidup – KLHK', level: 'Nasional', icon: <Leaf size={18} /> },
-    { year: '2022', title: 'Juara 1 Karya Ilmiah Remaja – Tema Lingkungan', level: 'Kota', icon: <GraduationCap size={18} /> },
+    { year: '2023', title: 'Top 10 Sekolah Inovatif - Kemendikbud', level: 'Nasional', icon: <TrendingUp size={18} /> },
+    { year: '2023', title: 'Penghargaan Lingkungan Hidup - KLHK', level: 'Nasional', icon: <Leaf size={18} /> },
+    { year: '2022', title: 'Juara 1 Karya Ilmiah Remaja - Tema Lingkungan', level: 'Kota', icon: <GraduationCap size={18} /> },
 ];
 
 const TIMELINE = [
     { year: '2018', text: 'SMK Karya Bangsa resmi meluncurkan program lingkungan sekolah dengan fokus pada kesadaran dan aksi nyata.' },
     { year: '2019', text: 'Pembangunan kebun vertikal pertama & instalasi sistem pengomposan organik mandiri.' },
-    { year: '2020', text: 'Peluncuran Bank Sampah Sekolah — pertama di kota yang menerapkan sistem sampah terkelola.' },
+    { year: '2020', text: 'Peluncuran Bank Sampah Sekolah - pertama di kota yang menerapkan sistem sampah terkelola.' },
     { year: '2021', text: 'Implementasi panel surya mini & dashboard pemantauan energi berbasis teknologi sekolah.' },
     { year: '2022', text: 'Program berhasil mengurangi sampah sekolah sebesar 65% dibanding tahun 2018.' },
     { year: '2023', text: 'Diakui sebagai rujukan nasional oleh Kemendikbud; 12 sekolah studi banding ke sini.' },
@@ -425,20 +425,20 @@ const TIMELINE = [
 ];
 
 const FACILITIES = [
-    '🌿 Kebun Vertikal Hidroponik', '♻️ Bank Sampah Terpadu', '☀️ Panel Surya 5 kWp',
-    '🌊 Kolam Aquaponik', '🔬 Lab Lingkungan Hidup', '💻 Lab Komputer',
-    '📡 WiFi Seluruh Area', ' Greenhouse Mini',
-    '📸 Studio Konten Digital', '🏭 Area Kompos', '🚿 Sistem Daur Ulang Air',
+    'Kebun Vertikal Hidroponik', 'Bank Sampah Terpadu', 'Panel Surya 5 kWp',
+    'Kolam Aquaponik', 'Lab Lingkungan Hidup', 'Lab Komputer',
+    'WiFi Seluruh Area', 'Greenhouse Mini',
+    'Studio Konten Digital', 'Area Kompos', 'Sistem Daur Ulang Air',
 ];
 
 const STAFF = [
-    { name: 'Latiefha', role: 'Full Stack Developer', icon: '💻' },
-    { name: 'Aren', role: 'Frontend Developer', icon: '🖥️' },
-    { name: 'Rindu', role: 'Marketing', icon: '📣' },
-    { name: 'Josaphat', role: 'Designer', icon: '🎨' },
+    { name: 'Latiefha', role: 'Full Stack Developer', icon: 'FS' },
+    { name: 'Aren', role: 'Frontend Developer', icon: 'FE' },
+    { name: 'Rindu', role: 'Marketing', icon: 'MK' },
+    { name: 'Josaphat', role: 'Designer', icon: 'DS' },
 ];
 
-/* ─── Component ──────────────────────────────────────────── */
+/* Component */
 export default function Profil() {
     const { t, i18n } = useTranslation();
     const { mode } = useThemeMode();
@@ -454,15 +454,15 @@ export default function Profil() {
 
     return (
         <PageWrap className="themed-page profil-page" data-theme-mode={mode}>
-            {/* ── Hero ── */}
+            {/* Hero */}
             <Hero className="theme-hero">
                 {/* decorative circles */}
-                <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
-                <div style={{ position: 'absolute', bottom: '-60px', left: '-60px', width: '280px', height: '280px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
+                <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(var(--rgb-white),0.04)' }} />
+                <div style={{ position: 'absolute', bottom: '-60px', left: '-60px', width: '280px', height: '280px', borderRadius: '50%', background: 'rgba(var(--rgb-white),0.04)' }} />
 
                 <HeroInner>
                     <SchoolLogo>
-                        <Leaf size={48} color="#ffffff" />
+                        <Leaf size={48} color="var(--color-surface)" />
                     </SchoolLogo>
 
                     <SchoolName>
@@ -485,7 +485,7 @@ export default function Profil() {
             </Hero>
 
             <Content>
-                {/* ── Stats Strip ── */}
+                {/* Stats Strip */}
                 <StatsStrip className="scroll-reveal">
                     {[
                         { num: '150+', label: isEn ? 'Active Students' : 'Siswa Aktif', delay: '0s' },
@@ -500,7 +500,7 @@ export default function Profil() {
                     ))}
                 </StatsStrip>
 
-                {/* ── Tabs ── */}
+                {/* Tabs */}
                 <TabRow className="scroll-reveal">
                     {tabs.map(tab => (
                         <Tab
@@ -513,7 +513,7 @@ export default function Profil() {
                     ))}
                 </TabRow>
 
-                {/* ── Tab: Identitas Sekolah ── */}
+                {/* Tab: Identitas Sekolah */}
                 {activeTab === 'profil' && (
                     <TabPanel>
                         <TwoCol>
@@ -548,7 +548,7 @@ export default function Profil() {
                                     { icon: <Globe size={15} />, label: 'Website', value: 'karyabangsa.sch.id' },
                                 ].map((r, i) => (
                                     <InfoRow key={i}>
-                                        <InfoLabel style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#228B22' }}>
+                                        <InfoLabel style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--color-accent)' }}>
                                             {r.icon} {r.label}
                                         </InfoLabel>
                                         <InfoValue>{r.value}</InfoValue>
@@ -564,7 +564,7 @@ export default function Profil() {
                                     <InfoLabel style={{ fontSize: '1.2rem', minWidth: '36px' }}>{s.icon}</InfoLabel>
                                     <div>
                                         <InfoValue style={{ display: 'block', fontWeight: 600 }}>{s.name}</InfoValue>
-                                        <span style={{ fontSize: '0.75rem', color: '#228B22', fontWeight: 500 }}>{s.role}</span>
+                                        <span style={{ fontSize: '0.75rem', color: 'var(--color-accent)', fontWeight: 500 }}>{s.role}</span>
                                     </div>
                                 </InfoRow>
                             ))}
@@ -584,20 +584,20 @@ export default function Profil() {
                     </TabPanel>
                 )}
 
-                {/* ── Tab: Program Sekolah ── */}
+                {/* Tab: Program Sekolah */}
                 {activeTab === 'program' && (
                     <TabPanel>
                         {/* Intro */}
-                        <Card style={{ background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)', border: '1px solid rgba(34,139,34,0.15)' }}>
+                        <Card style={{ background: 'linear-gradient(135deg, var(--color-surface-muted), var(--color-surface-muted))', border: '1px solid rgba(var(--rgb-accent),0.15)' }}>
                             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                                <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(34,139,34,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                                    <Leaf size={28} color="#228B22" />
+                                <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(var(--rgb-accent),0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                                    <Leaf size={28} color="var(--color-accent)" />
                                 </div>
                                 <div>
-                                    <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#166534', marginBottom: '8px' }}>
+                                    <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-accent-deep)', marginBottom: '8px' }}>
                                         {isEn ? 'About SMK Karya Bangsa Programs' : 'Tentang Program SMK Karya Bangsa'}
                                     </h3>
-                                    <p style={{ color: '#374151', lineHeight: 1.7, fontSize: '0.9rem' }}>
+                                    <p style={{ color: 'var(--color-text-subtle)', lineHeight: 1.7, fontSize: '0.9rem' }}>
                                         {isEn
                                             ? 'SMK Karya Bangsa develops practical, eco-conscious student programs that combine technical skills with environmental stewardship. Our programs build leadership, entrepreneurship, and real impact in the local community.'
                                             : 'SMK Karya Bangsa mengembangkan program-program praktis dan berwawasan lingkungan yang menggabungkan keterampilan teknis dengan kepedulian lingkungan. Program kami membangun kepemimpinan, kewirausahaan, dan dampak nyata di masyarakat lokal.'}
@@ -613,18 +613,18 @@ export default function Profil() {
                                         {React.cloneElement(p.icon, { color: p.color })}
                                     </ProgramIcon>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px', gap: '8px' }}>
-                                        <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#1f2937' }}>
+                                        <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-text)' }}>
                                             {isEn ? p.title_en : p.title}
                                         </h3>
                                         <span style={{ fontSize: '0.72rem', fontWeight: 700, color: p.color, background: p.bg, padding: '3px 10px', borderRadius: '20px', whiteSpace: 'nowrap' }}>
                                             {p.stats}
                                         </span>
                                     </div>
-                                    <p style={{ fontSize: '0.845rem', color: '#6b7280', lineHeight: 1.65, marginBottom: '14px' }}>
+                                    <p style={{ fontSize: '0.845rem', color: 'var(--color-text-muted)', lineHeight: 1.65, marginBottom: '14px' }}>
                                         {isEn ? p.desc_en : p.desc}
                                     </p>
                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                                        <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#166534', background: '#f0fdf4', border: '1px solid #bbf7d0', padding: '6px 12px', borderRadius: '12px' }}>
+                                        <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--color-accent-deep)', background: 'var(--color-surface-muted)', border: '1px solid var(--color-surface-muted)', padding: '6px 12px', borderRadius: '12px' }}>
                                             {isEn ? 'Community impact' : 'Dampak komunitas'}
                                         </span>
                                     </div>
@@ -637,18 +637,18 @@ export default function Profil() {
                             <CardTitle><TrendingUp size={22} /> {isEn ? 'Program Impact' : 'Dampak Program (2024)'}</CardTitle>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px' }}>
                                 {[
-                                    { emoji: '♻️', num: '750 kg', label: isEn ? 'Waste recycled/month' : 'Sampah didaur ulang/bulan' },
-                                    { emoji: '🌿', num: '200+', label: isEn ? 'Vertical plants' : 'Tanaman vertikal' },
-                                    { emoji: '⚡', num: '30%', label: isEn ? 'Electricity saved' : 'Penghematan listrik' },
-                                    { emoji: '🌱', num: '65%', label: isEn ? 'Total waste reduction' : 'Pengurangan total sampah' },
-                                    { emoji: '💰', num: 'Rp 4.5 jt', label: isEn ? 'Monthly waste revenue' : 'Pendapatan sampah/bulan' },
-                                    { emoji: '🏆', num: '12+', label: isEn ? 'Awards since 2020' : 'Penghargaan sejak 2020' },
+                                    { emoji: 'R', num: '750 kg', label: isEn ? 'Waste recycled/month' : 'Sampah didaur ulang/bulan' },
+                                    { emoji: 'V', num: '200+', label: isEn ? 'Vertical plants' : 'Tanaman vertikal' },
+                                    { emoji: 'E', num: '30%', label: isEn ? 'Electricity saved' : 'Penghematan listrik' },
+                                    { emoji: 'G', num: '65%', label: isEn ? 'Total waste reduction' : 'Pengurangan total sampah' },
+                                    { emoji: 'P', num: 'Rp 4.5 jt', label: isEn ? 'Monthly waste revenue' : 'Pendapatan sampah/bulan' },
+                                    { emoji: 'A', num: '12+', label: isEn ? 'Awards since 2020' : 'Penghargaan sejak 2020' },
                                 ].map((d, i) => (
-                                    <div key={i} style={{ padding: '16px', background: '#f9fafb', borderRadius: '14px', display: 'flex', alignItems: 'center', gap: '14px' }}>
+                                    <div key={i} style={{ padding: '16px', background: 'var(--color-surface-soft)', borderRadius: '14px', display: 'flex', alignItems: 'center', gap: '14px' }}>
                                         <span style={{ fontSize: '1.8rem' }}>{d.emoji}</span>
                                         <div>
-                                            <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#228B22' }}>{d.num}</div>
-                                            <div style={{ fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>{d.label}</div>
+                                            <div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--color-accent)' }}>{d.num}</div>
+                                            <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', fontWeight: 500 }}>{d.label}</div>
                                         </div>
                                     </div>
                                 ))}
@@ -658,7 +658,7 @@ export default function Profil() {
                 )}
 
 
-                {/* ── Tab: Prestasi ── */}
+                {/* Tab: Prestasi */}
                 {activeTab === 'prestasi' && (
                     <TabPanel>
                         <Card>
@@ -668,17 +668,17 @@ export default function Profil() {
                                 <AchievItem key={i} style={{ animationDelay: `${i * 0.07}s` }}>
                                     <div style={{
                                         width: '44px', height: '44px', borderRadius: '12px',
-                                        background: 'rgba(34,139,34,0.1)',
+                                        background: 'rgba(var(--rgb-accent),0.1)',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                                        color: '#228B22',
+                                        color: 'var(--color-accent)',
                                     }}>
                                         {a.icon}
                                     </div>
                                     <div>
-                                        <div style={{ fontSize: '0.875rem', fontWeight: 700, color: '#1f2937', marginBottom: '4px' }}>{a.title}</div>
+                                        <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '4px' }}>{a.title}</div>
                                         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                                            <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#228B22', background: '#f0fdf4', padding: '2px 8px', borderRadius: '10px' }}>{a.year}</span>
-                                            <span style={{ fontSize: '0.7rem', color: '#6b7280', fontWeight: 500 }}>{a.level}</span>
+                                            <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--color-accent)', background: 'var(--color-surface-muted)', padding: '2px 8px', borderRadius: '10px' }}>{a.year}</span>
+                                            <span style={{ fontSize: '0.7rem', color: 'var(--color-text-muted)', fontWeight: 500 }}>{a.level}</span>
                                         </div>
                                     </div>
                                 </AchievItem>
@@ -686,25 +686,25 @@ export default function Profil() {
                         </AchievGrid>
 
                         {/* Akreditasi banner */}
-                        <div style={{ marginTop: '24px', padding: '24px', background: 'linear-gradient(135deg, #228B22, #16a34a)', borderRadius: '18px', textAlign: 'center', color: '#ffffff' }}>
+                        <div style={{ marginTop: '24px', padding: '24px', background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-strong))', borderRadius: '18px', textAlign: 'center', color: 'var(--color-surface)' }}>
                             <div style={{ fontSize: '3rem', fontWeight: 900, lineHeight: 1 }}>B</div>
                             <div style={{ fontWeight: 700, fontSize: '1rem', marginTop: '8px' }}>
-                                {isEn ? 'School Accreditation – B' : 'Akreditasi Sekolah – B'}
+                                {isEn ? 'School Accreditation - B' : 'Akreditasi Sekolah - B'}
                             </div>
                             <div style={{ fontSize: '0.8rem', opacity: 0.85, marginTop: '4px' }}>
-                                BAN-S/M • {isEn ? 'Valid until' : 'Berlaku hingga'} 2027
+                                BAN-S/M - {isEn ? 'Valid until' : 'Berlaku hingga'} 2027
                             </div>
                         </div>
                     </Card>
                     </TabPanel>
                 )}
 
-                {/* ── Tab: Sejarah ── */}
+                {/* Tab: Sejarah */}
                 {activeTab === 'sejarah' && (
                     <TabPanel>
                         <Card>
                         <CardTitle><Calendar size={22} /> {isEn ? 'Program History' : 'Sejarah Program'}</CardTitle>
-                        <div style={{ position: 'relative', paddingLeft: '32px', borderLeft: '2px solid #dcfce7' }}>
+                        <div style={{ position: 'relative', paddingLeft: '32px', borderLeft: '2px solid var(--color-surface-muted)' }}>
                             {TIMELINE.map((item, i) => (
                                 <TimelineItem key={i}>
                                     <TimelineDot />

@@ -6,12 +6,12 @@ import useThemeMode from '../hooks/useThemeMode';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
-    background: '#F0FFF0',
+    background: 'var(--color-bg-muted)',
     paddingBottom: '80px',
 });
 
 const PageHeader = styled('div', {
-    background: 'linear-gradient(135deg, #15803d, #228B22)',
+    background: 'linear-gradient(135deg, var(--color-accent-deep), var(--color-accent))',
     padding: '60px 24px 80px',
     textAlign: 'center',
     position: 'relative',
@@ -40,10 +40,10 @@ const GalleryItem = styled('div', {
     aspectRatio: '1',
     cursor: 'pointer',
     position: 'relative',
-    boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+    boxShadow: '0 4px 16px rgba(var(--rgb-black),0.08)',
     transition: 'all 0.35s ease',
     animation: `${fadeIn} 0.5s ease forwards`,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'var(--color-surface-soft)',
     '& img': {
         width: '100%',
         height: '100%',
@@ -52,7 +52,7 @@ const GalleryItem = styled('div', {
     },
     '&:hover': {
         transform: 'scale(1.03)',
-        boxShadow: '0 12px 32px rgba(34,139,34,0.2)',
+        boxShadow: '0 12px 32px rgba(var(--rgb-accent),0.2)',
     },
     '&:hover img': {
         transform: 'scale(1.05)',
@@ -65,13 +65,13 @@ const GalleryItem = styled('div', {
 const GalleryOverlay = styled('div', {
     position: 'absolute',
     inset: 0,
-    background: 'rgba(34,139,34,0.7)',
+    background: 'rgba(var(--rgb-accent),0.7)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     opacity: 0,
     transition: 'opacity 0.3s ease',
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     fontSize: '0.85rem',
     fontWeight: 600,
     textAlign: 'center',
@@ -106,13 +106,13 @@ export default function Gallery() {
     return (
         <PageWrap className="themed-page gallery-page" data-theme-mode={mode}>
             <PageHeader className="theme-hero">
-                <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
+                <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(var(--rgb-white),0.05)' }} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '20px', padding: '6px 16px', fontSize: '0.8rem', fontWeight: 600, color: '#ffffff', marginBottom: '16px' }}>
-                        📸 {t('gallery.title')}
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(var(--rgb-white),0.15)', border: '1px solid rgba(var(--rgb-white),0.3)', borderRadius: '20px', padding: '6px 16px', fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-surface)', marginBottom: '16px' }}>
+                        {t('gallery.title')}
                     </span>
-                    <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', marginBottom: '12px' }}>{t('gallery.title')}</h1>
-                    <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1rem', maxWidth: '600px', margin: '0 auto' }}>{t('gallery.subtitle')}</p>
+                    <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--color-surface)', marginBottom: '12px' }}>{t('gallery.title')}</h1>
+                    <p style={{ color: 'rgba(var(--rgb-white),0.85)', fontSize: '1rem', maxWidth: '600px', margin: '0 auto' }}>{t('gallery.subtitle')}</p>
                 </div>
             </PageHeader>
 

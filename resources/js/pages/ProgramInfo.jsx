@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { styled } from '../stitches.config';
-import { ArrowLeft, Leaf, BookOpen, Info, ListChecks, MapPin } from 'lucide-react';
+import { ArrowLeft, Leaf } from 'lucide-react';
 import useThemeMode from '../hooks/useThemeMode';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
-    background: 'linear-gradient(180deg, #eaf8ec 0%, #effaf1 52%, #f5fcf6 100%)',
+    background: 'linear-gradient(180deg, var(--color-bg-muted) 0%, var(--color-bg-muted) 52%, var(--color-bg-muted) 100%)',
     paddingBottom: '80px',
     position: 'relative',
     '&::before': {
@@ -15,15 +15,15 @@ const PageWrap = styled('div', {
         position: 'fixed',
         inset: 0,
         pointerEvents: 'none',
-        backgroundImage: 'radial-gradient(circle at 10% 22%, rgba(76,175,80,0.1) 0%, transparent 30%), radial-gradient(circle at 84% 18%, rgba(115,201,94,0.08) 0%, transparent 24%), radial-gradient(circle at 72% 76%, rgba(167,219,116,0.08) 0%, transparent 20%)',
+        backgroundImage: 'radial-gradient(circle at 10% 22%, rgba(var(--rgb-accent),0.1) 0%, transparent 30%), radial-gradient(circle at 84% 18%, rgba(var(--rgb-accent-strong),0.08) 0%, transparent 24%), radial-gradient(circle at 72% 76%, rgba(var(--rgb-accent-strong),0.08) 0%, transparent 20%)',
         zIndex: 0,
     },
 });
 
 const PageHeader = styled('div', {
-    background: 'linear-gradient(135deg, #228b45, #2dbb62)',
+    background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-strong))',
     padding: '70px 24px 90px',
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     position: 'relative',
     overflow: 'hidden',
 });
@@ -37,8 +37,8 @@ const HeaderTag = styled('span', {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '10px',
-    background: 'rgba(255,255,255,0.18)',
-    border: '1px solid rgba(255,255,255,0.35)',
+    background: 'rgba(var(--rgb-white),0.18)',
+    border: '1px solid rgba(var(--rgb-white),0.35)',
     borderRadius: '999px',
     padding: '12px 20px',
     fontSize: '0.95rem',
@@ -56,7 +56,7 @@ const HeaderTitle = styled('h1', {
 const HeaderSubtitle = styled('p', {
     marginTop: '20px',
     maxWidth: '720px',
-    color: 'rgba(255,255,255,0.92)',
+    color: 'rgba(var(--rgb-white),0.92)',
     fontSize: '1.05rem',
     lineHeight: 1.8,
 });
@@ -66,15 +66,15 @@ const PageLink = styled(Link, {
     alignItems: 'center',
     gap: '10px',
     marginTop: '30px',
-    background: 'rgba(255,255,255,0.18)',
-    color: '#ffffff',
+    background: 'rgba(var(--rgb-white),0.18)',
+    color: 'var(--color-surface)',
     padding: '14px 22px',
     borderRadius: '999px',
     fontWeight: 700,
     textDecoration: 'none',
     transition: 'all 0.2s ease',
     '&:hover': {
-        background: 'rgba(255,255,255,0.28)',
+        background: 'rgba(var(--rgb-white),0.28)',
     },
 });
 
@@ -85,25 +85,52 @@ const Content = styled('div', {
 });
 
 const Section = styled('section', {
-    background: '#ffffff',
+    background: 'var(--color-surface)',
     borderRadius: '32px',
     padding: '48px',
-    boxShadow: '0 24px 70px rgba(15,23,42,0.06)',
+    boxShadow: '0 24px 70px rgba(var(--rgb-ink),0.06)',
     marginBottom: '32px',
     overflow: 'hidden',
 });
 
+const SectionHead = styled('div', {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '14px',
+    marginBottom: '22px',
+});
+
+const SectionNumber = styled('span', {
+    width: '42px',
+    height: '42px',
+    borderRadius: '12px',
+    background: 'var(--color-accent-strong)',
+    color: 'var(--color-surface)',
+    display: 'inline-grid',
+    placeItems: 'center',
+    fontSize: '0.9rem',
+    fontWeight: 800,
+    letterSpacing: '0.04em',
+    boxShadow: '0 10px 24px rgba(var(--rgb-ink),0.16)',
+});
+
 const SectionTitle = styled('h2', {
-    fontSize: '2rem',
+    fontSize: '2.1rem',
     fontWeight: 900,
-    color: '#0f172a',
-    marginBottom: '24px',
+    color: 'var(--color-accent-deep)',
+    marginBottom: 0,
+    letterSpacing: '-0.01em',
+    lineHeight: 1.1,
+    textShadow: '0 2px 0 rgba(var(--rgb-white),0.25)',
+    '@sm': {
+        fontSize: '1.75rem',
+    },
 });
 
 const SectionText = styled('div', {
-    fontSize: '1.05rem',
-    lineHeight: 1.95,
-    color: '#475569',
+    fontSize: '1.08rem',
+    lineHeight: 1.92,
+    color: 'rgba(var(--rgb-ink),0.84)',
     maxWidth: '920px',
 });
 
@@ -119,15 +146,19 @@ const SectionListItem = styled('li', {
     display: 'flex',
     gap: '12px',
     alignItems: 'flex-start',
-    color: '#334155',
+    color: 'rgba(var(--rgb-ink),0.84)',
     fontSize: '1rem',
     lineHeight: 1.8,
+    background: 'var(--color-surface-soft)',
+    border: '1px solid rgba(var(--rgb-accent),0.12)',
+    borderRadius: '14px',
+    padding: '12px 14px',
 });
 
 const Bullet = styled('span', {
     flexShrink: 0,
     marginTop: '4px',
-    color: '#16a34a',
+    color: 'var(--color-accent-strong)',
 });
 
 export default function ProgramInfo() {
@@ -157,13 +188,16 @@ export default function ProgramInfo() {
             <Content>
                 {Array.isArray(sections) && sections.map((section, sectionIndex) => (
                     <Section className="scroll-reveal is-visible" key={section.title}>
-                        <SectionTitle>{section.title}</SectionTitle>
+                        <SectionHead>
+                            <SectionNumber>{String(sectionIndex + 1).padStart(2, '0')}</SectionNumber>
+                            <SectionTitle>{section.title}</SectionTitle>
+                        </SectionHead>
                         <SectionText>{section.text}</SectionText>
                         {Array.isArray(section.items) && section.items.length > 0 && (
                             <SectionList>
                                 {section.items.map((item, itemIndex) => (
                                     <SectionListItem key={`${section.title}-${itemIndex}`}>
-                                        <Bullet>•</Bullet>
+                                        <Bullet>-</Bullet>
                                         {item}
                                     </SectionListItem>
                                 ))}

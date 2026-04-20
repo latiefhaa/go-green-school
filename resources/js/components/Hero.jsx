@@ -40,17 +40,17 @@ const HeroSection = styled('section', {
                     content: '',
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(115deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.08) 100%)',
+                    background: 'linear-gradient(115deg, rgba(var(--rgb-white),0.2) 0%, rgba(var(--rgb-white),0.08) 100%)',
                     pointerEvents: 'none',
                 },
             },
             dark: {
-                background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 48%, #1f3a2d 100%)',
+                background: 'linear-gradient(135deg, var(--color-bg-elevated) 0%, var(--color-surface-muted) 48%, #1f3a2d 100%)',
                 '&::before': {
                     content: '',
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(120deg, rgba(148,163,184,0.08) 0%, rgba(15,23,42,0.24) 100%)',
+                    background: 'linear-gradient(120deg, rgba(var(--rgb-slate),0.08) 0%, rgba(var(--rgb-ink),0.24) 100%)',
                     pointerEvents: 'none',
                 },
             },
@@ -66,10 +66,10 @@ const HeroOverlay = styled('div', {
     variants: {
         mode: {
             light: {
-                backgroundImage: 'radial-gradient(circle at 12% 18%, rgba(255,255,255,0.28) 0%, transparent 30%), radial-gradient(circle at 80% 14%, rgba(255,255,255,0.15) 0%, transparent 24%)',
+                backgroundImage: 'radial-gradient(circle at 12% 18%, rgba(var(--rgb-white),0.28) 0%, transparent 30%), radial-gradient(circle at 80% 14%, rgba(var(--rgb-white),0.15) 0%, transparent 24%)',
             },
             dark: {
-                backgroundImage: 'radial-gradient(circle at 18% 18%, rgba(148,163,184,0.16) 0%, transparent 26%), radial-gradient(circle at 82% 14%, rgba(148,163,184,0.12) 0%, transparent 24%)',
+                backgroundImage: 'radial-gradient(circle at 18% 18%, rgba(var(--rgb-slate),0.16) 0%, transparent 26%), radial-gradient(circle at 82% 14%, rgba(var(--rgb-slate),0.12) 0%, transparent 24%)',
             },
         },
     },
@@ -106,13 +106,13 @@ const Badge = styled('span', {
     variants: {
         mode: {
             light: {
-                background: 'rgba(255,255,255,0.86)',
-                color: '#0e6a2e',
+                background: 'rgba(var(--rgb-white),0.86)',
+                color: 'var(--color-accent-deep)',
             },
             dark: {
-                background: 'rgba(15,23,42,0.62)',
-                color: '#d1fae5',
-                border: '1px solid rgba(148,163,184,0.35)',
+                background: 'rgba(var(--rgb-ink),0.62)',
+                color: 'var(--color-link)',
+                border: '1px solid rgba(var(--rgb-slate),0.35)',
             },
         },
     },
@@ -125,14 +125,14 @@ const HeroTitle = styled('h1', {
     color: '#154a2f',
     lineHeight: 1.06,
     marginBottom: '24px',
-    textShadow: '0 2px 8px rgba(255,255,255,0.22)',
+    textShadow: '0 2px 8px rgba(var(--rgb-white),0.22)',
     transition: 'color 0.5s ease, text-shadow 0.5s ease',
     variants: {
         mode: {
             light: {},
             dark: {
-                color: '#f0fdf4',
-                textShadow: '0 8px 30px rgba(0,0,0,0.35)',
+                color: 'var(--color-surface-muted)',
+                textShadow: '0 8px 30px rgba(var(--rgb-black),0.35)',
             },
         },
     },
@@ -152,7 +152,7 @@ const HeroSubtitle = styled('p', {
         mode: {
             light: {},
             dark: {
-                color: 'rgba(240,253,244,0.88)',
+                color: 'rgba(var(--rgb-white),0.88)',
             },
         },
     },
@@ -172,27 +172,27 @@ const BtnPrimary = styled(Link, {
     alignItems: 'center',
     gap: '10px',
     background: '#2f9e44',
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     padding: '16px 32px',
     borderRadius: '999px',
     fontWeight: 800,
     fontSize: '1rem',
     textDecoration: 'none',
     transition: 'transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease',
-    boxShadow: '0 18px 38px rgba(47,158,68,0.34)',
+    boxShadow: '0 18px 38px rgba(var(--rgb-accent-strong),0.34)',
     '&:hover': {
         background: '#37b24d',
         transform: 'translateY(-2px) scale(1.03)',
-        boxShadow: '0 24px 44px rgba(47,158,68,0.42)',
+        boxShadow: '0 24px 44px rgba(var(--rgb-accent-strong),0.42)',
     },
     variants: {
         mode: {
             light: {},
             dark: {
-                background: '#22c55e',
-                boxShadow: '0 20px 40px rgba(34,197,94,0.35)',
+                background: 'var(--color-accent-strong)',
+                boxShadow: '0 20px 40px rgba(var(--rgb-accent-strong),0.35)',
                 '&:hover': {
-                    background: '#4ade80',
+                    background: 'var(--color-accent-strong)',
                 },
             },
         },
@@ -222,12 +222,12 @@ const BtnSecondary = styled(Link, {
         mode: {
             light: {},
             dark: {
-                background: 'rgba(15,23,42,0.45)',
-                color: '#fef08a',
-                border: '2px solid rgba(250,204,21,0.7)',
-                boxShadow: '0 14px 30px rgba(15,23,42,0.32)',
+                background: 'rgba(var(--rgb-ink),0.45)',
+                color: 'var(--color-warning-soft)',
+                border: '2px solid rgba(var(--rgb-warning),0.7)',
+                boxShadow: '0 14px 30px rgba(var(--rgb-ink),0.32)',
                 '&:hover': {
-                    background: 'rgba(15,23,42,0.65)',
+                    background: 'rgba(var(--rgb-ink),0.65)',
                 },
             },
         },
@@ -244,15 +244,15 @@ const StatsRow = styled('div', {
 });
 
 const StatCard = styled('div', {
-    background: 'rgba(255,255,255,0.9)',
+    background: 'rgba(var(--rgb-white),0.9)',
     borderRadius: '24px',
     padding: '24px 20px',
-    boxShadow: '0 16px 36px rgba(15,23,42,0.14)',
-    border: '1px solid rgba(255,255,255,0.4)',
+    boxShadow: '0 16px 36px rgba(var(--rgb-ink),0.14)',
+    border: '1px solid rgba(var(--rgb-white),0.4)',
     transition: 'transform 0.25s ease, box-shadow 0.25s ease',
     '&:hover': {
         transform: 'translateY(-4px)',
-        boxShadow: '0 22px 42px rgba(15,23,42,0.2)',
+        boxShadow: '0 22px 42px rgba(var(--rgb-ink),0.2)',
     },
     '& .stat-icon': {
         fontSize: '1.15rem',
@@ -262,47 +262,47 @@ const StatCard = styled('div', {
     '& .stat-number': {
         fontSize: '1.9rem',
         fontWeight: 900,
-        color: '#14532d',
+        color: 'var(--color-accent-deep)',
         marginBottom: '4px',
     },
     '& .stat-title': {
         fontSize: '1rem',
-        color: '#14532d',
+        color: 'var(--color-accent-deep)',
         lineHeight: 1.4,
         fontWeight: 700,
         marginBottom: '6px',
     },
     '& .stat-desc': {
         fontSize: '0.88rem',
-        color: '#334155',
+        color: 'var(--color-text-subtle)',
         lineHeight: 1.5,
     },
     variants: {
         mode: {
             light: {},
             dark: {
-                background: 'linear-gradient(135deg, rgba(15,23,42,0.75), rgba(30,41,59,0.85))',
-                border: '1px solid rgba(148,163,184,0.24)',
+                background: 'linear-gradient(135deg, rgba(var(--rgb-ink),0.75), rgba(var(--rgb-ink),0.85))',
+                border: '1px solid rgba(var(--rgb-slate),0.24)',
                 '& .stat-number': {
-                    color: '#dcfce7',
+                    color: 'var(--color-surface-muted)',
                 },
                 '& .stat-title': {
-                    color: '#f0fdf4',
+                    color: 'var(--color-surface-muted)',
                 },
                 '& .stat-desc': {
-                    color: 'rgba(226,232,240,0.9)',
+                    color: 'rgba(var(--rgb-white),0.9)',
                 },
             },
         },
         tone: {
             mint: {
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.92), rgba(203,255,208,0.88))',
+                background: 'linear-gradient(135deg, rgba(var(--rgb-white),0.92), rgba(203,255,208,0.88))',
             },
             sky: {
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.92), rgba(198,244,224,0.9))',
+                background: 'linear-gradient(135deg, rgba(var(--rgb-white),0.92), rgba(198,244,224,0.9))',
             },
             sun: {
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,236,176,0.9))',
+                background: 'linear-gradient(135deg, rgba(var(--rgb-white),0.92), rgba(255,236,176,0.9))',
             },
         },
     },
@@ -323,20 +323,20 @@ const GlassCard = styled('div', {
     maxWidth: '520px',
     padding: '32px',
     borderRadius: '32px',
-    background: '#ffffff',
+    background: 'var(--color-surface)',
     border: '1px solid rgba(15,81,50,0.12)',
-    boxShadow: '0 24px 60px rgba(15,23,42,0.08)',
+    boxShadow: '0 24px 60px rgba(var(--rgb-ink),0.08)',
 });
 
 const GlassTitle = styled('h2', {
     fontSize: '2rem',
-    color: '#0f5132',
+    color: 'var(--color-accent-deep)',
     marginBottom: '18px',
     lineHeight: 1.1,
 });
 
 const GlassText = styled('p', {
-    color: '#334155',
+    color: 'var(--color-text-subtle)',
     lineHeight: 1.8,
     marginBottom: '24px',
 });
@@ -353,7 +353,7 @@ const GlassItem = styled('li', {
     display: 'flex',
     alignItems: 'flex-start',
     gap: '12px',
-    color: '#334155',
+    color: 'var(--color-text-subtle)',
     fontSize: '0.95rem',
     lineHeight: 1.7,
 });
@@ -362,7 +362,7 @@ const GlassDot = styled('span', {
     width: '10px',
     height: '10px',
     borderRadius: '999px',
-    background: '#0f5132',
+    background: 'var(--color-accent-deep)',
     marginTop: '6px',
 });
 
@@ -381,8 +381,8 @@ const AnimatedSun = styled('div', {
     width: '72px',
     height: '72px',
     borderRadius: '50%',
-    background: 'radial-gradient(circle at 35% 35%, #fff7c9 0%, #ffd95a 62%, #ffc94f 100%)',
-    boxShadow: '0 0 0 8px rgba(255,214,0,0.16), 0 0 34px rgba(255,214,0,0.36)',
+    background: 'radial-gradient(circle at 35% 35%, #fff7c9 0%, var(--color-warning-soft) 62%, var(--color-warning) 100%)',
+    boxShadow: '0 0 0 8px rgba(var(--rgb-warning),0.16), 0 0 34px rgba(var(--rgb-warning),0.36)',
     animation: `${bounceSun} 3.2s ease-in-out infinite`,
     zIndex: 2,
     transition: 'top 0.9s ease, opacity 0.9s ease, transform 0.9s ease',
@@ -405,8 +405,8 @@ const MoonOrb = styled('div', {
     width: '70px',
     height: '70px',
     borderRadius: '50%',
-    background: 'radial-gradient(circle at 35% 35%, #f8fafc 0%, #e2e8f0 60%, #cbd5e1 100%)',
-    boxShadow: '0 0 0 8px rgba(148,163,184,0.16), 0 0 32px rgba(148,163,184,0.3)',
+    background: 'radial-gradient(circle at 35% 35%, var(--color-surface-soft) 0%, var(--color-text) 60%, var(--color-text-subtle) 100%)',
+    boxShadow: '0 0 0 8px rgba(var(--rgb-slate),0.16), 0 0 32px rgba(var(--rgb-slate),0.3)',
     zIndex: 2,
     opacity: 0,
     transform: 'scale(0.84)',
@@ -419,7 +419,7 @@ const MoonOrb = styled('div', {
         width: '14px',
         height: '14px',
         borderRadius: '50%',
-        background: 'rgba(148,163,184,0.35)',
+        background: 'rgba(var(--rgb-slate),0.35)',
     },
     variants: {
         mode: {
@@ -435,7 +435,7 @@ const MoonOrb = styled('div', {
 
 const FloatingLeaf = styled('div', {
     position: 'absolute',
-    color: 'rgba(255,255,255,0.88)',
+    color: 'rgba(var(--rgb-white),0.88)',
     animation: `${swayLeaf} 4.5s ease-in-out infinite`,
     zIndex: 2,
 });
@@ -455,37 +455,37 @@ const WaveDivider = styled('div', {
 
 const GreenIllustration = () => (
     <svg viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', maxWidth: '480px' }}>
-        <ellipse cx="250" cy="380" rx="220" ry="30" fill="rgba(31,90,44,0.1)" />
-        <rect x="236" y="260" width="28" height="120" rx="8" fill="rgba(86,61,38,0.4)" />
-        <circle cx="250" cy="220" r="80" fill="rgba(42,132,64,0.25)" />
-        <circle cx="250" cy="210" r="70" fill="rgba(35,121,57,0.28)" />
-        <circle cx="210" cy="240" r="50" fill="rgba(56,146,74,0.24)" />
-        <circle cx="290" cy="240" r="50" fill="rgba(56,146,74,0.24)" />
-        <circle cx="250" cy="190" r="65" fill="rgba(26,102,49,0.32)" />
-        <circle cx="160" cy="310" r="22" fill="rgba(255,255,255,0.95)" />
-        <rect x="144" y="330" width="32" height="48" rx="10" fill="#4ade80" />
-        <rect x="148" y="360" width="12" height="30" rx="6" fill="rgba(255,255,255,0.9)" />
-        <rect x="164" y="360" width="12" height="30" rx="6" fill="rgba(255,255,255,0.9)" />
-        <circle cx="180" cy="320" r="14" fill="#ffd78a" />
-        <rect x="177" y="326" width="6" height="16" rx="3" fill="rgba(255,255,255,0.72)" />
-        <circle cx="340" cy="310" r="22" fill="rgba(255,255,255,0.95)" />
-        <rect x="324" y="330" width="32" height="48" rx="10" fill="#74c69d" />
-        <rect x="328" y="360" width="12" height="30" rx="6" fill="rgba(255,255,255,0.9)" />
-        <rect x="344" y="360" width="12" height="30" rx="6" fill="rgba(255,255,255,0.9)" />
-        <rect x="315" y="318" width="22" height="18" rx="5" fill="rgba(255,255,255,0.78)" />
-        <path d="M337 325 C350 320 355 325 352 332" stroke="rgba(255,255,255,0.78)" strokeWidth="3" fill="none" strokeLinecap="round"/>
-        <rect x="60" y="260" width="70" height="50" rx="4" fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.3)" strokeWidth="2"/>
-        <line x1="60" y1="278" x2="130" y2="278" stroke="rgba(255,255,255,0.32)" strokeWidth="1"/>
-        <line x1="60" y1="295" x2="130" y2="295" stroke="rgba(255,255,255,0.32)" strokeWidth="1"/>
-        <line x1="83" y1="260" x2="83" y2="310" stroke="rgba(255,255,255,0.32)" strokeWidth="1"/>
-        <line x1="107" y1="260" x2="107" y2="310" stroke="rgba(255,255,255,0.32)" strokeWidth="1"/>
-        <rect x="88" y="310" width="4" height="30" rx="3" fill="rgba(255,255,255,0.46)"/>
-        <rect x="380" y="290" width="50" height="60" rx="6" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.3)" strokeWidth="2"/>
-        <text x="390" y="326" fontSize="20" fill="rgba(255,255,255,0.78)">♻</text>
-        <circle cx="200" cy="355" r="16" fill="rgba(255,255,255,0.14)"/>
-        <circle cx="300" cy="355" r="12" fill="rgba(255,255,255,0.14)"/>
-        <path d="M80 150 C85 145 90 145 95 150" stroke="rgba(255,255,255,0.6)" strokeWidth="2" fill="none" strokeLinecap="round"/>
-        <path d="M110 130 C116 124 122 124 128 130" stroke="rgba(255,255,255,0.5)" strokeWidth="2" fill="none" strokeLinecap="round"/>
+        <ellipse cx="250" cy="380" rx="220" ry="30" fill="rgba(var(--rgb-accent),0.1)" />
+        <rect x="236" y="260" width="28" height="120" rx="8" fill="rgba(var(--rgb-warning),0.4)" />
+        <circle cx="250" cy="220" r="80" fill="rgba(var(--rgb-accent-strong),0.25)" />
+        <circle cx="250" cy="210" r="70" fill="rgba(var(--rgb-accent-strong),0.28)" />
+        <circle cx="210" cy="240" r="50" fill="rgba(var(--rgb-accent-strong),0.24)" />
+        <circle cx="290" cy="240" r="50" fill="rgba(var(--rgb-accent-strong),0.24)" />
+        <circle cx="250" cy="190" r="65" fill="rgba(var(--rgb-accent),0.32)" />
+        <circle cx="160" cy="310" r="22" fill="rgba(var(--rgb-white),0.95)" />
+        <rect x="144" y="330" width="32" height="48" rx="10" fill="var(--color-accent-strong)" />
+        <rect x="148" y="360" width="12" height="30" rx="6" fill="rgba(var(--rgb-white),0.9)" />
+        <rect x="164" y="360" width="12" height="30" rx="6" fill="rgba(var(--rgb-white),0.9)" />
+        <circle cx="180" cy="320" r="14" fill="var(--color-warning-soft)" />
+        <rect x="177" y="326" width="6" height="16" rx="3" fill="rgba(var(--rgb-white),0.72)" />
+        <circle cx="340" cy="310" r="22" fill="rgba(var(--rgb-white),0.95)" />
+        <rect x="324" y="330" width="32" height="48" rx="10" fill="var(--color-link)" />
+        <rect x="328" y="360" width="12" height="30" rx="6" fill="rgba(var(--rgb-white),0.9)" />
+        <rect x="344" y="360" width="12" height="30" rx="6" fill="rgba(var(--rgb-white),0.9)" />
+        <rect x="315" y="318" width="22" height="18" rx="5" fill="rgba(var(--rgb-white),0.78)" />
+        <path d="M337 325 C350 320 355 325 352 332" stroke="rgba(var(--rgb-white),0.78)" strokeWidth="3" fill="none" strokeLinecap="round"/>
+        <rect x="60" y="260" width="70" height="50" rx="4" fill="rgba(var(--rgb-white),0.13)" stroke="rgba(var(--rgb-white),0.3)" strokeWidth="2"/>
+        <line x1="60" y1="278" x2="130" y2="278" stroke="rgba(var(--rgb-white),0.32)" strokeWidth="1"/>
+        <line x1="60" y1="295" x2="130" y2="295" stroke="rgba(var(--rgb-white),0.32)" strokeWidth="1"/>
+        <line x1="83" y1="260" x2="83" y2="310" stroke="rgba(var(--rgb-white),0.32)" strokeWidth="1"/>
+        <line x1="107" y1="260" x2="107" y2="310" stroke="rgba(var(--rgb-white),0.32)" strokeWidth="1"/>
+        <rect x="88" y="310" width="4" height="30" rx="3" fill="rgba(var(--rgb-white),0.46)"/>
+        <rect x="380" y="290" width="50" height="60" rx="6" fill="rgba(var(--rgb-white),0.14)" stroke="rgba(var(--rgb-white),0.3)" strokeWidth="2"/>
+        <text x="390" y="326" fontSize="20" fill="rgba(var(--rgb-white),0.78)">?</text>
+        <circle cx="200" cy="355" r="16" fill="rgba(var(--rgb-white),0.14)"/>
+        <circle cx="300" cy="355" r="12" fill="rgba(var(--rgb-white),0.14)"/>
+        <path d="M80 150 C85 145 90 145 95 150" stroke="rgba(var(--rgb-white),0.6)" strokeWidth="2" fill="none" strokeLinecap="round"/>
+        <path d="M110 130 C116 124 122 124 128 130" stroke="rgba(var(--rgb-white),0.5)" strokeWidth="2" fill="none" strokeLinecap="round"/>
     </svg>
 );
 
@@ -494,9 +494,9 @@ export default function Hero() {
     const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('dashboard_theme_mode') === 'dark');
     const stats = t('hero.stats', { returnObjects: true });
     const defaultStats = [
-        { icon: '🌿', value: '3+', title: 'Program unggulan', desc: 'Aksi hijau utama yang berjalan di sekolah.' },
-        { icon: '💧', value: '6+', title: 'Proyek lintas pelajaran', desc: 'Kolaborasi siswa dari berbagai mapel.' },
-        { icon: '⚡', value: 'Setiap hari', title: 'Kebiasaan hijau', desc: 'Fokus pada aksi nyata yang konsisten.' },
+        { icon: '??', value: '3+', title: 'Program unggulan', desc: 'Aksi hijau utama yang berjalan di sekolah.' },
+        { icon: '??', value: '6+', title: 'Proyek lintas pelajaran', desc: 'Kolaborasi siswa dari berbagai mapel.' },
+        { icon: '?', value: 'Setiap hari', title: 'Kebiasaan hijau', desc: 'Fokus pada aksi nyata yang konsisten.' },
     ];
     const statData = Array.isArray(stats) ? stats : defaultStats;
     const statTones = ['mint', 'sky', 'sun'];
@@ -529,7 +529,7 @@ export default function Hero() {
             <HeroOverlay mode={mode} />
             <AnimatedSun mode={mode} />
             <MoonOrb mode={mode}>
-                <Moon size={24} style={{ position: 'absolute', right: '10px', top: '22px', color: '#334155' }} />
+                <Moon size={24} style={{ position: 'absolute', right: '10px', top: '22px', color: 'var(--color-text-subtle)' }} />
             </MoonOrb>
             <FloatingLeaf style={{ top: '22%', left: '7%' }}>
                 <Leaf size={26} />
@@ -540,9 +540,9 @@ export default function Hero() {
             <FloatingLeaf style={{ top: '32%', right: '14%', animationDelay: '1.3s' }}>
                 <Leaf size={24} />
             </FloatingLeaf>
-            <FloatBlob style={{ width: '320px', height: '320px', top: '-90px', right: '-120px', background: 'rgba(15,107,44,0.18)' }} />
-            <FloatBlob style={{ width: '260px', height: '260px', bottom: '20px', left: '40px', background: 'rgba(122,205,110,0.23)' }} />
-            <FloatBlob style={{ width: '180px', height: '180px', top: '22%', left: '28%', background: 'rgba(255,255,255,0.18)' }} />
+            <FloatBlob style={{ width: '320px', height: '320px', top: '-90px', right: '-120px', background: 'rgba(var(--rgb-accent),0.18)' }} />
+            <FloatBlob style={{ width: '260px', height: '260px', bottom: '20px', left: '40px', background: 'rgba(var(--rgb-accent-strong),0.23)' }} />
+            <FloatBlob style={{ width: '180px', height: '180px', top: '22%', left: '28%', background: 'rgba(var(--rgb-white),0.18)' }} />
 
             <HeroInner>
                 <HeroContent>
@@ -579,13 +579,13 @@ export default function Hero() {
 
                 <HeroVisual>
                     <GreenIllustration />
-                    <FloatBlob style={{ width: '240px', height: '240px', top: '10%', right: '-90px', background: 'rgba(255,255,255,0.16)' }} />
-                    <FloatBlob style={{ width: '160px', height: '160px', bottom: '8%', left: '5%', background: 'rgba(255,255,255,0.12)' }} />
+                    <FloatBlob style={{ width: '240px', height: '240px', top: '10%', right: '-90px', background: 'rgba(var(--rgb-white),0.16)' }} />
+                    <FloatBlob style={{ width: '160px', height: '160px', bottom: '8%', left: '5%', background: 'rgba(var(--rgb-white),0.12)' }} />
                 </HeroVisual>
             </HeroInner>
             <WaveDivider>
                 <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0,38 C180,102 360,104 540,68 C720,32 900,-4 1080,18 C1230,36 1320,64 1440,44 L1440,120 L0,120 Z" fill={isDarkMode ? '#0b1220' : '#ffffff'} />
+                    <path d="M0,38 C180,102 360,104 540,68 C720,32 900,-4 1080,18 C1230,36 1320,64 1440,44 L1440,120 L0,120 Z" fill={isDarkMode ? 'var(--color-bg)' : 'var(--color-surface)'} />
                 </svg>
             </WaveDivider>
         </HeroSection>

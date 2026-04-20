@@ -14,13 +14,19 @@ const Nav = styled('nav', {
     variants: {
         scrolled: {
             true: {
-                backgroundColor: 'rgba(60, 165, 76, 0.9)',
+                backgroundColor: 'rgba(var(--rgb-accent), 0.9)',
                 backdropFilter: 'blur(14px)',
-                boxShadow: '0 14px 36px rgba(15, 23, 42, 0.16)',
+                boxShadow: '0 14px 36px rgba(var(--rgb-ink), 0.16)',
             },
             false: {
-                backgroundColor: 'rgba(74, 175, 83, 0.88)',
-                boxShadow: '0 8px 24px rgba(15, 23, 42, 0.1)',
+                backgroundColor: 'rgba(var(--rgb-accent), 0.88)',
+                boxShadow: '0 8px 24px rgba(var(--rgb-ink), 0.1)',
+            },
+        },
+        mode: {
+            dark: {
+                boxShadow: '0 12px 28px rgba(2, 6, 23, 0.45)',
+                backdropFilter: 'none',
             },
         },
     },
@@ -45,13 +51,13 @@ const Logo = styled('div', {
         fontFamily: "'Fredoka', 'Nunito', sans-serif",
         fontWeight: 700,
         fontSize: '1.25rem',
-        color: '#ffffff',
+        color: 'var(--color-surface)',
         lineHeight: 1.1,
     },
     '& .logo-sub': {
         fontSize: '0.65rem',
         fontWeight: 400,
-        color: 'rgba(255,255,255,0.85)',
+        color: 'rgba(var(--rgb-white),0.85)',
         display: 'block',
     },
 });
@@ -70,21 +76,21 @@ const NavLink = styled(Link, {
     borderRadius: '999px',
     fontSize: '0.95rem',
     fontWeight: 600,
-    color: 'rgba(255,255,255,0.95)',
+    color: 'rgba(var(--rgb-white),0.95)',
     textDecoration: 'none',
     transition: 'transform 0.3s ease, background-color 0.3s ease, color 0.3s ease',
     transform: 'translateY(0)',
     '&:hover': {
-        backgroundColor: 'rgba(255,255,255,0.16)',
-        color: '#ffffff',
+        backgroundColor: 'rgba(var(--rgb-white),0.16)',
+        color: 'var(--color-surface)',
         transform: 'translateY(-2px)',
     },
     variants: {
         active: {
             true: {
-                backgroundColor: 'rgba(255,255,255,0.28)',
-                color: '#ffffff',
-                boxShadow: '0 6px 18px rgba(0,0,0,0.12)',
+                backgroundColor: 'rgba(var(--rgb-white),0.28)',
+                color: 'var(--color-surface)',
+                boxShadow: '0 6px 18px rgba(var(--rgb-black),0.12)',
             },
         },
     },
@@ -96,17 +102,17 @@ const LangBtn = styled('button', {
     gap: '6px',
     padding: '6px 12px',
     borderRadius: '20px',
-    border: '1px solid rgba(255,255,255,0.4)',
-    background: 'rgba(255,255,255,0.1)',
-    color: '#ffffff',
+    border: '1px solid rgba(var(--rgb-white),0.4)',
+    background: 'rgba(var(--rgb-white),0.1)',
+    color: 'var(--color-surface)',
     fontSize: '0.8rem',
     fontWeight: 600,
     cursor: 'pointer',
     transition: 'all 0.2s ease',
     fontFamily: "'Poppins', sans-serif",
     '&:hover': {
-        background: 'rgba(255,255,255,0.2)',
-        borderColor: 'rgba(255,255,255,0.6)',
+        background: 'rgba(var(--rgb-white),0.2)',
+        borderColor: 'rgba(var(--rgb-white),0.6)',
     },
 });
 
@@ -116,15 +122,15 @@ const ThemeBtn = styled('button', {
     gap: '8px',
     padding: '6px 12px 6px 8px',
     borderRadius: '999px',
-    border: '1px solid rgba(255,255,255,0.38)',
-    color: '#ffffff',
+    border: '1px solid rgba(var(--rgb-white),0.38)',
+    color: 'var(--color-surface)',
     fontSize: '0.8rem',
     fontWeight: 700,
     cursor: 'pointer',
     transition: 'all 0.25s ease',
     '&:hover': {
         transform: 'translateY(-1px)',
-        borderColor: 'rgba(255,255,255,0.6)',
+        borderColor: 'rgba(var(--rgb-white),0.6)',
     },
     '& .icon-shell': {
         width: '26px',
@@ -142,38 +148,38 @@ const ThemeBtn = styled('button', {
     variants: {
         mode: {
             light: {
-                background: 'rgba(255,255,255,0.12)',
+                background: 'rgba(var(--rgb-white),0.12)',
                 '& .icon-shell': {
-                    background: 'linear-gradient(135deg, #fde68a, #f59e0b)',
-                    boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.24)',
+                    background: 'linear-gradient(135deg, var(--color-warning-soft), var(--color-warning))',
+                    boxShadow: 'inset 0 0 0 1px rgba(var(--rgb-white),0.24)',
                 },
                 '& .sun-icon': {
                     opacity: 1,
                     transform: 'translateY(0) rotate(0deg) scale(1)',
-                    color: '#78350f',
+                    color: 'var(--color-warning)',
                 },
                 '& .moon-icon': {
                     opacity: 0,
                     transform: 'translateY(8px) rotate(18deg) scale(0.84)',
-                    color: '#e2e8f0',
+                    color: 'var(--color-text)',
                 },
             },
             dark: {
-                background: 'rgba(15,23,42,0.52)',
-                borderColor: 'rgba(148,163,184,0.45)',
+                background: 'rgba(var(--rgb-ink),0.52)',
+                borderColor: 'rgba(var(--rgb-slate),0.45)',
                 '& .icon-shell': {
-                    background: 'linear-gradient(135deg, #1e293b, #334155)',
-                    boxShadow: 'inset 0 0 0 1px rgba(148,163,184,0.3)',
+                    background: 'linear-gradient(135deg, var(--color-surface-muted), var(--color-border))',
+                    boxShadow: 'inset 0 0 0 1px rgba(var(--rgb-slate),0.3)',
                 },
                 '& .sun-icon': {
                     opacity: 0,
                     transform: 'translateY(-8px) rotate(-18deg) scale(0.84)',
-                    color: '#facc15',
+                    color: 'var(--color-warning)',
                 },
                 '& .moon-icon': {
                     opacity: 1,
                     transform: 'translateY(0) rotate(0deg) scale(1)',
-                    color: '#f8fafc',
+                    color: 'var(--color-surface-soft)',
                 },
             },
         },
@@ -187,7 +193,7 @@ const MobileMenuBtn = styled('button', {
     '@md': { display: 'none' },
     background: 'transparent',
     border: 'none',
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     cursor: 'pointer',
     padding: '8px',
     minWidth: '48px',
@@ -197,7 +203,7 @@ const MobileMenuBtn = styled('button', {
     transition: 'background-color 0.25s ease, transform 0.15s ease',
     WebkitTapHighlightColor: 'transparent',
     '&:hover': {
-        background: 'rgba(255,255,255,0.15)',
+        background: 'rgba(var(--rgb-white),0.15)',
     },
     '&:active': {
         transform: 'scale(0.95)',
@@ -210,8 +216,8 @@ const MobileMenuHeader = styled('div', {
     justifyContent: 'space-between',
     gap: '12px',
     paddingBottom: '10px',
-    borderBottom: '1px solid rgba(255,255,255,0.18)',
-    color: '#ffffff',
+    borderBottom: '1px solid rgba(var(--rgb-white),0.18)',
+    color: 'var(--color-surface)',
 });
 
 const MobileLangBtn = styled(LangBtn, {
@@ -219,10 +225,10 @@ const MobileLangBtn = styled(LangBtn, {
     justifyContent: 'center',
     padding: '12px 16px',
     borderRadius: '16px',
-    background: 'rgba(255,255,255,0.12)',
-    border: '1px solid rgba(255,255,255,0.28)',
+    background: 'rgba(var(--rgb-white),0.12)',
+    border: '1px solid rgba(var(--rgb-white),0.28)',
     '&:hover': {
-        background: 'rgba(255,255,255,0.18)',
+        background: 'rgba(var(--rgb-white),0.18)',
     },
 });
 
@@ -239,16 +245,25 @@ const MobileMenu = styled('div', {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(34, 139, 34, 0.98)',
+    backgroundColor: 'rgba(var(--rgb-accent), 0.98)',
     backdropFilter: 'blur(16px)',
     padding: '18px 20px 24px',
     display: 'flex',
     flexDirection: 'column',
     gap: '14px',
-    boxShadow: '0 22px 60px rgba(15,23,42,0.22)',
+    boxShadow: '0 22px 60px rgba(var(--rgb-ink),0.22)',
     transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
     zIndex: 2050,
     '@md': { display: 'none' },
+    variants: {
+        mode: {
+            dark: {
+                backgroundColor: 'rgba(var(--rgb-ink), 0.98)',
+                borderTop: '1px solid rgba(var(--rgb-slate),0.25)',
+                backdropFilter: 'none',
+            },
+        },
+    },
 });
 
 const MobileNavLink = styled(Link, {
@@ -256,19 +271,19 @@ const MobileNavLink = styled(Link, {
     borderRadius: '999px',
     fontSize: '1rem',
     fontWeight: 600,
-    color: 'rgba(255,255,255,0.95)',
+    color: 'rgba(var(--rgb-white),0.95)',
     textDecoration: 'none',
     transition: 'transform 0.25s ease, background-color 0.25s ease, color 0.25s ease',
     '&:hover': {
-        backgroundColor: 'rgba(255,255,255,0.16)',
-        color: '#ffffff',
+        backgroundColor: 'rgba(var(--rgb-white),0.16)',
+        color: 'var(--color-surface)',
         transform: 'translateX(4px)',
     },
     variants: {
         active: {
             true: {
-                backgroundColor: 'rgba(255,255,255,0.24)',
-                color: '#ffffff',
+                backgroundColor: 'rgba(var(--rgb-white),0.24)',
+                color: 'var(--color-surface)',
             },
         },
     },
@@ -322,12 +337,19 @@ export default function Navbar() {
     const themeAriaLabel = i18n.language === 'id'
         ? (isDarkMode ? 'Ganti ke mode terang' : 'Ganti ke mode gelap')
         : (isDarkMode ? 'Switch to light mode' : 'Switch to dark mode');
+    const navBackground = isDarkMode
+        ? (scrolled ? 'rgba(var(--rgb-ink), 0.92)' : 'rgba(var(--rgb-ink), 0.88)')
+        : (scrolled ? 'rgba(var(--rgb-accent),0.93)' : 'rgba(var(--rgb-accent),0.9)');
 
     const toggleTheme = () => {
         const nextMode = isDarkMode ? 'light' : 'dark';
         setIsDarkMode(nextMode === 'dark');
         localStorage.setItem('dashboard_theme_mode', nextMode);
-        document.body.classList.toggle('ggs-dashboard-dark', nextMode === 'dark');
+        if (nextMode === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
         window.dispatchEvent(new CustomEvent('ggs-theme-mode-change', { detail: { mode: nextMode } }));
     };
 
@@ -343,7 +365,7 @@ export default function Navbar() {
 
     return (
         <>
-            <Nav scrolled={scrolled ? 'true' : 'false'} style={{ backgroundColor: scrolled ? 'rgba(60,165,76,0.93)' : 'rgba(74,175,83,0.9)' }}>
+            <Nav scrolled={scrolled ? 'true' : 'false'} mode={isDarkMode ? 'dark' : undefined} style={{ backgroundColor: navBackground }}>
                 <NavInner>
                     <Link to="/" style={{ textDecoration: 'none' }}>
                         <Logo>
@@ -351,12 +373,12 @@ export default function Navbar() {
                                 width: '40px',
                                 height: '40px',
                                 borderRadius: '10px',
-                                background: 'rgba(255,255,255,0.2)',
+                                background: 'rgba(var(--rgb-white),0.2)',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                             }}>
-                                <Leaf size={22} color="#ffffff" />
+                                <Leaf size={22} color="var(--color-surface)" />
                             </div>
                             <div>
                                 <span className="logo-text">Go Green School</span>
@@ -402,10 +424,10 @@ export default function Navbar() {
                     transform: mobileOpen ? 'translateY(0)' : 'translateY(-12px)',
                     pointerEvents: mobileOpen ? 'auto' : 'none',
                     visibility: mobileOpen ? 'visible' : 'hidden',
-                }}>
+                }} mode={isDarkMode ? 'dark' : undefined}>
                     <MobileMenuHeader>
                         <div style={{ fontSize: '0.95rem', fontWeight: 700 }}>Menu</div>
-                        <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.84)' }}>{i18n.language === 'id' ? 'ID' : 'EN'}</div>
+                        <div style={{ fontSize: '0.8rem', color: 'rgba(var(--rgb-white),0.84)' }}>{i18n.language === 'id' ? 'ID' : 'EN'}</div>
                     </MobileMenuHeader>
                     {navItems.map((item) => (
                         <MobileNavLink

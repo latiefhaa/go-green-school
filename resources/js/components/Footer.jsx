@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { styled } from '../stitches.config';
 import { Leaf, Mail, MapPin, Phone, MessageSquare, Instagram, Youtube, Music2, Globe } from 'lucide-react';
+import useThemeMode from '../hooks/useThemeMode';
 
 const FooterWrap = styled('footer', {
-    background: 'linear-gradient(135deg, #166534 0%, #1a6b1a 50%, #228B22 100%)',
-    color: '#ffffff',
+    background: 'linear-gradient(135deg, var(--color-accent-deep) 0%, var(--color-accent-deep) 50%, var(--color-accent) 100%)',
+    color: 'var(--color-surface)',
     paddingTop: '64px',
+    variants: {
+        mode: {
+            dark: {
+                background: 'linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-soft) 50%, var(--color-bg-elevated) 100%)',
+                borderTop: '1px solid rgba(var(--rgb-slate),0.22)',
+            },
+        },
+    },
 });
 
 const FooterGrid = styled('div', {
@@ -32,7 +41,7 @@ const BrandLogo = styled('div', {
 
 const FooterDesc = styled('p', {
     fontSize: '0.875rem',
-    color: 'rgba(255,255,255,0.75)',
+    color: 'rgba(var(--rgb-white),0.75)',
     lineHeight: 1.7,
     marginBottom: '24px',
     maxWidth: '280px',
@@ -47,15 +56,15 @@ const SocialBtn = styled('a', {
     width: '38px',
     height: '38px',
     borderRadius: '10px',
-    background: 'rgba(255,255,255,0.1)',
+    background: 'rgba(var(--rgb-white),0.1)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     textDecoration: 'none',
     transition: 'all 0.2s ease',
     '&:hover': {
-        background: 'rgba(255,255,255,0.25)',
+        background: 'rgba(var(--rgb-white),0.25)',
         transform: 'translateY(-2px)',
     },
 });
@@ -65,22 +74,22 @@ const FooterCol = styled('div', {});
 const ColTitle = styled('h4', {
     fontSize: '1rem',
     fontWeight: 700,
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     marginBottom: '20px',
     paddingBottom: '10px',
-    borderBottom: '2px solid rgba(255,255,255,0.2)',
+    borderBottom: '2px solid rgba(var(--rgb-white),0.2)',
     display: 'inline-block',
 });
 
 const FooterLink = styled(Link, {
     display: 'block',
-    color: 'rgba(255,255,255,0.75)',
+    color: 'rgba(var(--rgb-white),0.75)',
     textDecoration: 'none',
     fontSize: '0.875rem',
     marginBottom: '10px',
     transition: 'all 0.2s ease',
     '&:hover': {
-        color: '#ffffff',
+        color: 'var(--color-surface)',
         paddingLeft: '6px',
     },
 });
@@ -90,18 +99,18 @@ const ContactItem = styled('div', {
     alignItems: 'flex-start',
     gap: '10px',
     marginBottom: '14px',
-    color: 'rgba(255,255,255,0.75)',
+    color: 'rgba(var(--rgb-white),0.75)',
     fontSize: '0.875rem',
     '& svg': {
         flexShrink: 0,
         marginTop: '2px',
-        color: '#86efac',
+        color: 'var(--color-link)',
     },
 });
 
 const ContactCtaText = styled('p', {
     fontSize: '0.84rem',
-    color: 'rgba(255,255,255,0.74)',
+    color: 'rgba(var(--rgb-white),0.74)',
     marginBottom: '14px',
     lineHeight: 1.6,
 });
@@ -115,7 +124,7 @@ const ContactCtaRow = styled('div', {
 
 const FooterBottom = styled('div', {
     marginTop: '48px',
-    borderTop: '1px solid rgba(255,255,255,0.15)',
+    borderTop: '1px solid rgba(var(--rgb-white),0.15)',
     padding: '20px 24px',
     maxWidth: '1280px',
     margin: '0 auto',
@@ -126,7 +135,7 @@ const FooterBottom = styled('div', {
     gap: '12px',
     '& p': {
         fontSize: '0.8rem',
-        color: 'rgba(255,255,255,0.65)',
+        color: 'rgba(var(--rgb-white),0.65)',
     },
 });
 
@@ -134,19 +143,20 @@ const GreenTag = styled('span', {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '4px',
-    background: 'rgba(255,255,255,0.1)',
+    background: 'rgba(var(--rgb-white),0.1)',
     padding: '4px 10px',
     borderRadius: '20px',
     fontSize: '0.75rem',
-    color: 'rgba(255,255,255,0.8)',
+    color: 'rgba(var(--rgb-white),0.8)',
 });
 
 export default function Footer() {
     const { t } = useTranslation();
+    const { mode } = useThemeMode();
 
     return (
-        <footer>
-            <FooterWrap>
+        <footer className="themed-footer" data-theme-mode={mode}>
+            <FooterWrap mode={mode === 'dark' ? 'dark' : undefined}>
                 <FooterGrid>
                     <FooterBrand>
                         <BrandLogo>
@@ -154,16 +164,16 @@ export default function Footer() {
                                 width: '44px',
                                 height: '44px',
                                 borderRadius: '12px',
-                                background: 'rgba(255,255,255,0.15)',
+                                background: 'rgba(var(--rgb-white),0.15)',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                             }}>
-                                <Leaf size={24} color="#ffffff" />
+                                <Leaf size={24} color="var(--color-surface)" />
                             </div>
                             <div>
-                                <div style={{ fontWeight: 700, fontSize: '1.1rem', color: '#ffffff' }}>Go Green School</div>
-                                <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.75)' }}>{t('tagline')}</div>
+                                <div style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--color-surface)' }}>Go Green School</div>
+                                <div style={{ fontSize: '0.72rem', color: 'rgba(var(--rgb-white),0.75)' }}>{t('tagline')}</div>
                             </div>
                         </BrandLogo>
                         <FooterDesc>{t('footer.description')}</FooterDesc>
@@ -173,7 +183,7 @@ export default function Footer() {
                             <SocialBtn href="https://karyabangsa.sch.id" target="_blank" rel="noreferrer"><Youtube size={16} /></SocialBtn>
                             <SocialBtn href="https://www.tiktok.com/@ecolegacy.id_" target="_blank" rel="noreferrer" title="TikTok @ecolegacy.id_"><Music2 size={16} /></SocialBtn>
                         </SocialRow>
-                        <p style={{ marginTop: '12px', fontSize: '0.8rem', color: 'rgba(255,255,255,0.75)' }}>
+                        <p style={{ marginTop: '12px', fontSize: '0.8rem', color: 'rgba(var(--rgb-white),0.75)' }}>
                             {t('footer.social_note')}
                         </p>
                     </FooterBrand>
@@ -208,7 +218,7 @@ export default function Footer() {
                         </ContactItem>
                         <ContactItem>
                             <Music2 size={15} />
-                            <a href="https://www.tiktok.com/@ecolegacy.id_" target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}>
+                            <a href="https://www.tiktok.com/@ecolegacy.id_" target="_blank" rel="noreferrer" style={{ color: 'rgba(var(--rgb-white),0.82)', textDecoration: 'none' }}>
                                 @ecolegacy.id_
                             </a>
                         </ContactItem>
@@ -229,11 +239,11 @@ export default function Footer() {
                 </FooterGrid>
 
                 <div style={{ maxWidth: '1280px', margin: '48px auto 0', padding: '0 24px' }}>
-                    <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '20px', paddingBottom: '20px', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
-                        <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.65)' }}>{t('footer.copyright')}</p>
+                    <div style={{ borderTop: '1px solid rgba(var(--rgb-white),0.15)', paddingTop: '20px', paddingBottom: '20px', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
+                        <p style={{ fontSize: '0.8rem', color: 'rgba(var(--rgb-white),0.65)' }}>{t('footer.copyright')}</p>
                         <GreenTag>
                             <Leaf size={12} />
-                            Made with 💚 for the Planet
+                            Made with love for the Planet
                         </GreenTag>
                     </div>
                 </div>

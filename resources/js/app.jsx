@@ -20,10 +20,19 @@ function AppLayout() {
     const location = useLocation();
     const [themeMode, setThemeMode] = useState(() => localStorage.getItem('dashboard_theme_mode') || 'light');
 
+    const applyThemeAttribute = (mode) => {
+        if (mode === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+    };
+
     useEffect(() => {
         const onThemeChange = (event) => {
             const mode = event?.detail?.mode || localStorage.getItem('dashboard_theme_mode') || 'light';
             setThemeMode(mode);
+            applyThemeAttribute(mode);
         };
 
         window.addEventListener('ggs-theme-mode-change', onThemeChange);
@@ -31,7 +40,7 @@ function AppLayout() {
     }, []);
 
     useEffect(() => {
-        document.body.classList.toggle('ggs-dashboard-dark', themeMode === 'dark');
+        applyThemeAttribute(themeMode);
     }, [themeMode]);
 
     useEffect(() => {

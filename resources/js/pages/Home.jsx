@@ -8,12 +8,20 @@ import { Calculator, BookOpen, ArrowRight, Leaf, Recycle, Sun, Droplets } from '
 import useThemeMode from '../hooks/useThemeMode';
 
 const CTASection = styled('section', {
-    background: 'linear-gradient(135deg, #1f7a1f, #1c5e1c)',
+    background: 'linear-gradient(135deg, var(--color-accent-deep), var(--color-accent-deep))',
     padding: '92px 24px',
     textAlign: 'center',
     position: 'relative',
     overflow: 'hidden',
-    boxShadow: 'inset 0 0 120px rgba(0,0,0,0.08)',
+    boxShadow: 'inset 0 0 120px rgba(var(--rgb-black),0.08)',
+    variants: {
+        mode: {
+            dark: {
+                background: 'linear-gradient(135deg, var(--color-bg-elevated), var(--color-bg-soft))',
+                boxShadow: 'inset 0 0 90px rgba(var(--rgb-ink),0.35)',
+            },
+        },
+    },
 });
 
 const CTAInner = styled('div', {
@@ -26,13 +34,13 @@ const CTAInner = styled('div', {
 const CTATitle = styled('h2', {
     fontSize: '2rem',
     fontWeight: 800,
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     marginBottom: '16px',
     '@lg': { fontSize: '2.5rem' },
 });
 
 const CTADesc = styled('p', {
-    color: 'rgba(255,255,255,0.85)',
+    color: 'rgba(var(--rgb-white),0.85)',
     fontSize: '1.05rem',
     marginBottom: '32px',
     lineHeight: 1.6,
@@ -58,16 +66,16 @@ const CtaBtn = styled(Link, {
     variants: {
         variant: {
             white: {
-                background: '#ffffff',
-                color: '#228B22',
-                boxShadow: '0 22px 52px rgba(34,139,34,0.12)',
-                '&:hover': { background: '#f6fff7', transform: 'translateY(-3px)', boxShadow: '0 26px 64px rgba(34,139,34,0.15)' },
+                background: 'var(--color-surface)',
+                color: 'var(--color-accent)',
+                boxShadow: '0 22px 52px rgba(var(--rgb-accent),0.12)',
+                '&:hover': { background: 'var(--color-bg-muted)', transform: 'translateY(-3px)', boxShadow: '0 26px 64px rgba(var(--rgb-accent),0.15)' },
             },
             outline: {
-                background: 'rgba(255,255,255,0.12)',
-                color: '#ffffff',
-                border: '2px solid rgba(255,255,255,0.6)',
-                '&:hover': { background: 'rgba(255,255,255,0.18)', borderColor: '#ffffff', transform: 'translateY(-3px)' },
+                background: 'rgba(var(--rgb-white),0.12)',
+                color: 'var(--color-surface)',
+                border: '2px solid rgba(var(--rgb-white),0.6)',
+                '&:hover': { background: 'rgba(var(--rgb-white),0.18)', borderColor: 'var(--color-surface)', transform: 'translateY(-3px)' },
             },
         },
     },
@@ -75,7 +83,14 @@ const CtaBtn = styled(Link, {
 
 const CarouselSection = styled('section', {
     padding: '34px 24px 46px',
-    background: 'linear-gradient(180deg, #f7fff4 0%, #effff2 100%)',
+    background: 'linear-gradient(180deg, var(--color-bg-muted) 0%, var(--color-bg-muted) 100%)',
+    variants: {
+        mode: {
+            dark: {
+                background: 'linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-soft) 100%)',
+            },
+        },
+    },
 });
 
 const CarouselInner = styled('div', {
@@ -86,9 +101,18 @@ const CarouselInner = styled('div', {
 const CarouselFrame = styled('div', {
     overflow: 'hidden',
     borderRadius: '28px',
-    border: '1px solid rgba(34,139,34,0.12)',
-    boxShadow: '0 26px 70px rgba(15,23,42,0.08)',
-    background: '#ffffff',
+    border: '1px solid rgba(var(--rgb-accent),0.12)',
+    boxShadow: '0 26px 70px rgba(var(--rgb-ink),0.08)',
+    background: 'var(--color-surface)',
+    variants: {
+        mode: {
+            dark: {
+                background: 'var(--color-bg-elevated)',
+                borderColor: 'rgba(var(--rgb-slate),0.24)',
+                boxShadow: '0 18px 45px rgba(var(--rgb-ink),0.44)',
+            },
+        },
+    },
 });
 
 const CarouselTrack = styled('div', {
@@ -118,15 +142,15 @@ const SlideBadge = styled('span', {
     fontWeight: 700,
     fontSize: '0.78rem',
     letterSpacing: '0.05em',
-    background: 'rgba(34,139,34,0.12)',
-    color: '#176534',
+    background: 'rgba(var(--rgb-accent),0.12)',
+    color: 'var(--color-accent-deep)',
 });
 
 const SlideTitle = styled('h3', {
     fontSize: '1.6rem',
     lineHeight: 1.2,
     fontWeight: 800,
-    color: '#0f172a',
+    color: 'var(--color-bg-elevated)',
     marginTop: '14px',
     '@lg': {
         fontSize: '2.1rem',
@@ -135,7 +159,7 @@ const SlideTitle = styled('h3', {
 
 const SlideDesc = styled('p', {
     marginTop: '12px',
-    color: '#475569',
+    color: 'var(--color-text-muted)',
     fontSize: '0.96rem',
     lineHeight: 1.8,
     maxWidth: '620px',
@@ -150,14 +174,14 @@ const SlideAction = styled(Link, {
     textDecoration: 'none',
     fontWeight: 700,
     fontSize: '0.88rem',
-    color: '#ffffff',
-    background: '#228B22',
+    color: 'var(--color-surface)',
+    background: 'var(--color-accent)',
     padding: '11px 18px',
     transition: 'transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease',
-    boxShadow: '0 10px 24px rgba(34,139,34,0.26)',
+    boxShadow: '0 10px 24px rgba(var(--rgb-accent),0.26)',
     '&:hover': {
         transform: 'translateY(-2px)',
-        background: '#1e7a1e',
+        background: 'var(--color-accent-deep)',
     },
 });
 
@@ -169,7 +193,7 @@ const SlideVisual = styled('div', {
     flexDirection: 'column',
     justifyContent: 'flex-end',
     gap: '10px',
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     position: 'relative',
     overflow: 'hidden',
     '& h4': {
@@ -179,7 +203,7 @@ const SlideVisual = styled('div', {
     '& p': {
         fontSize: '0.87rem',
         lineHeight: 1.7,
-        color: 'rgba(255,255,255,0.92)',
+        color: 'rgba(var(--rgb-white),0.92)',
     },
 });
 
@@ -194,7 +218,7 @@ const SlideVisualImage = styled('img', {
 const SlideVisualOverlay = styled('div', {
     position: 'absolute',
     inset: 0,
-    background: 'linear-gradient(180deg, rgba(15,23,42,0.12) 20%, rgba(15,23,42,0.72) 100%)',
+    background: 'linear-gradient(180deg, rgba(var(--rgb-ink),0.12) 20%, rgba(var(--rgb-ink),0.72) 100%)',
 });
 
 const SlideVisualContent = styled('div', {
@@ -229,10 +253,10 @@ const DotButton = styled('button', {
         active: {
             true: {
                 width: '28px',
-                background: '#228B22',
+                background: 'var(--color-accent)',
             },
             false: {
-                background: '#cbd5e1',
+                background: 'var(--color-text-subtle)',
             },
         },
     },
@@ -244,9 +268,9 @@ const ControlRow = styled('div', {
 });
 
 const ControlButton = styled('button', {
-    border: '1px solid rgba(34,139,34,0.24)',
-    background: '#ffffff',
-    color: '#166534',
+    border: '1px solid rgba(var(--rgb-accent),0.24)',
+    background: 'var(--color-surface)',
+    color: 'var(--color-accent-deep)',
     borderRadius: '999px',
     padding: '8px 14px',
     fontSize: '0.8rem',
@@ -254,14 +278,21 @@ const ControlButton = styled('button', {
     cursor: 'pointer',
     transition: 'all 0.2s ease',
     '&:hover': {
-        background: '#f0fdf4',
+        background: 'var(--color-surface-muted)',
         transform: 'translateY(-1px)',
     },
 });
 
 const FeaturesSection = styled('section', {
-    background: '#ffffff',
+    background: 'var(--color-surface)',
     padding: '80px 24px',
+    variants: {
+        mode: {
+            dark: {
+                background: 'var(--color-bg-elevated)',
+            },
+        },
+    },
 });
 
 const FeatGrid = styled('div', {
@@ -278,17 +309,31 @@ const FeatText = styled('div', {});
 const FeatTitle = styled('h2', {
     fontSize: '1.8rem',
     fontWeight: 800,
-    color: '#1f2937',
+    color: 'var(--color-text)',
     marginBottom: '16px',
     lineHeight: 1.2,
     '@lg': { fontSize: '2.2rem' },
+    variants: {
+        mode: {
+            dark: {
+                color: 'var(--color-surface-soft)',
+            },
+        },
+    },
 });
 
 const FeatDesc = styled('p', {
-    color: '#6b7280',
+    color: 'var(--color-text-muted)',
     lineHeight: 1.7,
     marginBottom: '24px',
     fontSize: '0.95rem',
+    variants: {
+        mode: {
+            dark: {
+                color: 'var(--color-text-muted)',
+            },
+        },
+    },
 });
 
 const FeatList = styled('div', {
@@ -304,15 +349,28 @@ const FeatItem = styled('div', {
     gap: '14px',
     padding: '20px',
     borderRadius: '18px',
-    background: '#ffffff',
-    border: '1px solid rgba(34,139,34,0.12)',
-    boxShadow: '0 18px 40px rgba(15,23,42,0.05)',
+    background: 'var(--color-surface)',
+    border: '1px solid rgba(var(--rgb-accent),0.12)',
+    boxShadow: '0 18px 40px rgba(var(--rgb-ink),0.05)',
     transition: 'transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease',
     '&:hover': {
-        background: '#f5fff3',
-        borderColor: 'rgba(34,139,34,0.22)',
+        background: 'var(--color-bg-muted)',
+        borderColor: 'rgba(var(--rgb-accent),0.22)',
         transform: 'translateY(-4px)',
-        boxShadow: '0 24px 50px rgba(15,23,42,0.1)',
+        boxShadow: '0 24px 50px rgba(var(--rgb-ink),0.1)',
+    },
+    variants: {
+        mode: {
+            dark: {
+                background: 'var(--color-text-strong)',
+                borderColor: 'rgba(var(--rgb-slate),0.22)',
+                boxShadow: '0 14px 32px rgba(var(--rgb-ink),0.34)',
+                '&:hover': {
+                    background: 'var(--color-text)',
+                    borderColor: 'rgba(var(--rgb-accent),0.35)',
+                },
+            },
+        },
     },
 });
 
@@ -320,25 +378,32 @@ const FeatItemIcon = styled('div', {
     width: '40px',
     height: '40px',
     borderRadius: '10px',
-    background: 'rgba(34,139,34,0.1)',
+    background: 'rgba(var(--rgb-accent),0.1)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
-    '& svg': { color: '#228B22' },
+    '& svg': { color: 'var(--color-accent)' },
 });
 
 const FeatVisual = styled('div', {
     position: 'relative',
     borderRadius: '24px',
     overflow: 'hidden',
-    background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
+    background: 'linear-gradient(135deg, var(--color-surface-muted), var(--color-surface-muted))',
     padding: '48px 32px',
     minHeight: '360px',
     display: 'grid',
     gap: '18px',
     '@lg': {
         gridTemplateColumns: '1fr 1fr',
+    },
+    variants: {
+        mode: {
+            dark: {
+                background: 'linear-gradient(135deg, var(--color-bg-soft), var(--color-bg-elevated))',
+            },
+        },
     },
 });
 
@@ -351,31 +416,54 @@ const InfoGrid = styled('div', {
 });
 
 const InfoCard = styled('div', {
-    background: '#ffffff',
+    background: 'var(--color-surface)',
     borderRadius: '22px',
     padding: '24px',
-    boxShadow: '0 20px 40px rgba(15,23,42,0.08)',
-    border: '1px solid rgba(34,139,34,0.08)',
+    boxShadow: '0 20px 40px rgba(var(--rgb-ink),0.08)',
+    border: '1px solid rgba(var(--rgb-accent),0.08)',
+    variants: {
+        mode: {
+            dark: {
+                background: 'var(--color-bg-elevated)',
+                borderColor: 'rgba(var(--rgb-slate),0.26)',
+                boxShadow: '0 14px 30px rgba(var(--rgb-ink),0.36)',
+            },
+        },
+    },
 });
 
 const InfoCardTitle = styled('h3', {
     fontSize: '1.05rem',
     fontWeight: 800,
-    color: '#164e2e',
+    color: 'var(--color-accent-deep)',
     marginBottom: '10px',
+    variants: {
+        mode: {
+            dark: {
+                color: 'var(--color-surface-muted)',
+            },
+        },
+    },
 });
 
 const InfoCardText = styled('p', {
-    color: '#475569',
+    color: 'var(--color-text-muted)',
     fontSize: '0.95rem',
     lineHeight: 1.75,
+    variants: {
+        mode: {
+            dark: {
+                color: 'var(--color-text-muted)',
+            },
+        },
+    },
 });
 
 const BigCircle = styled('div', {
     width: '280px',
     height: '280px',
     borderRadius: '50%',
-    background: 'rgba(34,139,34,0.08)',
+    background: 'rgba(var(--rgb-accent),0.08)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -385,7 +473,7 @@ const BigCircle = styled('div', {
 const NumberBig = styled('div', {
     fontSize: '4rem',
     fontWeight: 800,
-    color: '#228B22',
+    color: 'var(--color-accent)',
     textAlign: 'center',
     lineHeight: 1,
 });
@@ -394,8 +482,8 @@ const BtnAction = styled(Link, {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '8px',
-    background: '#228B22',
-    color: '#ffffff',
+    background: 'var(--color-accent)',
+    color: 'var(--color-surface)',
     padding: '12px 24px',
     borderRadius: '50px',
     fontWeight: 600,
@@ -403,15 +491,22 @@ const BtnAction = styled(Link, {
     textDecoration: 'none',
     transition: 'all 0.3s ease',
     '&:hover': {
-        background: '#1a6b1a',
+        background: 'var(--color-accent-deep)',
         transform: 'translateY(-2px)',
-        boxShadow: '0 8px 24px rgba(34,139,34,0.3)',
+        boxShadow: '0 8px 24px rgba(var(--rgb-accent),0.3)',
     },
 });
 
 const DeveloperSection = styled('section', {
-    background: 'linear-gradient(180deg, #f5fff3 0%, #f0fff0 100%)',
+    background: 'linear-gradient(180deg, var(--color-bg-muted) 0%, #f0fff0 100%)',
     padding: '80px 24px',
+    variants: {
+        mode: {
+            dark: {
+                background: 'linear-gradient(180deg, var(--color-bg-soft) 0%, var(--color-bg-elevated) 100%)',
+            },
+        },
+    },
 });
 
 const DeveloperRow = styled('div', {
@@ -426,15 +521,24 @@ const DeveloperRow = styled('div', {
 });
 
 const DeveloperCard = styled('div', {
-    background: '#ffffff',
+    background: 'var(--color-surface)',
     borderRadius: '28px',
     padding: '32px',
-    boxShadow: '0 20px 60px rgba(15,23,42,0.08)',
-    border: '1px solid rgba(34,139,34,0.08)',
+    boxShadow: '0 20px 60px rgba(var(--rgb-ink),0.08)',
+    border: '1px solid rgba(var(--rgb-accent),0.08)',
     transition: 'transform 0.35s ease, box-shadow 0.35s ease',
     '&:hover': {
         transform: 'translateY(-5px)',
-        boxShadow: '0 28px 72px rgba(15,23,42,0.11)',
+        boxShadow: '0 28px 72px rgba(var(--rgb-ink),0.11)',
+    },
+    variants: {
+        mode: {
+            dark: {
+                background: 'var(--color-bg-elevated)',
+                borderColor: 'rgba(var(--rgb-slate),0.26)',
+                boxShadow: '0 16px 36px rgba(var(--rgb-ink),0.35)',
+            },
+        },
     },
 });
 
@@ -444,7 +548,7 @@ const DeveloperAvatar = styled('div', {
     borderRadius: '24px',
     overflow: 'hidden',
     marginBottom: '18px',
-    background: 'linear-gradient(135deg, #86efac, #16a34a)',
+    background: 'linear-gradient(135deg, var(--color-link), var(--color-accent-strong))',
     '& img': {
         width: '100%',
         height: '100%',
@@ -455,21 +559,42 @@ const DeveloperAvatar = styled('div', {
 const DeveloperName = styled('h3', {
     fontSize: '1.15rem',
     fontWeight: 800,
-    color: '#0f172a',
+    color: 'var(--color-bg-elevated)',
     marginBottom: '6px',
+    variants: {
+        mode: {
+            dark: {
+                color: 'var(--color-surface-soft)',
+            },
+        },
+    },
 });
 
 const DeveloperRole = styled('p', {
     fontSize: '0.9rem',
-    color: '#16a34a',
+    color: 'var(--color-accent-strong)',
     fontWeight: 700,
     marginBottom: '14px',
+    variants: {
+        mode: {
+            dark: {
+                color: 'var(--color-link)',
+            },
+        },
+    },
 });
 
 const DeveloperDesc = styled('p', {
     fontSize: '0.95rem',
-    color: '#475569',
+    color: 'var(--color-text-muted)',
     lineHeight: 1.7,
+    variants: {
+        mode: {
+            dark: {
+                color: 'var(--color-text-muted)',
+            },
+        },
+    },
 });
 
 export default function Home() {
@@ -510,15 +635,15 @@ export default function Home() {
             <Hero />
 
             {slides.length > 0 && (
-                <CarouselSection className="scroll-reveal is-visible">
+                <CarouselSection className="scroll-reveal is-visible" mode={mode}>
                     <CarouselInner>
-                        <CarouselFrame>
+                        <CarouselFrame mode={mode}>
                             <CarouselTrack style={{ transform: `translateX(-${activeSlide * 100}%)` }}>
                                 {slides.map((slide, index) => (
                                     <CarouselSlide key={`${slide.title}-${index}`}>
                                         <div>
                                             <SlideBadge>
-                                                ✨ {slide.badge}
+                                                Featured: {slide.badge}
                                             </SlideBadge>
                                             <SlideTitle>{slide.title}</SlideTitle>
                                             <SlideDesc>{slide.desc}</SlideDesc>
@@ -527,7 +652,7 @@ export default function Home() {
                                                 <ArrowRight size={14} />
                                             </SlideAction>
                                         </div>
-                                        <SlideVisual style={{ background: slide.visual_bg || 'linear-gradient(135deg, #dcfce7, #bbf7d0)' }}>
+                                        <SlideVisual style={{ background: slide.visual_bg || 'linear-gradient(135deg, var(--color-surface-muted), var(--color-surface-muted))' }}>
                                             <SlideVisualImage
                                                 src={slide.image || carouselImages[index % carouselImages.length]}
                                                 alt={slide.visual_title || slide.title || 'Go Green Slide'}
@@ -564,35 +689,35 @@ export default function Home() {
                 </CarouselSection>
             )}
 
-            <ProgramsSection />
+            <ProgramsSection mode={mode} />
 
             {/* Features / About section */}
-            <FeaturesSection className="scroll-reveal">
+            <FeaturesSection className="scroll-reveal" mode={mode}>
                 <FeatGrid>
                     <FeatText>
                         <span style={{
                             display: 'inline-block',
-                            background: 'rgba(34,139,34,0.1)',
-                            color: '#228B22',
+                            background: mode === 'dark' ? 'rgba(var(--rgb-accent),0.15)' : 'rgba(var(--rgb-accent),0.1)',
+                            color: mode === 'dark' ? 'var(--color-link)' : 'var(--color-accent)',
                             borderRadius: '20px',
                             padding: '6px 18px',
                             fontSize: '0.8rem',
                             fontWeight: 600,
                             marginBottom: '16px',
                         }}>
-                            🌿 Pentingnya Go Green School
+                            Pentingnya Go Green School
                         </span>
-                        <FeatTitle>Mengapa Go Green School Penting?</FeatTitle>
-                        <FeatDesc>
+                        <FeatTitle mode={mode}>Mengapa Go Green School Penting?</FeatTitle>
+                        <FeatDesc mode={mode}>
                             Go Green School adalah pendekatan pendidikan yang membawa prinsip keberlanjutan ke dalam kehidupan sekolah sehari-hari. Program ini mengajarkan siswa bahwa setiap tindakan kecil, dari memilah sampah hingga menghemat energi, berdampak nyata bagi lingkungan.
                         </FeatDesc>
-                        <FeatDesc>
+                        <FeatDesc mode={mode}>
                             Dengan menempatkan praktik ramah lingkungan dalam kegiatan belajar, siswa tidak hanya memahami teori, tetapi juga merasakan sendiri manfaatnya. Program ini membantu membentuk sikap tanggung jawab, kreativitas, dan rasa peduli terhadap alam.
                         </FeatDesc>
-                        <FeatDesc>
+                        <FeatDesc mode={mode}>
                             Sekolah menjadi tempat di mana kebiasaan hijau berkembang. Siswa belajar bekerja sama, merawat lingkungan, dan membawa perubahan positif yang dapat dilanjutkan di rumah dan komunitas.
                         </FeatDesc>
-                        <FeatDesc>
+                        <FeatDesc mode={mode}>
                             Hasilnya adalah generasi yang lebih sadar lingkungan, lebih siap menghadapi tantangan masa depan, dan mampu mengambil langkah kecil yang konsisten demi bumi yang lebih sehat.
                         </FeatDesc>
                         <BtnAction to="/program">
@@ -602,25 +727,25 @@ export default function Home() {
                 </FeatGrid>
             </FeaturesSection>
 
-            <DeveloperSection className="scroll-reveal">
+            <DeveloperSection className="scroll-reveal" mode={mode}>
                 <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center', marginBottom: '40px' }}>
                     <span style={{
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: '8px',
-                        background: 'rgba(34,139,34,0.12)',
-                        color: '#166534',
+                        background: mode === 'dark' ? 'rgba(var(--rgb-accent),0.15)' : 'rgba(var(--rgb-accent),0.12)',
+                        color: mode === 'dark' ? 'var(--color-link)' : 'var(--color-accent-deep)',
                         borderRadius: '999px',
                         padding: '8px 20px',
                         fontWeight: 700,
                         fontSize: '0.85rem',
                     }}>
-                        👩‍💻 Pengembang Web
+                        Pengembang Web
                     </span>
-                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginTop: '18px', color: '#0f172a' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginTop: '18px', color: mode === 'dark' ? 'var(--color-surface-soft)' : 'var(--color-bg-elevated)' }}>
                         Dibuat oleh tim yang fokus pada hasil dan profesionalisme
                     </h2>
-                    <p style={{ color: '#475569', fontSize: '1rem', marginTop: '14px', lineHeight: 1.8, maxWidth: '680px', marginLeft: 'auto', marginRight: 'auto' }}>
+                    <p style={{ color: mode === 'dark' ? 'var(--color-text-muted)' : 'var(--color-text-muted)', fontSize: '1rem', marginTop: '14px', lineHeight: 1.8, maxWidth: '680px', marginLeft: 'auto', marginRight: 'auto' }}>
                         Tim pengembang memastikan website tidak hanya menarik, tetapi juga cepat, responsif, dan mudah digunakan di semua perangkat.
                     </p>
                 </div>
@@ -651,27 +776,27 @@ export default function Home() {
                             image: 'https://ui-avatars.com/api/?name=Josaphat&background=047857&color=ffffff&size=256',
                         },
                     ].map((dev) => (
-                        <DeveloperCard key={dev.name}>
+                        <DeveloperCard key={dev.name} mode={mode}>
                             <DeveloperAvatar>
                                 <img src={dev.image} alt={dev.name} />
                             </DeveloperAvatar>
-                            <DeveloperName>{dev.name}</DeveloperName>
-                            <DeveloperRole>{dev.role}</DeveloperRole>
-                            <DeveloperDesc>{dev.desc}</DeveloperDesc>
+                            <DeveloperName mode={mode}>{dev.name}</DeveloperName>
+                            <DeveloperRole mode={mode}>{dev.role}</DeveloperRole>
+                            <DeveloperDesc mode={mode}>{dev.desc}</DeveloperDesc>
                         </DeveloperCard>
                     ))}
                 </DeveloperRow>
             </DeveloperSection>
 
             {/* CTA Section */}
-            <CTASection>
+            <CTASection mode={mode}>
                 <div style={{
                     position: 'absolute', top: '-100px', right: '-100px',
                     width: '400px', height: '400px', borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.05)'
+                    background: 'rgba(var(--rgb-white),0.05)'
                 }} />
                 <CTAInner>
-                    <CTATitle>🌱 Hitung Nilai Sampah Dapur Sekolahmu!</CTATitle>
+                    <CTATitle>Hitung Nilai Sampah Dapur Sekolahmu!</CTATitle>
                     <CTADesc>
                         Gunakan Kalkulator Bank Sampah kami untuk mengetahui nilai ekonomi dan dampak lingkungan dari sampah yang kamu daur ulang. Buat bumi lebih baik mulai sekarang!
                     </CTADesc>

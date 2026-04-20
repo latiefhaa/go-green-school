@@ -6,25 +6,25 @@ import useThemeMode from '../hooks/useThemeMode';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
-    background: 'linear-gradient(180deg, #f8fff8 0%, #effff2 100%)',
+    background: 'linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-muted) 100%)',
     paddingBottom: '90px',
     position: 'relative',
     '&::before': {
         content: '""',
         position: 'fixed',
         inset: '0',
-        backgroundImage: `radial-gradient(circle at 20% 50%, rgba(34,139,34,0.03) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(34,139,34,0.02) 0%, transparent 50%)`,
+        backgroundImage: `radial-gradient(circle at 20% 50%, rgba(var(--rgb-accent),0.03) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(var(--rgb-accent),0.02) 0%, transparent 50%)`,
         pointerEvents: 'none',
         zIndex: 0,
     },
 });
 
 const Hero = styled('div', {
-    background: 'linear-gradient(135deg, #14532d 0%, #166534 35%, #228B22 100%)',
+    background: 'linear-gradient(135deg, var(--color-accent-deep) 0%, var(--color-accent-deep) 35%, var(--color-accent) 100%)',
     padding: '72px 24px 100px',
     position: 'relative',
     overflow: 'hidden',
-    boxShadow: 'inset 0 0 120px rgba(0,0,0,0.08)',
+    boxShadow: 'inset 0 0 120px rgba(var(--rgb-black),0.08)',
     '&::before': {
         content: '""',
         position: 'absolute',
@@ -33,7 +33,7 @@ const Hero = styled('div', {
         width: '240px',
         height: '240px',
         borderRadius: '50%',
-        background: 'rgba(255,255,255,0.05)',
+        background: 'rgba(var(--rgb-white),0.05)',
         zIndex: 0,
     },
     '&::after': {
@@ -44,7 +44,7 @@ const Hero = styled('div', {
         width: '180px',
         height: '180px',
         borderRadius: '50%',
-        background: 'rgba(255,255,255,0.05)',
+        background: 'rgba(var(--rgb-white),0.05)',
         zIndex: 0,
     },
 });
@@ -64,14 +64,14 @@ const HeroInner = styled('div', {
 const PageTitle = styled('h1', {
     fontSize: '2.3rem',
     fontWeight: 800,
-    color: '#ffffff',
+    color: 'var(--color-surface)',
     lineHeight: 1.15,
     animation: `${fadeIn} 0.8s ease forwards`,
     '@lg': { fontSize: '2.8rem' },
 });
 
 const PageSubtitle = styled('p', {
-    color: 'rgba(255,255,255,0.88)',
+    color: 'rgba(var(--rgb-white),0.88)',
     maxWidth: '720px',
     lineHeight: 1.7,
     fontSize: '1rem',
@@ -96,17 +96,17 @@ const CardGrid = styled('div', {
 });
 
 const ProfileCard = styled('div', {
-    background: '#ffffff',
+    background: 'var(--color-surface)',
     borderRadius: '26px',
     padding: '28px',
-    boxShadow: '0 20px 50px rgba(15, 23, 42, 0.08)',
-    border: '1px solid rgba(34,139,34,0.08)',
+    boxShadow: '0 20px 50px rgba(var(--rgb-ink), 0.08)',
+    border: '1px solid rgba(var(--rgb-accent),0.08)',
     textAlign: 'center',
     transition: 'transform 0.35s ease, box-shadow 0.35s ease',
     animation: `${fadeIn} 0.6s ease forwards`,
     '&:hover': {
         transform: 'translateY(-6px)',
-        boxShadow: '0 28px 70px rgba(15, 23, 42, 0.12)',
+        boxShadow: '0 28px 70px rgba(var(--rgb-ink), 0.12)',
     },
     '&:nth-child(1)': { animationDelay: '0.1s' },
     '&:nth-child(2)': { animationDelay: '0.2s' },
@@ -120,27 +120,27 @@ const ProfileImage = styled('img', {
     borderRadius: '28px',
     objectFit: 'cover',
     marginBottom: '18px',
-    border: '4px solid rgba(34,139,34,0.18)',
-    boxShadow: '0 18px 40px rgba(15,23,42,0.12)',
+    border: '4px solid rgba(var(--rgb-accent),0.18)',
+    boxShadow: '0 18px 40px rgba(var(--rgb-ink),0.12)',
 });
 
 const ProfileName = styled('h3', {
     fontSize: '1.05rem',
     fontWeight: 700,
-    color: '#111827',
+    color: 'var(--color-text-strong)',
     marginBottom: '8px',
 });
 
 const ProfileRole = styled('p', {
     fontSize: '0.9rem',
     fontWeight: 600,
-    color: '#16a34a',
+    color: 'var(--color-accent-strong)',
     marginBottom: '12px',
 });
 
 const ProfileDesc = styled('p', {
     fontSize: '0.88rem',
-    color: '#4b5563',
+    color: 'var(--color-text-subtle)',
     lineHeight: 1.7,
 });
 
@@ -160,7 +160,7 @@ export default function Developer() {
         <PageWrap className="themed-page developer-page" data-theme-mode={mode}>
             <Hero className="theme-hero">
                 <HeroInner>
-                    <UserCircle2 size={48} color="#ffffff" />
+                    <UserCircle2 size={48} color="var(--color-surface)" />
                     <PageTitle>{t('developer.title')}</PageTitle>
                     <PageSubtitle>{t('developer.subtitle')}</PageSubtitle>
                 </HeroInner>

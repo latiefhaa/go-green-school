@@ -6,7 +6,7 @@ import useThemeMode from '../hooks/useThemeMode';
 
 const PageWrap = styled('div', {
     minHeight: '100vh',
-    background: 'linear-gradient(180deg, #f5fff2 0%, #efffee 52%, #ffffff 100%)',
+    background: 'linear-gradient(180deg, var(--color-bg-muted) 0%, var(--color-bg-muted) 52%, var(--color-surface) 100%)',
     paddingBottom: '80px',
     position: 'relative',
     '&::before': {
@@ -14,13 +14,13 @@ const PageWrap = styled('div', {
         position: 'fixed',
         inset: 0,
         pointerEvents: 'none',
-        backgroundImage: 'radial-gradient(circle at 14% 18%, rgba(76,175,80,0.1) 0%, transparent 27%), radial-gradient(circle at 82% 16%, rgba(255,112,67,0.08) 0%, transparent 22%), radial-gradient(circle at 70% 78%, rgba(41,182,246,0.08) 0%, transparent 20%)',
+        backgroundImage: 'radial-gradient(circle at 14% 18%, rgba(var(--rgb-accent),0.1) 0%, transparent 27%), radial-gradient(circle at 82% 16%, rgba(var(--rgb-warning),0.08) 0%, transparent 22%), radial-gradient(circle at 70% 78%, rgba(var(--rgb-info),0.08) 0%, transparent 20%)',
         zIndex: 0,
     },
 });
 
 const PageHeader = styled('div', {
-    background: 'linear-gradient(135deg, #166534, #228B22)',
+    background: 'linear-gradient(135deg, var(--color-accent-deep), var(--color-accent))',
     padding: '60px 24px 80px',
     textAlign: 'center',
     position: 'relative',
@@ -72,7 +72,7 @@ const VisiQuote = styled('span', {
     top: '-10px',
     left: '20px',
     fontSize: '5rem',
-    color: 'rgba(34,139,34,0.15)',
+    color: 'rgba(var(--rgb-accent),0.15)',
     fontFamily: 'Georgia, serif',
     lineHeight: 1,
     userSelect: 'none',
@@ -132,8 +132,9 @@ const CheckIcon = styled('div', {
 
 const ValuesGrid = styled('div', {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: '1fr',
     gap: '16px',
+    '@sm': { gridTemplateColumns: 'repeat(2, 1fr)' },
     '@lg': { gridTemplateColumns: 'repeat(4, 1fr)' },
 });
 
@@ -176,15 +177,15 @@ export default function VisiMisi() {
     return (
         <PageWrap className="themed-page visi-page" data-theme-mode={mode}>
             <PageHeader className="theme-hero">
-                <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
+                <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(var(--rgb-white),0.05)' }} />
                 <div style={{ position: 'relative', zIndex: 1 }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '20px', padding: '6px 16px', fontSize: '0.8rem', fontWeight: 600, color: '#ffffff', marginBottom: '16px' }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(var(--rgb-white),0.15)', border: '1px solid rgba(var(--rgb-white),0.3)', borderRadius: '20px', padding: '6px 16px', fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-surface)', marginBottom: '16px' }}>
                         <Eye size={14} /> {t('visi_misi.title')}
                     </span>
-                    <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ffffff', marginBottom: '12px' }}>
+                    <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--color-surface)', marginBottom: '12px' }}>
                         {t('visi_misi.title')}
                     </h1>
-                    <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1rem', maxWidth: '600px', margin: '0 auto' }}>
+                    <p style={{ color: 'rgba(var(--rgb-white),0.85)', fontSize: '1rem', maxWidth: '600px', margin: '0 auto' }}>
                         Landasan filosofi dan arah tujuan Go Green School
                     </p>
                 </div>
@@ -198,7 +199,7 @@ export default function VisiMisi() {
                         {t('visi_misi.visi_title')}
                     </SectionTitle>
                     <VisiBox>
-                        <VisiQuote aria-hidden="true">“</VisiQuote>
+                        <VisiQuote aria-hidden="true">&ldquo;</VisiQuote>
                         <VisiText>{t('visi_misi.visi_content')}</VisiText>
                     </VisiBox>
                 </Section>
@@ -231,8 +232,8 @@ export default function VisiMisi() {
                         {Array.isArray(values) && values.map((val, i) => (
                             <ValueCard key={i}>
                                 <ValueIcon>{valueIcons[i]}</ValueIcon>
-                                <h4 style={{ fontWeight: 700, color: '#1f2937', marginBottom: '8px', fontSize: '0.95rem' }}>{val.title}</h4>
-                                <p style={{ fontSize: '0.8rem', color: '#6b7280', lineHeight: 1.5 }}>{val.desc}</p>
+                                <h4 style={{ fontWeight: 700, color: 'var(--color-text)', marginBottom: '8px', fontSize: '0.95rem' }}>{val.title}</h4>
+                                <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>{val.desc}</p>
                             </ValueCard>
                         ))}
                     </ValuesGrid>
