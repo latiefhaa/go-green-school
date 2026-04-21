@@ -21,7 +21,11 @@ function AppLayout() {
     const [themeMode, setThemeMode] = useState(() => localStorage.getItem('dashboard_theme_mode') || 'light');
 
     const applyThemeAttribute = (mode) => {
-        if (mode === 'dark') {
+        const normalizedMode = mode === 'dark' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme-mode', normalizedMode);
+        document.body.setAttribute('data-theme-mode', normalizedMode);
+
+        if (normalizedMode === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
         } else {
             document.documentElement.removeAttribute('data-theme');

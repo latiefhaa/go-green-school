@@ -135,7 +135,7 @@ const ProgramMeta = styled('span', {
 const ProgramTitle = styled('h2', {
     fontSize: '1.82rem',
     fontWeight: 900,
-    color: 'var(--color-bg-elevated)',
+    color: 'var(--color-text-strong)',
     marginBottom: '12px',
     lineHeight: 1.12,
     letterSpacing: '-0.01em',
@@ -196,13 +196,13 @@ const DetailHeading = styled('h3', {
 const DetailText = styled('p', {
     fontSize: '0.98rem',
     lineHeight: 1.82,
-    color: 'rgba(var(--rgb-ink),0.84)',
+    color: 'var(--color-text-subtle)',
 });
 
 const DetailSubHeading = styled('h4', {
     fontSize: '0.98rem',
     fontWeight: 900,
-    color: 'var(--color-bg-elevated)',
+    color: 'var(--color-text-strong)',
     marginTop: '12px',
     marginBottom: '8px',
     textTransform: 'uppercase',
@@ -214,7 +214,7 @@ const DetailSubHeading = styled('h4', {
 const DetailList = styled('ul', {
     margin: 0,
     paddingLeft: '18px',
-    color: 'rgba(var(--rgb-ink),0.84)',
+    color: 'var(--color-text-subtle)',
     display: 'grid',
     gap: '6px',
     '& li::marker': {
@@ -223,14 +223,14 @@ const DetailList = styled('ul', {
     '& li': {
         fontSize: '0.95rem',
         lineHeight: 1.74,
-        color: 'rgba(var(--rgb-ink),0.84)',
+        color: 'var(--color-text-subtle)',
     },
 });
 
 const StepList = styled('ol', {
     margin: '8px 0 0',
     paddingLeft: '18px',
-    color: 'rgba(var(--rgb-ink),0.84)',
+    color: 'var(--color-text-subtle)',
     display: 'grid',
     gap: '8px',
     '& li::marker': {
@@ -240,7 +240,7 @@ const StepList = styled('ol', {
     '& li': {
         fontSize: '0.96rem',
         lineHeight: 1.78,
-        color: 'rgba(var(--rgb-ink),0.84)',
+        color: 'var(--color-text-subtle)',
     },
 });
 
@@ -268,7 +268,7 @@ const IntroMeta = styled('div', {
 const IntroTitle = styled('h2', {
     fontSize: '2rem',
     fontWeight: 900,
-    color: 'var(--color-bg-elevated)',
+    color: 'var(--color-text-strong)',
     marginBottom: '14px',
 });
 

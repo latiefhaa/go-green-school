@@ -1,77 +1,139 @@
-# 🌱 Go Green School Website
+# Go Green School Web
 
-Website resmi sekolah ramah lingkungan yang mengintegrasikan pendidikan berkualitas dengan kesadaran lingkungan melalui teknologi modern.
+Selamat datang di Go Green School Web, website edukasi lingkungan berbasis Laravel yang dirancang untuk membangun kebiasaan peduli bumi melalui pendekatan yang informatif, modern, dan mudah dipahami.
 
----
+Project ini menggabungkan konten edukatif, fitur interaktif, dan kampanye digital agar siswa, guru, dan komunitas sekolah dapat belajar sekaligus beraksi nyata untuk lingkungan.
 
-## 👥 Tim Pengembang
+Live Demo:
+https://gogreenschool-main-svl9z8.free.laravel.cloud/
 
-Berikut adalah pembagian tugas dan tanggung jawab masing-masing anggota tim dalam pengembangan website Go Green School:
+Konten Video Medsos:
+https://www.instagram.com/reel/DWjIx3Tk_bs/?igsh=MW8wNm53MjlleHFwcA==
 
-### 1. Latiefha – Full Stack Developer
-- Merancang dan mengembangkan arsitektur website secara keseluruhan.
-- Mengimplementasikan backend menggunakan framework Laravel.
-- Membuat dan mengelola RESTful API untuk mendukung data dinamis.
-- Melakukan integrasi antara backend dan frontend serta memastikan kestabilan sistem.
-- Bertanggung jawab atas performa, keamanan, dan optimalisasi website.
+Kanal Marketing TikTok Resmi:
+https://www.tiktok.com/@ecolegacy.id_?is_from_webapp=1&sender_device=pc
 
-### 2. Aren – Frontend Developer & Poster Designer
-- Mengembangkan seluruh antarmuka pengguna (frontend) menggunakan React sebagai Single Page Application (SPA).
-- Merancang dan mengimplementasikan desain UI/UX yang responsif, modern, dan user-friendly.
-- Menambahkan interaksi, animasi, serta navigasi yang nyaman bagi pengguna.
-- Membuat desain poster, banner, dan materi visual promosi lainnya.
+## Pembagian Tugas Tim
+Berikut pembagian peran anggota tim pada project Go Green School. Bagian ini ditampilkan di awal agar kontribusi setiap anggota langsung terlihat.
 
-### 3. Rindu – Video & Social Media Specialist
-- Merencanakan dan memproduksi konten video untuk promosi website serta program sekolah.
-- Melakukan editing video dan menyiapkan materi audiovisual berkualitas.
-- Mengelola strategi konten dan aktivitas promosi di berbagai platform media sosial.
-- Mendukung penyebaran informasi dan engagement dengan audiens secara digital.
+### Richard
+- Berkontribusi dalam penyempurnaan fitur website, terutama pada peningkatan elemen interaktif dan perapihan komponen antarmuka agar pengalaman pengguna lebih nyaman.
+- Menyusun konten pada bagian explanation text untuk menyampaikan pesan edukasi lingkungan secara jelas, ringkas, dan mudah dipahami.
+- Mendesain poster Digital Marketing versi 1 sebagai materi promosi visual utama project.
+- Terlibat dalam pembuatan video konten media sosial untuk mendukung publikasi website.
 
-### 4. Josaphat – Poster Designer
-- Merancang berbagai desain poster, banner, flyer, dan materi visual pendukung.
-- Menjaga konsistensi identitas visual dan tema hijau brand Go Green School.
-- Menyediakan aset visual berkualitas untuk kebutuhan website dan kampanye promosi.
+### Irene
+- Bertanggung jawab menyusun konten procedure text, termasuk alur langkah pengelolaan sampah dan penerapan kebiasaan hijau di lingkungan sekolah.
+- Menyiapkan poster Bahasa Indonesia dengan penekanan pada kejelasan pesan, ketepatan tata bahasa, dan daya tarik visual.
+- Berpartisipasi dalam produksi video konten media sosial agar materi kampanye lebih komunikatif untuk audiens pelajar.
 
----
+### Deny
+- Mengembangkan konten bagian about us text untuk memperkuat identitas, tujuan, dan nilai utama gerakan Go Green School.
+- Berkolaborasi dalam pembuatan poster Digital Marketing versi 2, khususnya pada penyusunan konsep pesan dan elemen visual pendukung.
+- Mendukung proses pembuatan video konten media sosial sebagai media kampanye digital project.
 
-## ✨ Fitur Utama Website
+### Dicky
+- Menjadi penanggung jawab utama pengembangan website, mencakup struktur halaman, integrasi fitur, serta penyesuaian tampilan agar optimal di desktop maupun mobile.
+- Menyusun konten description text untuk memberikan gambaran inti website secara informatif, terarah, dan konsisten dengan tema edukasi lingkungan.
+- Berkolaborasi dalam pembuatan poster Digital Marketing versi 2 bersama tim untuk menjaga konsistensi branding.
+- Turut memproduksi video konten media sosial sebagai bagian dari strategi promosi Go Green School.
 
-Website Go Green School dilengkapi dengan berbagai fitur yang informatif dan interaktif, di antaranya:
+## Fitur Utama Website
+- Desain antarmuka modern dengan animasi interaktif.
+- Dukungan bahasa ganda Indonesia dan English.
+- Materi edukasi lengkap mencakup explanation text, procedure text, description text, dan about text.
+- Informasi program sekolah hijau seperti pengelolaan sampah, konservasi air, energi hijau, dan program pendukung lainnya.
+- Kalkulator sampah dengan perhitungan otomatis plus visual chart.
+- Riwayat data kalkulator berbasis local storage plus export CSV.
+- Halaman kontak dengan integrasi pengiriman email.
+- Navigasi responsif desktop dan mobile plus tombol scroll.
+- Profil developer dan pengenalan tim.
+- Dukungan dark mode dan light mode.
 
-- **Halaman Beranda**  
-  Hero section menarik dengan call-to-action, ringkasan program unggulan, dan fitur sekolah.
+## Struktur Halaman Website
+1. Home (/)
+- Hero carousel dan section edukasi utama.
+- Penjelasan gerakan Go Green School.
+- Konten explanation text.
+- CTA ke halaman Program, Kontak, dan Kalkulator.
 
-- **Visi & Misi**  
-  Penyajian visi dalam kutipan inspiratif, daftar misi dengan checklist, serta nilai-nilai sekolah dalam format kartu.
+2. Visi Misi (/visi-misi)
+- Cerita, visi, misi, dan nilai Go Green School.
+- Konten tentang tujuan dan arah sekolah hijau.
 
-- **Program Unggulan**  
-  Menampilkan program Bank Sampah, Kebun Vertikal, Hemat Energi, dan Edukasi Hijau secara lengkap dengan data dinamis dari API.
+3. Program (/program)
+- Daftar program hijau sekolah.
+- Konten procedure text untuk langkah pengelolaan sampah dan daur ulang.
+- Panduan implementasi program berkelanjutan.
 
-- **Halaman Edukasi**  
-  Penjelasan metode pembelajaran berbasis proyek lingkungan dan integrasi dengan mata pelajaran.
+4. Program Info (/program-info)
+- Penjabaran detail blueprint program.
+- Penjelasan pendahuluan, tujuan, nilai edukatif, dan prosedur implementasi.
 
-- **Galeri**  
-  Tampilan grid foto aktivitas sekolah dengan efek hover dan layout responsif.
+5. Profil Sekolah (/profil-sekolah)
+- Identitas sekolah, kontak, fasilitas, tim, prestasi, dan sejarah.
+- Integrasi Google Maps pada tab Identitas Sekolah.
 
-- **Kontak**  
-  Informasi lengkap sekolah beserta formulir kontak interaktif dengan validasi.
+6. Kontak (/kontak)
+- Kontak email, telepon, website, dan media sosial.
+- Form kirim pesan ke admin.
 
-- **Kalkulator Bank Sampah**  
-  Tools interaktif untuk menghitung nilai ekonomi sampah berdasarkan jenis dan berat, dilengkapi grafik (Pie Chart & Bar Chart).
+7. Kalkulator (/kalkulator-bank-sampah)
+- Input data sampah berdasarkan kategori.
+- Hitung total, persentase, dan nilai ekonomis.
+- Visualisasi data dan riwayat kalkulasi.
 
-- **Profil Sekolah**  
-  Informasi lengkap tentang sejarah, statistik, fasilitas, dan prestasi sekolah.
+8. Galeri (/galeri)
+- Dokumentasi kegiatan dan kampanye sekolah hijau.
 
-### Fitur Pendukung
-- Navigasi responsif dengan menu mobile
-- Dukungan dua bahasa (Indonesia & Inggris) melalui sistem i18n
-- Desain modern dengan tema hijau, gradient, dan animasi halus
-- Responsif di semua perangkat (mobile, tablet, desktop)
-- Integrasi API dengan fallback data lokal
-- Formulir kontak dengan simulasi pengiriman dan loading state
+9. Developer (/developer)
+- Profil tim pengembang website.
 
----
+## Dokumentasi Poster
+Poster Bahasa Indonesia (Irene)
+- Poster Bahasa Indonesia 1
+- Poster Bahasa Indonesia 2
 
-## Kesimpulan
+Poster Digital Marketing Versi 2 (Dicky dan Deny)
+- Poster Digital Marketing v2
 
-Proyek website Go Green School merupakan hasil kolaborasi tim yang menggabungkan keahlian teknis pengembangan web dengan kreativitas desain visual dan strategi promosi. Setiap anggota tim berkontribusi sesuai bidang keahliannya untuk menghasilkan platform edukasi yang informatif, interaktif, dan ramah lingkungan.
+## Video Konten Medsos
+Video promosi website dapat ditonton melalui link berikut:
+https://www.instagram.com/reel/DWjIx3Tk_bs/?igsh=MW8wNm53MjlleHFwcA==
+
+Untuk update kampanye rutin, kunjungi juga:
+https://www.tiktok.com/@ecolegacy.id_?is_from_webapp=1&sender_device=pc
+
+## Tech Stack
+- Laravel (PHP)
+- React
+- Vite
+- Stitches
+- Tailwind CSS
+- JavaScript
+- Recharts
+- i18next
+
+## Cara Menjalankan Project
+1. Install dependency
+
+composer install
+npm install
+
+2. Konfigurasi environment
+- Copy .env.example menjadi .env
+- Jalankan php artisan key:generate
+
+3. Jalankan project
+
+Backend:
+php artisan serve
+
+Frontend:
+npm run dev
+
+Build production:
+npm run build
+
+## Penutup
+Go Green School Web dibuat sebagai media belajar sekaligus kampanye digital untuk menumbuhkan budaya sekolah yang lebih hijau, lebih sadar lingkungan, dan lebih berdampak bagi masa depan.

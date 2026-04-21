@@ -270,22 +270,22 @@
         "subtitle": "Kenali tim yang membangun website Go Green School. Setiap anggota memegang peran penting untuk menghadirkan pengalaman digital yang menarik dan responsif.",
         "members": [
             {
-                "name": "Latiefha",
+                "name": "Profile Latiefha",
                 "role": "Full Stack Developer",
                 "desc": "Memimpin pengembangan end-to-end, menghubungkan frontend dan backend untuk pengalaman web yang mulus."
             },
             {
-                "name": "Aren",
+                "name": "Profile Aren",
                 "role": "Frontend Developer",
                 "desc": "Merancang antarmuka yang responsif dan interaktif agar website ramah pengguna di semua perangkat."
             },
             {
-                "name": "Rindu",
+                "name": "Profile Rindu",
                 "role": "Marketing",
                 "desc": "Menyusun strategi konten dan komunikasi untuk menjangkau audiens dengan pesan ramah lingkungan."
             },
             {
-                "name": "Josaphat",
+                "name": "Profile Josaphat",
                 "role": "Designer",
                 "desc": "Menciptakan desain visual yang estetis dan tata letak yang mudah dinavigasi untuk seluruh situs."
             }

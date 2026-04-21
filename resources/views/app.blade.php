@@ -12,6 +12,8 @@
         (function () {
             try {
                 var saved = localStorage.getItem('dashboard_theme_mode');
+                var mode = saved === 'dark' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme-mode', mode);
                 if (saved === 'dark') {
                     document.documentElement.setAttribute('data-theme', 'dark');
                 } else {

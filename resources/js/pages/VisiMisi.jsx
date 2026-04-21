@@ -36,31 +36,31 @@ const Content = styled('div', {
 });
 
 const Section = styled('div', {
-    background: '#ffffff',
+    background: 'var(--color-surface)',
     borderRadius: '24px',
     padding: '40px',
     boxShadow: '0 8px 32px rgba(0,0,0,0.06)',
     marginBottom: '24px',
-    border: '1px solid rgba(34,139,34,0.06)',
+    border: '1px solid var(--color-border-soft)',
     animation: `${fadeIn} 0.6s ease forwards`,
 });
 
 const SectionTitle = styled('h2', {
     fontSize: '1.6rem',
     fontWeight: 800,
-    color: '#1f2937',
+    color: 'var(--color-text-strong)',
     marginBottom: '20px',
     display: 'flex',
     alignItems: 'center',
     gap: '12px',
     paddingBottom: '16px',
-    borderBottom: '2px solid #f0fdf4',
-    '& svg': { color: '#228B22' },
+    borderBottom: '2px solid var(--color-surface-muted)',
+    '& svg': { color: 'var(--color-accent)' },
 });
 
 const VisiBox = styled('div', {
-    background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
-    border: '1px solid rgba(34,139,34,0.2)',
+    background: 'linear-gradient(135deg, var(--color-surface-muted), var(--color-surface-soft))',
+    border: '1px solid rgba(var(--rgb-accent),0.2)',
     borderRadius: '16px',
     padding: '28px',
     position: 'relative',
@@ -81,14 +81,14 @@ const VisiQuote = styled('span', {
 
 const VisiText = styled('p', {
     fontSize: '1.1rem',
-    color: '#1f2937',
+    color: 'var(--color-text-subtle)',
     lineHeight: 1.75,
     fontWeight: 500,
     fontStyle: 'italic',
     position: 'relative',
     zIndex: 1,
     paddingLeft: '16px',
-    borderLeft: '3px solid #228B22',
+    borderLeft: '3px solid var(--color-accent)',
 });
 
 const MisiList = styled('ul', {
@@ -105,14 +105,14 @@ const MisiItem = styled('li', {
     alignItems: 'flex-start',
     gap: '12px',
     padding: '14px 16px',
-    background: '#f9fafb',
+    background: 'var(--color-surface-soft)',
     borderRadius: '12px',
     fontSize: '0.9rem',
-    color: '#374151',
+    color: 'var(--color-text-subtle)',
     lineHeight: 1.6,
     transition: 'all 0.2s ease',
     '&:hover': {
-        background: '#f0fdf4',
+        background: 'var(--color-surface-muted)',
         transform: 'translateX(4px)',
     },
 });
@@ -121,13 +121,13 @@ const CheckIcon = styled('div', {
     width: '24px',
     height: '24px',
     borderRadius: '50%',
-    background: 'rgba(34,139,34,0.1)',
+    background: 'rgba(var(--rgb-accent),0.1)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
     marginTop: '2px',
-    '& svg': { color: '#228B22' },
+    '& svg': { color: 'var(--color-accent)' },
 });
 
 const ValuesGrid = styled('div', {
@@ -139,15 +139,15 @@ const ValuesGrid = styled('div', {
 });
 
 const ValueCard = styled('div', {
-    background: '#f9fafb',
+    background: 'var(--color-surface-soft)',
     borderRadius: '16px',
     padding: '20px',
     textAlign: 'center',
-    border: '1px solid rgba(34,139,34,0.08)',
+    border: '1px solid var(--color-border-soft)',
     transition: 'all 0.3s ease',
     '&:hover': {
-        background: '#f0fdf4',
-        borderColor: 'rgba(34,139,34,0.2)',
+        background: 'var(--color-surface-muted)',
+        borderColor: 'rgba(var(--rgb-accent),0.2)',
         transform: 'translateY(-4px)',
     },
 });
@@ -156,12 +156,12 @@ const ValueIcon = styled('div', {
     width: '52px',
     height: '52px',
     borderRadius: '14px',
-    background: 'rgba(34,139,34,0.1)',
+    background: 'rgba(var(--rgb-accent),0.1)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     margin: '0 auto 12px',
-    '& svg': { color: '#228B22' },
+    '& svg': { color: 'var(--color-accent)' },
 });
 
 const valueIcons = [<Target size={22} />, <Users size={22} />, <Lightbulb size={22} />, <Shield size={22} />];

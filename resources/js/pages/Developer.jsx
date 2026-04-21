@@ -145,10 +145,10 @@ const ProfileDesc = styled('p', {
 });
 
 const developerImages = {
-    Latiefha: '/images/profile/latiefha.jpeg',
-    Aren: '/images/profile/aren.jpeg',
-    Rindu: '/images/profile/rindu.jpeg',
-    Josaphat: '/images/profile/josaphat.jpeg',
+    'Profile Latiefha': '/images/profile/Profile%20Latiefha.jpeg',
+    'Profile Aren': '/images/profile/Profile%20Aren.jpeg',
+    'Profile Rindu': '/images/profile/Profile%20Rindu.jpeg',
+    'Profile Josaphat': '/images/profile/Profile%20Josaphat.jpeg',
 };
 
 export default function Developer() {
@@ -171,7 +171,7 @@ export default function Developer() {
                     {Array.isArray(developers) && developers.map((dev) => (
                         <ProfileCard key={dev.name}>
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <ProfileImage src={developerImages[dev.name] || '/images/profile/latiefha.jpeg'} alt={dev.name} />
+                                <ProfileImage src={developerImages[dev.name] || '/images/profile/Profile%20Latiefha.jpeg'} alt={dev.name} />
                             </div>
                             <ProfileName>{dev.name}</ProfileName>
                             <ProfileRole>{dev.role}</ProfileRole>

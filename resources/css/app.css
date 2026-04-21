@@ -61,7 +61,10 @@
     --shadow-card-hover: 0 18px 36px rgba(15, 23, 42, 0.14);
 }
 
-html[data-theme='dark'] {
+html[data-theme='dark'],
+[data-theme='dark'],
+.themed-page[data-theme-mode='dark'],
+.themed-footer[data-theme-mode='dark'] {
     --rgb-surface: 17, 24, 39;
     --rgb-white: 255, 255, 255;
     --rgb-black: 0, 0, 0;

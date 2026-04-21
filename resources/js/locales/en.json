@@ -267,22 +267,22 @@
         "subtitle": "Meet the people behind the Go Green School website and digital presence. Each team member owns a key role in delivering a polished, modern, and mobile-friendly experience.",
         "members": [
             {
-                "name": "Latiefha",
+                "name": "Profile Latiefha",
                 "role": "Full Stack Developer",
                 "desc": "Leads end-to-end development, connecting frontend and backend for a smooth web experience."
             },
             {
-                "name": "Aren",
+                "name": "Profile Aren",
                 "role": "Frontend Developer",
                 "desc": "Designs responsive and interactive interfaces so the website stays user-friendly across devices."
             },
             {
-                "name": "Rindu",
+                "name": "Profile Rindu",
                 "role": "Marketing",
                 "desc": "Builds content and communication strategies to reach audiences with clear eco-friendly messaging."
             },
             {
-                "name": "Josaphat",
+                "name": "Profile Josaphat",
                 "role": "Designer",
                 "desc": "Creates aesthetic visuals and intuitive layouts for a consistent experience across the site."
             }

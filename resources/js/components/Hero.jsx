@@ -122,7 +122,7 @@ const HeroTitle = styled('h1', {
     fontFamily: "'Fredoka', 'Nunito', sans-serif",
     fontSize: '3rem',
     fontWeight: 700,
-    color: '#154a2f',
+    color: 'var(--color-accent-deep)',
     lineHeight: 1.06,
     marginBottom: '24px',
     textShadow: '0 2px 8px rgba(var(--rgb-white),0.22)',
@@ -131,7 +131,7 @@ const HeroTitle = styled('h1', {
         mode: {
             light: {},
             dark: {
-                color: 'var(--color-surface-muted)',
+                color: 'var(--color-text-strong)',
                 textShadow: '0 8px 30px rgba(var(--rgb-black),0.35)',
             },
         },
@@ -143,7 +143,7 @@ const HeroTitle = styled('h1', {
 
 const HeroSubtitle = styled('p', {
     fontSize: '1.05rem',
-    color: '#1f5a38',
+    color: 'var(--color-text-subtle)',
     lineHeight: 1.8,
     maxWidth: '680px',
     marginBottom: '36px',
@@ -152,7 +152,7 @@ const HeroSubtitle = styled('p', {
         mode: {
             light: {},
             dark: {
-                color: 'rgba(var(--rgb-white),0.88)',
+                color: 'var(--color-text-subtle)',
             },
         },
     },

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { styled, fadeIn } from '../stitches.config';
-import { Image } from 'lucide-react';
 import useThemeMode from '../hooks/useThemeMode';
 
 const PageWrap = styled('div', {
@@ -32,6 +31,28 @@ const GalleryGrid = styled('div', {
     gap: '16px',
     '@sm': { gridTemplateColumns: 'repeat(3, 1fr)' },
     '@lg': { gridTemplateColumns: 'repeat(4, 1fr)' },
+});
+
+const LoadMoreWrap = styled('div', {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '22px',
+});
+
+const LoadMoreButton = styled('button', {
+    border: '1px solid rgba(var(--rgb-accent),0.25)',
+    background: 'var(--color-surface)',
+    color: 'var(--color-accent-deep)',
+    borderRadius: '999px',
+    padding: '10px 18px',
+    fontSize: '0.88rem',
+    fontWeight: 700,
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+    '&:hover': {
+        background: 'var(--color-surface-muted)',
+        borderColor: 'rgba(var(--rgb-accent),0.4)',
+    },
 });
 
 const GalleryItem = styled('div', {
@@ -102,6 +123,9 @@ const galleryItems = [
 export default function Gallery() {
     const { t } = useTranslation();
     const { mode } = useThemeMode();
+    const [visibleCount, setVisibleCount] = useState(8);
+    const visibleItems = useMemo(() => galleryItems.slice(0, visibleCount), [visibleCount]);
+    const hasMore = visibleCount < galleryItems.length;
 
     return (
         <PageWrap className="themed-page gallery-page" data-theme-mode={mode}>
@@ -118,14 +142,17 @@ export default function Gallery() {
 
             <Content>
                 <GalleryGrid>
-                    {galleryItems.map((item, index) => (
+                    {visibleItems.map((item, index) => (
                         <GalleryItem key={index} style={{
-                            animationDelay: `${index * 0.05}s`,
+                            animationDelay: `${Math.min(index, 8) * 0.04}s`,
                         }}>
                             <img
                                 src={item.src}
                                 alt={`Gallery ${index + 1}`}
-                                loading="lazy"
+                                loading={index < 2 ? 'eager' : 'lazy'}
+                                fetchPriority={index < 2 ? 'high' : 'low'}
+                                decoding="async"
+                                draggable="false"
                             />
                             <GalleryOverlay className="gallery-overlay">
                                 Foto {index + 1}
@@ -133,6 +160,14 @@ export default function Gallery() {
                         </GalleryItem>
                     ))}
                 </GalleryGrid>
+
+                {hasMore && (
+                    <LoadMoreWrap>
+                        <LoadMoreButton type="button" onClick={() => setVisibleCount((prev) => prev + 8)}>
+                            {t('gallery.load_more', 'Muat lebih banyak foto')}
+                        </LoadMoreButton>
+                    </LoadMoreWrap>
+                )}
             </Content>
         </PageWrap>
     );

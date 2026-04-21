@@ -150,7 +150,7 @@ const SlideTitle = styled('h3', {
     fontSize: '1.6rem',
     lineHeight: 1.2,
     fontWeight: 800,
-    color: 'var(--color-bg-elevated)',
+    color: 'var(--color-text-strong)',
     marginTop: '14px',
     '@lg': {
         fontSize: '2.1rem',
@@ -559,12 +559,12 @@ const DeveloperAvatar = styled('div', {
 const DeveloperName = styled('h3', {
     fontSize: '1.15rem',
     fontWeight: 800,
-    color: 'var(--color-bg-elevated)',
+    color: 'var(--color-text-strong)',
     marginBottom: '6px',
     variants: {
         mode: {
             dark: {
-                color: 'var(--color-surface-soft)',
+                color: 'var(--color-text-strong)',
             },
         },
     },
@@ -742,7 +742,7 @@ export default function Home() {
                     }}>
                         Pengembang Web
                     </span>
-                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginTop: '18px', color: mode === 'dark' ? 'var(--color-surface-soft)' : 'var(--color-bg-elevated)' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginTop: '18px', color: 'var(--color-text-strong)' }}>
                         Dibuat oleh tim yang fokus pada hasil dan profesionalisme
                     </h2>
                     <p style={{ color: mode === 'dark' ? 'var(--color-text-muted)' : 'var(--color-text-muted)', fontSize: '1rem', marginTop: '14px', lineHeight: 1.8, maxWidth: '680px', marginLeft: 'auto', marginRight: 'auto' }}>
@@ -752,28 +752,28 @@ export default function Home() {
                 <DeveloperRow>
                     {[
                         {
-                            name: 'Latiefha',
+                            name: 'Profile Latiefha',
                             role: 'Full Stack Developer',
                             desc: 'Memimpin pengembangan aplikasi secara menyeluruh, menghubungkan frontend dan backend demi pengalaman pengguna yang mulus.',
-                            image: 'https://ui-avatars.com/api/?name=Latiefha&background=16a34a&color=ffffff&size=256',
+                            image: '/images/profile/Profile%20Latiefha.jpeg',
                         },
                         {
-                            name: 'Aren',
+                            name: 'Profile Aren',
                             role: 'Frontend Developer',
                             desc: 'Memperkuat tampilan dan interaksi aplikasi dengan kode frontend yang responsif dan modern.',
-                            image: 'https://ui-avatars.com/api/?name=Aren&background=22c55e&color=ffffff&size=256',
+                            image: '/images/profile/Profile%20Aren.jpeg',
                         },
                         {
-                            name: 'Rindu',
+                            name: 'Profile Rindu',
                             role: 'Marketing',
                             desc: 'Mendesain strategi komunikasi dan konten untuk menjangkau lebih banyak pengguna dengan pesan yang jelas.',
-                            image: 'https://ui-avatars.com/api/?name=Rindu&background=059669&color=ffffff&size=256',
+                            image: '/images/profile/Profile%20Rindu.jpeg',
                         },
                         {
-                            name: 'Josaphat',
+                            name: 'Profile Josaphat',
                             role: 'Designer',
                             desc: 'Menciptakan pengalaman visual yang estetis dan tata letak yang mudah digunakan sepanjang situs.',
-                            image: 'https://ui-avatars.com/api/?name=Josaphat&background=047857&color=ffffff&size=256',
+                            image: '/images/profile/Profile%20Josaphat.jpeg',
                         },
                     ].map((dev) => (
                         <DeveloperCard key={dev.name} mode={mode}>

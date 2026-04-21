@@ -121,7 +121,6 @@ const SectionTitle = styled('h2', {
     marginBottom: 0,
     letterSpacing: '-0.01em',
     lineHeight: 1.1,
-    textShadow: '0 2px 0 rgba(var(--rgb-white),0.25)',
     '@sm': {
         fontSize: '1.75rem',
     },
@@ -130,7 +129,7 @@ const SectionTitle = styled('h2', {
 const SectionText = styled('div', {
     fontSize: '1.08rem',
     lineHeight: 1.92,
-    color: 'rgba(var(--rgb-ink),0.84)',
+    color: 'var(--color-text-subtle)',
     maxWidth: '920px',
 });
 
@@ -146,7 +145,7 @@ const SectionListItem = styled('li', {
     display: 'flex',
     gap: '12px',
     alignItems: 'flex-start',
-    color: 'rgba(var(--rgb-ink),0.84)',
+    color: 'var(--color-text-subtle)',
     fontSize: '1rem',
     lineHeight: 1.8,
     background: 'var(--color-surface-soft)',

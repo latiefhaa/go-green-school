@@ -198,6 +198,58 @@ const InfoValue = styled('span', {
     lineHeight: 1.5,
 });
 
+const MapWrap = styled('div', {
+    marginTop: '16px',
+    borderRadius: '16px',
+    overflow: 'hidden',
+    border: '1px solid rgba(var(--rgb-accent),0.18)',
+    background: 'var(--color-surface-soft)',
+});
+
+const MapFrame = styled('iframe', {
+    width: '100%',
+    height: '260px',
+    border: '0',
+    display: 'block',
+});
+
+const MapMeta = styled('div', {
+    padding: '12px 14px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '12px',
+    flexWrap: 'wrap',
+    borderTop: '1px solid var(--color-border)',
+});
+
+const MapHint = styled('span', {
+    fontSize: '0.78rem',
+    color: 'var(--color-text-muted)',
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '6px',
+});
+
+const MapAction = styled('a', {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '6px',
+    textDecoration: 'none',
+    fontSize: '0.78rem',
+    fontWeight: 700,
+    color: 'var(--color-accent)',
+    border: '1px solid rgba(var(--rgb-accent),0.2)',
+    padding: '7px 12px',
+    borderRadius: '999px',
+    background: 'var(--color-surface)',
+    transition: 'all 0.2s ease',
+    '&:hover': {
+        background: 'var(--color-surface-muted)',
+        borderColor: 'rgba(var(--rgb-accent),0.35)',
+    },
+});
+
 /* History timeline */
 const Timeline = styled('div', {
     position: 'relative',
@@ -444,6 +496,10 @@ export default function Profil() {
     const { mode } = useThemeMode();
     const isEn = i18n.language === 'en';
     const [activeTab, setActiveTab] = useState('profil');
+    const schoolMapQuery = 'SMK KARYA BANGSA SINTANG';
+    const schoolAddress = 'Jalan Sintang, Kapuas Kanan Hulu, Kec. Sungai Tebelian, Kabupaten Sintang, Kalimantan Barat 78616';
+    const schoolMapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(schoolMapQuery)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+    const schoolMapOpenUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(schoolMapQuery)}`;
 
     const tabs = [
         { id: 'profil', label: isEn ? 'Identity' : 'Identitas Sekolah' },
@@ -518,31 +574,52 @@ export default function Profil() {
                     <TabPanel>
                         <TwoCol>
                             {/* Identitas */}
-                            <Card>
-                            <CardTitle><School size={22} /> {isEn ? 'School Identity' : 'Identitas Sekolah'}</CardTitle>
-                            {[
-                                { label: isEn ? 'School Name' : 'Nama Sekolah', value: 'SMK Karya Bangsa' },
-                                { label: isEn ? 'School Type' : 'Jenis Sekolah', value: 'SMK (Sekolah Menengah Kejuruan)' },
-                                { label: 'NPSN', value: '20238456' },
-                                { label: isEn ? 'Accreditation' : 'Akreditasi', value: 'B' },
-                                { label: isEn ? 'Founded' : 'Tahun Berdiri', value: '2005' },
-                                { label: isEn ? 'Status' : 'Status', value: isEn ? 'Private School' : 'Sekolah Swasta' },
-                                { label: isEn ? 'Province' : 'Provinsi', value: 'Kalimantan Barat' },
-                                { label: isEn ? 'Curriculum' : 'Kurikulum', value: 'Merdeka Belajar (2022)' },
-                            ].map((r, i) => (
-                                <InfoRow key={i}>
-                                    <InfoLabel>{r.label}</InfoLabel>
-                                    <InfoValue>{r.value}</InfoValue>
-                                </InfoRow>
-                            ))}
-                        </Card>
+                            <div>
+                                <Card>
+                                    <CardTitle><School size={22} /> {isEn ? 'School Identity' : 'Identitas Sekolah'}</CardTitle>
+                                    {[
+                                        { label: isEn ? 'School Name' : 'Nama Sekolah', value: 'SMK Karya Bangsa' },
+                                        { label: isEn ? 'School Type' : 'Jenis Sekolah', value: 'SMK (Sekolah Menengah Kejuruan)' },
+                                        { label: 'NPSN', value: '20238456' },
+                                        { label: isEn ? 'Accreditation' : 'Akreditasi', value: 'B' },
+                                        { label: isEn ? 'Founded' : 'Tahun Berdiri', value: '2005' },
+                                        { label: isEn ? 'Status' : 'Status', value: isEn ? 'Private School' : 'Sekolah Swasta' },
+                                        { label: isEn ? 'Province' : 'Provinsi', value: 'Kalimantan Barat' },
+                                        { label: isEn ? 'Curriculum' : 'Kurikulum', value: 'Merdeka Belajar (2022)' },
+                                    ].map((r, i) => (
+                                        <InfoRow key={i}>
+                                            <InfoLabel>{r.label}</InfoLabel>
+                                            <InfoValue>{r.value}</InfoValue>
+                                        </InfoRow>
+                                    ))}
+                                    <MapWrap style={{ marginTop: 0 }}>
+                                        <MapFrame
+                                            title={isEn ? 'SMK Karya Bangsa location map' : 'Peta lokasi SMK Karya Bangsa'}
+                                            src={schoolMapEmbedUrl}
+                                            loading="lazy"
+                                            allowFullScreen
+                                            referrerPolicy="no-referrer-when-downgrade"
+                                        />
+                                        <MapMeta>
+                                            <MapHint>
+                                                <MapPin size={14} />
+                                                {isEn ? 'School location map' : 'Peta lokasi sekolah'}
+                                            </MapHint>
+                                            <MapAction href={schoolMapOpenUrl} target="_blank" rel="noreferrer">
+                                                {isEn ? 'Open in Google Maps' : 'Buka di Google Maps'}
+                                                <ChevronRight size={14} />
+                                            </MapAction>
+                                        </MapMeta>
+                                    </MapWrap>
+                                </Card>
+                            </div>
 
                         {/* Kontak & Lokasi */}
                         <div>
                             <Card style={{ marginBottom: '16px' }}>
                                 <CardTitle><MapPin size={22} /> {isEn ? 'Contact & Location' : 'Kontak & Lokasi'}</CardTitle>
                                 {[
-                                    { icon: <MapPin size={15} />, label: isEn ? 'Address' : 'Alamat', value: 'Jalan Sintang, Kapuas Kanan Hulu, Kec. Sungai Tebelian, Kabupaten Sintang, Kalimantan Barat 78616' },
+                                    { icon: <MapPin size={15} />, label: isEn ? 'Address' : 'Alamat', value: schoolAddress },
                                     { icon: <Phone size={15} />, label: isEn ? 'Phone' : 'Telepon', value: '0815-4939-5400' },
                                     { icon: <Mail size={15} />, label: 'Email', value: 'info@karyabangsa.sch.id' },
                                     { icon: <Globe size={15} />, label: 'Website', value: 'karyabangsa.sch.id' },
