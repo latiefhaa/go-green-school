@@ -104,6 +104,7 @@ const CarouselFrame = styled('div', {
     border: '1px solid rgba(var(--rgb-accent),0.12)',
     boxShadow: '0 26px 70px rgba(var(--rgb-ink),0.08)',
     background: 'var(--color-surface)',
+    contain: 'layout paint',
     variants: {
         mode: {
             dark: {
@@ -117,7 +118,8 @@ const CarouselFrame = styled('div', {
 
 const CarouselTrack = styled('div', {
     display: 'flex',
-    transition: 'transform 0.65s cubic-bezier(0.2, 0.9, 0.25, 1)',
+    transition: 'transform 0.55s cubic-bezier(0.22, 1, 0.36, 1)',
+    transform: 'translate3d(0,0,0)',
     willChange: 'transform',
 });
 
@@ -213,6 +215,8 @@ const SlideVisualImage = styled('img', {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    transform: 'translateZ(0)',
+    backfaceVisibility: 'hidden',
 });
 
 const SlideVisualOverlay = styled('div', {
@@ -597,28 +601,25 @@ const DeveloperDesc = styled('p', {
     },
 });
 
-export default function Home() {
-    const { t } = useTranslation();
-    const { mode } = useThemeMode();
-    const carouselSlides = t('home_carousel.slides', { returnObjects: true });
-    const slides = Array.isArray(carouselSlides) ? carouselSlides : [];
-    const carouselImages = [
-        '/images/gallery/foto%20buku%20.jpeg',
-        '/images/gallery/foto%20buku%20dan%20rumput%20lagi.jpeg',
-        '/images/gallery/foto%20daun.jpeg',
-        '/images/gallery/foto%20gedung%20dan%20pohon.jpeg',
-        '/images/gallery/foto%20lampu%20yg%20didalamnya%20ada%20tanaman.jpeg',
-    ];
+const DEFAULT_CAROUSEL_IMAGES = [
+    '/images/gallery/programs/hemat energi.jpeg',
+    '/images/gallery/programs/bank sampah.jpeg',
+    '/images/gallery/programs/edukasi hijau.jpeg',
+    '/images/gallery/programs/kebun vertikal.jpeg',
+];
+
+function HomeCarousel({ slides, mode, t }) {
     const [activeSlide, setActiveSlide] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
 
     useEffect(() => {
-        if (!slides.length) return;
+        if (!slides.length || isPaused) return;
         const timer = setInterval(() => {
             setActiveSlide((prev) => (prev + 1) % slides.length);
-        }, 4500);
+        }, 5200);
 
         return () => clearInterval(timer);
-    }, [slides.length]);
+    }, [slides.length, isPaused]);
 
     const nextSlide = () => {
         if (!slides.length) return;
@@ -630,64 +631,88 @@ export default function Home() {
         setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
     };
 
+    if (!slides.length) return null;
+
+    return (
+        <CarouselSection className="scroll-reveal is-visible" mode={mode}>
+            <CarouselInner>
+                <CarouselFrame
+                    mode={mode}
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onTouchStart={() => setIsPaused(true)}
+                    onTouchEnd={() => setIsPaused(false)}
+                >
+                    <CarouselTrack style={{ transform: `translate3d(-${activeSlide * 100}%,0,0)` }}>
+                        {slides.map((slide, index) => {
+                            const imageSrc = slide.image || DEFAULT_CAROUSEL_IMAGES[index % DEFAULT_CAROUSEL_IMAGES.length];
+                            const isHighPriority = index === activeSlide || index === (activeSlide + 1) % slides.length;
+
+                            return (
+                                <CarouselSlide key={`${slide.title}-${index}`}>
+                                    <div>
+                                        <SlideBadge>
+                                            Featured: {slide.badge}
+                                        </SlideBadge>
+                                        <SlideTitle>{slide.title}</SlideTitle>
+                                        <SlideDesc>{slide.desc}</SlideDesc>
+                                        <SlideAction to={slide.cta_link || '/program'}>
+                                            {slide.cta}
+                                            <ArrowRight size={14} />
+                                        </SlideAction>
+                                    </div>
+                                    <SlideVisual style={{ background: slide.visual_bg || 'linear-gradient(135deg, var(--color-surface-muted), var(--color-surface-muted))' }}>
+                                        <SlideVisualImage
+                                            src={imageSrc}
+                                            alt={slide.visual_title || slide.title || 'Go Green Slide'}
+                                            loading={isHighPriority ? 'eager' : 'lazy'}
+                                            fetchPriority={isHighPriority ? 'high' : 'low'}
+                                            decoding="async"
+                                        />
+                                        <SlideVisualOverlay />
+                                        <SlideVisualContent>
+                                            <h4>{slide.visual_title}</h4>
+                                            <p>{slide.visual_desc}</p>
+                                        </SlideVisualContent>
+                                    </SlideVisual>
+                                </CarouselSlide>
+                            );
+                        })}
+                    </CarouselTrack>
+                </CarouselFrame>
+                <CarouselFooter>
+                    <DotRow>
+                        {slides.map((slide, idx) => (
+                            <DotButton
+                                key={`${slide.title}-dot-${idx}`}
+                                type="button"
+                                active={idx === activeSlide ? 'true' : 'false'}
+                                onClick={() => setActiveSlide(idx)}
+                                aria-label={`slide-${idx + 1}`}
+                            />
+                        ))}
+                    </DotRow>
+                    <ControlRow>
+                        <ControlButton type="button" onClick={prevSlide}>{t('home_carousel.prev')}</ControlButton>
+                        <ControlButton type="button" onClick={nextSlide}>{t('home_carousel.next')}</ControlButton>
+                    </ControlRow>
+                </CarouselFooter>
+            </CarouselInner>
+        </CarouselSection>
+    );
+}
+
+export default function Home() {
+    const { t } = useTranslation();
+    const { mode } = useThemeMode();
+    const carouselSlides = t('home_carousel.slides', { returnObjects: true });
+    const slides = Array.isArray(carouselSlides) ? carouselSlides : [];
+
     return (
         <div className="themed-page home-page" data-theme-mode={mode}>
             <Hero />
 
-            {slides.length > 0 && (
-                <CarouselSection className="scroll-reveal is-visible" mode={mode}>
-                    <CarouselInner>
-                        <CarouselFrame mode={mode}>
-                            <CarouselTrack style={{ transform: `translateX(-${activeSlide * 100}%)` }}>
-                                {slides.map((slide, index) => (
-                                    <CarouselSlide key={`${slide.title}-${index}`}>
-                                        <div>
-                                            <SlideBadge>
-                                                Featured: {slide.badge}
-                                            </SlideBadge>
-                                            <SlideTitle>{slide.title}</SlideTitle>
-                                            <SlideDesc>{slide.desc}</SlideDesc>
-                                            <SlideAction to={slide.cta_link || '/program'}>
-                                                {slide.cta}
-                                                <ArrowRight size={14} />
-                                            </SlideAction>
-                                        </div>
-                                        <SlideVisual style={{ background: slide.visual_bg || 'linear-gradient(135deg, var(--color-surface-muted), var(--color-surface-muted))' }}>
-                                            <SlideVisualImage
-                                                src={slide.image || carouselImages[index % carouselImages.length]}
-                                                alt={slide.visual_title || slide.title || 'Go Green Slide'}
-                                                loading="lazy"
-                                            />
-                                            <SlideVisualOverlay />
-                                            <SlideVisualContent>
-                                                <h4>{slide.visual_title}</h4>
-                                                <p>{slide.visual_desc}</p>
-                                            </SlideVisualContent>
-                                        </SlideVisual>
-                                    </CarouselSlide>
-                                ))}
-                            </CarouselTrack>
-                        </CarouselFrame>
-                        <CarouselFooter>
-                            <DotRow>
-                                {slides.map((slide, idx) => (
-                                    <DotButton
-                                        key={`${slide.title}-dot-${idx}`}
-                                        type="button"
-                                        active={idx === activeSlide ? 'true' : 'false'}
-                                        onClick={() => setActiveSlide(idx)}
-                                        aria-label={`slide-${idx + 1}`}
-                                    />
-                                ))}
-                            </DotRow>
-                            <ControlRow>
-                                <ControlButton type="button" onClick={prevSlide}>{t('home_carousel.prev')}</ControlButton>
-                                <ControlButton type="button" onClick={nextSlide}>{t('home_carousel.next')}</ControlButton>
-                            </ControlRow>
-                        </CarouselFooter>
-                    </CarouselInner>
-                </CarouselSection>
-            )}
+            <HomeCarousel slides={slides} mode={mode} t={t} />
 
             <ProgramsSection mode={mode} />
 
